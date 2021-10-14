@@ -64,7 +64,7 @@ brew install --cask font-hack-nerd-font
 
 Install Programs
 ```
-brew install --cask alfred git google-chrome-dev visual-studio-code
+brew install --cask alfred deluge discord dozer evernote spotify slack vlc streamio private-internet-access git google-chrome-dev visual-studio-code
 ```
 Launch Alfred at Logiun and change hotkey to Cmd + Space
 
