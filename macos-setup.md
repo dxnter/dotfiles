@@ -1,5 +1,34 @@
 # Initial Setup
 
+## System Settings
+* Spotlight > Uncheck everything
+* Spotlight > Keyboard Shortcuts > Uncheck `Show Spotlight Search`
+* Spotlight > Keyboard Shortcuts > Services > Uncheck `Search man Page Index in Terminal`
+* Disable Siri
+* Software Update > Enable Automatic Updates
+* Trackpack > Point & Click > Look up & Data Detectors off
+* Keyboard > Touch Bar Shows: F1, F2, etc. Keys
+* Keyboard > Press Fn key to : SHow Control Strip
+* Keyboard > Key Repeat `Fast`
+* Keyboard > Delay Until Repeat `Short`
+* Setup `Screenshots` folder in `Documents`
+* ⇧⌘5 and change folder under `Options`
+* Sharing > Disable Sharing & Change device name to `apollo`
+* Show hidden files
+```
+defaults write com.apple.Finder AppleShowAllFiles true
+```
+
+##Finder Settings
+* Preferences > Show filename extensions
+* Change New Finder window to show to open in Home Directory
+* Show dotfiles > Cmd + shift + . 
+* Show path bar in footer
+* Create `Code` and "`Work` folder in sidebar, remove excessive bookmarks
+
+## MacOS Dock
+* Remove everything from the Dock except Finder, System Preferences and Trash
+* Turn Dock Auto Hiding On
 
 Install xcode
 ```
@@ -35,14 +64,21 @@ brew install --cask font-hack-nerd-font
 
 Install Programs
 ```
-brew install google-chrome-dev visual-studio-code
+brew install --cask alfred git google-chrome-dev visual-studio-code
 ```
+Launch Alfred at Logiun and change hotkey to Cmd + Space
 
-[Install NVM](https://github.com/nvm-sh/nvm)
+## Install NVM
+https://github.com/nvm-sh/nvm
 ```
 nvm install node
 nvm use node
 node -v && npm -v
+```
+## Install Python
+```
+brew install pyenv
+echo 'eval "$(pyenv init -)"' >> ~/.zshrc
 ```
 
 Install CLI
