@@ -32,6 +32,7 @@ defaults write com.apple.Finder AppleShowAllFiles true
 ## MacOS Dock
 * Remove everything from the Dock except Finder, System Preferences and Trash
 * Turn Dock Auto Hiding On
+* Minimize windows into application icon
 * Uncheck Show recent applications in Dock
 
 ## Install xcode
