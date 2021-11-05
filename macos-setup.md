@@ -24,6 +24,10 @@
 * Keyboard > Key Repeat `Fast`
 * Keyboard > Delay Until Repeat `Short`
 
+### Mouse
+Disable mouse acceleration
+`defaults write -g com.apple.mouse.scaling -integer -1` 
+
 ### Misc
 * Disable Siri
 * Setup `Screenshots` folder in `Documents`
