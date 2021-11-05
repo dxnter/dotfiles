@@ -97,6 +97,49 @@ brew info thefuck
 ```
 Add thefuck configuration to `.zshrc`
 
+
+### Install PHP & Laravel
+Install PHP
+
+`brew install php`
+
+Install nginx & DNSMASQ
+
+`brew install nginx && brew install dnsmasq`
+
+Install and start MySQL
+
+`brew install mysql`
+
+`brew services start mysql`
+
+Install Composer
+
+`brew install composer`
+
+Install Laravel Installer & Laravel Valet
+
+`composer global require laravel/installer`
+
+`composer global require laravel/valet`
+
+Add Composer to PATH variable
+
+`PATH=$PATH:~/.composer/vendor/bin`
+
+Install Laravel Valet
+
+`valet install`
+
+Create a Laravel Project Directory
+
+`mkdir laravel`
+
+`valet park`
+
+`laravel new blog`
+
+
 ### Install NVM
 https://github.com/nvm-sh/nvm
 ```
