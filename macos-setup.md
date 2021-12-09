@@ -91,11 +91,6 @@ Launch Alfred at Login, get preferences from iCloud, and change hotkey to Cmd + 
 ```
 brew install htop tree bat delta ripgrep youtube-dl fzf lsd neofetch
 ```
-```
-brew install thefuck
-brew info thefuck
-```
-Add thefuck configuration to `.zshrc`
 
 
 ### Install PHP & Laravel
