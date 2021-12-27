@@ -1,5 +1,3 @@
-### Install ZSH, oh-my-zsh, and plugins
-
 ## Install ZSH (Ubuntu)
 zsh needs to be installed on Ubuntu machines as it's not a default like macOS.
 
