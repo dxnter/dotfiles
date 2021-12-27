@@ -155,12 +155,3 @@ https://blog.sffc.xyz/post/185195398930/why-you-should-use-git-pull-ff-only-git-
 git config --global pull.ff only 
 ```
 Set name, email, default branch in `.gitconfig`
-
-### Install ZSH Plugins and theme
-```
-git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
-ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
-```
-Update `.zshrc` and change the alias of `batcat` to just `bat`.
