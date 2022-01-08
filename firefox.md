@@ -6,5 +6,9 @@
 
 ## about:config
 * browser.tabs.loadBookmarksInBackground - true
+* 
 findbar.modalHighlight - true
+
 findbar.highlightAll - true
+
+browser.tabs.tabMinWidth - 5
