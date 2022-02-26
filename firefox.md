@@ -23,3 +23,5 @@
 * extensions.pocket.enabled - false
 * dom.disable_beforeunload	- true
 * narrate.enabled	- false
+* gfx.webrender.all - true
+* layers.gpu-process.enabled - true
