@@ -16,7 +16,6 @@
 
 
 ## about:config
-* browser.tabs.loadBookmarksInTabs	- true
 * browser.tabs.loadBookmarksInBackground - true
 * findbar.modalHighlight - true
 * findbar.highlightAll - true
