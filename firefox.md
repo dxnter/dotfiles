@@ -25,3 +25,5 @@
 * narrate.enabled	- false
 * gfx.webrender.all - true
 * layers.gpu-process.enabled - true
+* layers.acceleration.force-enabled - true
+* layers.offmainthreadcomposition.enabled - true 
