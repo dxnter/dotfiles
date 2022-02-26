@@ -16,7 +16,11 @@
 
 
 ## about:config
+* browser.tabs.loadBookmarksInTabs	- true
 * browser.tabs.loadBookmarksInBackground - true
 * findbar.modalHighlight - true
 * findbar.highlightAll - true
 * browser.tabs.tabMinWidth - 5
+* extensions.pocket.enabled - false
+* dom.disable_beforeunload	- true
+* narrate.enabled	- false
