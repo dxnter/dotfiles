@@ -16,6 +16,15 @@
 
 
 ## about:config
+* browser.newtabpage.activity-stream.feeds.telemetry - false
+* browser.ping-centre.telemetry - false
+* browser.tabs.crashReporting.sendReport - false 
+* devtools.onboarding.telemetry.logged - false
+* toolkit.telemetry.server - empty
+* browser.newtabpage.activity-stream.feeds.discoverystreamfeed - false
+* browser.newtabpage.activity-stream.section.highlights.includePocket - false
+* browser.newtabpage.activity-stream.showSponsored - false
+* toolkit.telemetry.unified - false
 * browser.tabs.loadBookmarksInBackground - true
 * findbar.modalHighlight - true
 * findbar.highlightAll - true
