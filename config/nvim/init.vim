@@ -17,6 +17,9 @@ set incsearch
 set expandtab
 set autoindent
 set number
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
 set wildmode=longest,list
 filetype plugin indent on
 syntax on
