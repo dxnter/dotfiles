@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-lsd_version="0.17.0"
+lsd_version="0.21.0"
 
 if type lsd >/dev/null 2>&1; then
   echo "[-] lsd already exists => skipping"
