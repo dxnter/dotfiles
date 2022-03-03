@@ -1,7 +1,0 @@
-#enable-quic - enabled
-#enable-gpu-rasterization - enabled
-#read-later - enabled
-#side-panel - disabled
-#enable-parallel-downloading - enabled
-#heavy-ad-privacy-mitigations - enabled
-#chrome-labs - disabled

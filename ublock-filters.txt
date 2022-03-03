@@ -1,7 +1,3 @@
-Activate -> AdGuard URL Tracking Protection
-https://raw.githubusercontent.com/DandelionSprout/adfilt/master/LegitimateURLShortener.txt
-
-
 ! 2021-09-04 https://www.youtube.com
 ww.youtube.com###scroll-container > .ytd-feed-filter-chip-bar-renderer.style-scope
 ww.youtube.com###contents
@@ -53,4 +49,3 @@ coinmarketcap.com##.iMyvIy.sc-1rmt1nr-2.sc-1rmt1nr-0
 
 ! 2021-09-24 https://www.youtube.com
 www.youtube.com###scroll-container
-
