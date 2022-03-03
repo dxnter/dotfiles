@@ -1,3 +1,19 @@
+# Installation
+
+Clone this repo to `~/.dotfiles` with:
+```bash
+git clone git@github.com:dxnter/dotfiles.git ~/.dotfiles
+```
+
+```bash
+# Create symlinks & install applications
+./install.sh
+
+# Only create symlinks
+./bootstrap.sh
+```
+
+
 ## Firefox
 
 1. Download Firefox

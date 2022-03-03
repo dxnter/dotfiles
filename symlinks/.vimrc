@@ -1,10 +1,11 @@
+
 call plug#begin("~/.config/nvim/plugged")
   " Plugin Section
   Plug 'kaicataldo/material.vim', { 'branch': 'main' }
   Plug 'itchyny/lightline.vim'
   Plug 'preservim/nerdtree'
   Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-  Plug 'Xuyuanp/nerdtree-git-plugin' 
+  Plug 'Xuyuanp/nerdtree-git-plugin'
   Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
@@ -49,9 +50,9 @@ let g:lightline = {
 
 
 " NERDTree Configuration
-let g:NERDTreeShowHidden = 1 
+let g:NERDTreeShowHidden = 1
 let g:NERDTreeMinimalUI = 1 " hide helper
-let g:NERDTreeIgnore = ['^node_modules$'] " ignore node_modules to increase load speed 
+let g:NERDTreeIgnore = ['^node_modules$'] " ignore node_modules to increase load speed
 let g:NERDTreeStatusline = '' " set to empty to use lightline
 " " Toggle
 noremap <silent> <C-b> :NERDTreeToggle<CR>
@@ -62,9 +63,9 @@ nnoremap <leader>pv :NERDTreeFind<bar> :vertical resize 45<CR>
 
 " NERDTree Syntax Highlight
 " " Enables folder icon highlighting using exact match
-let g:NERDTreeHighlightFolders = 1 
+let g:NERDTreeHighlightFolders = 1
 " " Highlights the folder name
-let g:NERDTreeHighlightFoldersFullName = 1 
+let g:NERDTreeHighlightFoldersFullName = 1
 " " Color customization
 let s:brown = "905532"
 let s:aqua =  "3AFFDB"
@@ -85,21 +86,21 @@ let s:white = "FFFFFF"
 let s:rspec_red = 'FE405F'
 let s:git_orange = 'F54D27'
 " " This line is needed to avoid error
-let g:NERDTreeExtensionHighlightColor = {} 
+let g:NERDTreeExtensionHighlightColor = {}
 " " Sets the color of css files to blue
-let g:NERDTreeExtensionHighlightColor['css'] = s:blue 
+let g:NERDTreeExtensionHighlightColor['css'] = s:blue
 " " This line is needed to avoid error
-let g:NERDTreeExactMatchHighlightColor = {} 
+let g:NERDTreeExactMatchHighlightColor = {}
 " " Sets the color for .gitignore files
-let g:NERDTreeExactMatchHighlightColor['.gitignore'] = s:git_orange 
+let g:NERDTreeExactMatchHighlightColor['.gitignore'] = s:git_orange
 " " This line is needed to avoid error
-let g:NERDTreePatternMatchHighlightColor = {} 
+let g:NERDTreePatternMatchHighlightColor = {}
 " " Sets the color for files ending with _spec.rb
-let g:NERDTreePatternMatchHighlightColor['.*_spec\.rb$'] = s:rspec_red 
+let g:NERDTreePatternMatchHighlightColor['.*_spec\.rb$'] = s:rspec_red
 " " Sets the color for folders that did not match any rule
-let g:WebDevIconsDefaultFolderSymbolColor = s:beige 
+let g:WebDevIconsDefaultFolderSymbolColor = s:beige
 " " Sets the color for files that did not match any rule
-let g:WebDevIconsDefaultFileSymbolColor = s:blue 
+let g:WebDevIconsDefaultFileSymbolColor = s:blue
 
 " NERDTree Git Plugin
 let g:NERDTreeGitStatusIndicatorMapCustom = {
