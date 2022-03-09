@@ -8,7 +8,7 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
 
   echo "[-] Installing CLI tools..."
   # Install additional commands
-  sudo apt install build-essential ubuntu-restricted-extras gnome-tweaks cmake git zsh neofetch preload nmap traceroute whois pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3 xsel neovim htop tree delta ripgrep exuberant-ctags tmux xclip httpie silversearcher-ag nfs-common net-tools lm-sensors network-manager-openvpn openvpn network-manager-openvpn-gnome curl nnn jq software-properties-common gnome-tweak-tool libssl-dev bison python-setuptools libpq-dev
+  sudo apt install build-essential ubuntu-restricted-extras gnome-tweaks cmake git zsh neofetch preload nmap traceroute whois pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3 xsel neovim htop tree ripgrep exuberant-ctags tmux xclip httpie silversearcher-ag nfs-common net-tools lm-sensors network-manager-openvpn openvpn network-manager-openvpn-gnome curl nnn jq software-properties-common gnome-tweak-tool libssl-dev bison python-setuptools libpq-dev
 
 
   echo "[-] Installing Ubuntu applications"

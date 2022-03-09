@@ -1,0 +1,30 @@
+[include]
+  path = .gitconfig-personal
+[includeIf "gitdir:**/nuit/**/.git"]
+  path = .gitconfig-work
+[core]
+  editor = code --wait
+  autocrlf = input
+  pager = delta --line-numbers --dark
+[color]
+  branch = auto
+  diff = auto
+  interactive = auto
+  pager = true
+  status = auto
+  ui = true
+[delta]
+  side-by-side = true
+[color "status"]
+  added = green
+  changed = yellow
+  untracked = red
+[push]
+  default = current
+[init]
+	defaultBranch = main
+[commit]
+	gpgsign = true
+[url "git@github.com:"]
+    insteadOf = github:
+    insteadOf = gh:

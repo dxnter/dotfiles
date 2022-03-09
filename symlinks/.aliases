@@ -1,0 +1,29 @@
+# --------------------------------------------------------
+# Shortcuts
+# --------------------------------------------------------
+alias c="clear"
+alias code="code -n"
+alias change="code ~/.zshrc"
+alias update="source ~/.zshrc"
+alias grep="rg"
+alias cat="bat"
+alias diff="delta"
+alias weather="curl https://wttr.in/"
+
+# --------------------------------------------------------
+# lsd
+# --------------------------------------------------------
+alias ls="lsd"
+alias l="ls"
+alias ll="ls -l"
+alias la="ls -a"
+alias lla="ls -la"
+alias lt="ls --tree"
+
+# --------------------------------------------------------
+# tmux
+# --------------------------------------------------------
+alias t="tmux"
+alias ta="t a -t"
+alias tls="t ls"
+alias tn="t new -t"
