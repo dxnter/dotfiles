@@ -10,16 +10,13 @@ fi
 # -----------------------------------------------------------------------------------
 #                          EXPORTS PATHS                                            |
 # -----------------------------------------------------------------------------------
-# oh-my-zsh extension for zsh
 export ZSH="$HOME/.oh-my-zsh"
-export PATH=$PATH:~/.cargo/bin
-export PATH=$PATH:~/.local/bin
-# Composer
-export PATH=$PATH:~/.composer/vendor/bin
+
 export DISABLE_UPDATE_PROMPT=true
 export TERM=xterm-256color
 export GPG_TTY=$(tty)
-# Dsiable zsh update prompt
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 export DISABLE_UPDATE_PROMPT=true
 
 
@@ -41,13 +38,6 @@ source $ZSH/oh-my-zsh.sh
 
 # Enable fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# -----------------------------------------------------------------------------------
-#                          ALIASES                                                  |
-# -----------------------------------------------------------------------------------
-if [ -f ~/.aliases ]; then
-    . ~/.aliases
-fi
 
 # -----------------------------------------------------------------------------------
 #                          FINAL SOURCES                                            |

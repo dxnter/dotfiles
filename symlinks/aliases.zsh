@@ -1,6 +1,4 @@
-# --------------------------------------------------------
 # Shortcuts
-# --------------------------------------------------------
 alias c="clear"
 alias code="code -n"
 alias change="code ~/.zshrc"
@@ -10,9 +8,12 @@ alias cat="bat"
 alias diff="delta"
 alias weather="curl https://wttr.in/"
 
-# --------------------------------------------------------
+# Directories
+alias dotfiles="cd $DOTFILES"
+alias dev="cd $HOME/code"
+alias work="cd $HOME/code/nuit"
+
 # lsd
-# --------------------------------------------------------
 alias ls="lsd"
 alias l="ls"
 alias ll="ls -l"
@@ -20,9 +21,7 @@ alias la="ls -a"
 alias lla="ls -la"
 alias lt="ls --tree"
 
-# --------------------------------------------------------
 # tmux
-# --------------------------------------------------------
 alias t="tmux"
 alias ta="t a -t"
 alias tls="t ls"
