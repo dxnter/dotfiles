@@ -6,18 +6,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-./xcode.sh
-./homebrew.sh
+print_in_purple "\n   Video Tools\n\n"
 
-# TODO: Change to zsh script
-./bash.sh
-
-./git.sh
-./browsers.sh
-./gpg.sh
-./misc.sh
-./tmux.sh
-./video_tools.sh
-./../vim.sh
-./dev_tools.sh
-./fonts.sh
+brew_install "FFmpeg" "ffmpeg"
+brew_install "yt-dlp" "yt-dlp"

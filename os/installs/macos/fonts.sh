@@ -6,18 +6,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-./xcode.sh
-./homebrew.sh
+print_in_purple "\n   Hack fonts\n\n"
 
-# TODO: Change to zsh script
-./bash.sh
-
-./git.sh
-./browsers.sh
-./gpg.sh
-./misc.sh
-./tmux.sh
-./video_tools.sh
-./../vim.sh
-./dev_tools.sh
-./fonts.sh
+git clone https://github.com/ryanoasis/nerd-fonts --depth 1 /tmp/nerd-fonts
+pushd /tmp/nerd-fonts && ./install.sh Hack && popd

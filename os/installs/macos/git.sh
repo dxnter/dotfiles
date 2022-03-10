@@ -6,18 +6,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-./xcode.sh
-./homebrew.sh
+print_in_purple "\n   Git\n\n"
 
-# TODO: Change to zsh script
-./bash.sh
-
-./git.sh
-./browsers.sh
-./gpg.sh
-./misc.sh
-./tmux.sh
-./video_tools.sh
-./../vim.sh
-./dev_tools.sh
-./fonts.sh
+brew_install "Git" "git"
+brew_install "GitHub CLI" "github/gh/gh"

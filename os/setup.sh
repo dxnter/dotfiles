@@ -160,7 +160,7 @@ extract() {
 verify_os() {
 
     declare -r MINIMUM_MACOS_VERSION="10.10"
-    declare -r MINIMUM_UBUNTU_VERSION="20.04"
+    declare -r MINIMUM_POP_VERSION="21.10"
 
     local os_name="$(get_os)"
     local os_version="$(get_os_version)"
@@ -180,21 +180,21 @@ verify_os() {
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    # Check if the OS is `Ubuntu` and
+    # Check if the OS is `Pop!_OS` and
     # it's above the required version.
 
-    elif [ "$os_name" == "ubuntu" ]; then
+    elif [ "$os_name" == "pop" ]; then
 
-        if is_supported_version "$os_version" "$MINIMUM_UBUNTU_VERSION"; then
+        if is_supported_version "$os_version" "$MINIMUM_POP_VERSION"; then
             return 0
         else
-            printf "Sorry, this script is intended only for Ubuntu %s+" "$MINIMUM_UBUNTU_VERSION"
+            printf "Sorry, this script is intended only for Pop!_OS %s+" "$MINIMUM_POP_VERSION"
         fi
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     else
-        printf "Sorry, this script is intended only for macOS and Ubuntu!"
+        printf "Sorry, this script is intended only for macOS and Pop!_OS"
     fi
 
     return 1
@@ -252,14 +252,6 @@ main() {
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     ./create_directories.sh
-
-    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-    ./create_symbolic_links.sh "$@"
-
-    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-    ./create_local_config_files.sh
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
