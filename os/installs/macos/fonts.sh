@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 cd "$(dirname "${BASH_SOURCE[0]}")" \
     && . "../../utils.sh" \
@@ -6,7 +6,9 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-print_in_purple "\n   Hack fonts\n\n"
+print_info "• Hack Fonts"
 
-git clone https://github.com/ryanoasis/nerd-fonts --depth 1 /tmp/nerd-fonts
-pushd /tmp/nerd-fonts && ./install.sh Hack && popd
+brew tap homebrew/cask-fonts
+brew_install "Hack Nerd Font Complete" "font-hack-nerd-font" "--cask"
+
+print_success "Hack Fonts installed"

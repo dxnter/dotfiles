@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 cd "$(dirname "${BASH_SOURCE[0]}")" \
     && . "../../utils.sh"
@@ -75,12 +75,14 @@ set_xcode_developer_directory() {
 
 main() {
 
-    print_in_purple "   Xcode\n\n"
+    print_info "• Xcode"
 
     install_xcode_command_line_tools
     install_xcode
     set_xcode_developer_directory
     agree_with_xcode_licence
+
+    print_success "Xcode installed"
 
 }
 

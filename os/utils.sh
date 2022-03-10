@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 answer_is_yes() {
     [[ "$REPLY" =~ ^[Yy]$ ]] \
@@ -230,6 +230,10 @@ print_in_red() {
 
 print_in_yellow() {
     print_in_color "$1" 3
+}
+
+print_info() {
+    print_in_purple "\n $1\n\n"
 }
 
 print_question() {

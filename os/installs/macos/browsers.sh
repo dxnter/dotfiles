@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 cd "$(dirname "${BASH_SOURCE[0]}")" \
     && . "../../utils.sh" \
@@ -6,7 +6,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-print_in_purple "\n   Browsers\n"
+print_info "• Browsers"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -22,3 +22,5 @@ brew_install "Firefox" "firefox" "--cask"
 brew_install "Firefox Nightly" "firefox-nightly" "--cask" "homebrew/cask-versions"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+print_success "Browsers installed"

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 cd "$(dirname "${BASH_SOURCE[0]}")" \
     && . "utils.sh"
@@ -37,7 +37,7 @@ initialize_git_repository() {
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 main() {
-    print_in_purple "\n • Initialize Git repository\n\n"
+    print_info "• Initialize Git repository"
     initialize_git_repository "$1"
 }
 

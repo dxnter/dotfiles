@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 cd "$(dirname "${BASH_SOURCE[0]}")" \
     && . "utils.sh"
@@ -23,7 +23,7 @@ create_directories() {
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 main() {
-    print_in_purple "\n • Create directories\n\n"
+    print_info "• Create directories"
     create_directories
 }
 

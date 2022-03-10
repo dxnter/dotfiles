@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 cd "$(dirname "${BASH_SOURCE[0]}")" \
     && . "utils.sh"
@@ -16,7 +16,7 @@ main() {
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    print_in_purple "\n • Update content\n\n"
+    print_info "• Update content"
 
     ask_for_confirmation "Do you want to update the content from the 'dotfiles' directory?"
 

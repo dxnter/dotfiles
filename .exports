@@ -11,6 +11,7 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
 # Misc.
+export HOMEBREW_NO_AUTO_UPDATE=1
 export DISABLE_UPDATE_PROMPT=true
 export TERM=xterm-256color
 export GPG_TTY=$(tty)

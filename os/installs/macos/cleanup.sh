@@ -6,9 +6,8 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-print_info "• Video Tools"
+print_info "• Cleaning"
 
-brew_install "FFmpeg" "ffmpeg"
-brew_install "yt-dlp" "yt-dlp"
+brew cleanup
 
-print_success "Video Tools Installed"
+print_success "Packages cleaned up"

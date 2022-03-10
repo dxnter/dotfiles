@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 cd "$(dirname "${BASH_SOURCE[0]}")" \
     && . "../../utils.sh" \
@@ -8,16 +8,20 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 
 ./xcode.sh
 ./homebrew.sh
-
-# TODO: Change to zsh script
-./bash.sh
+./zsh.sh
 
 ./git.sh
 ./browsers.sh
+./cli_tools.sh
+./../asdf.sh
+./ctf_tools.sh
+./dev_tools.sh
 ./gpg.sh
 ./misc.sh
 ./tmux.sh
 ./video_tools.sh
-./../vim.sh
-./dev_tools.sh
 ./fonts.sh
+
+./cleanup.sh
+
+print_success "macOS installs complete"

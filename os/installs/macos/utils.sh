@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 cd "$(dirname "${BASH_SOURCE[0]}")" \
     && . "../../utils.sh"
@@ -82,4 +82,18 @@ brew_upgrade() {
         "brew upgrade" \
         "Homebrew (upgrade)"
 
+}
+
+brew_external_sources() {
+    execute \
+        "brew tap homebrew/bundle" \
+        "homebrew/bundle tapped"
+
+    execute \
+        "brew tap homebrew/core" \
+        "homebrew/core tapped"
+
+    execute \
+        "brew tap homebrew/cask" \
+        "homebrew/cask tapped"
 }

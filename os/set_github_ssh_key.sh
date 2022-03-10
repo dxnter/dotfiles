@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 cd "$(dirname "${BASH_SOURCE[0]}")" \
     && . "utils.sh"
@@ -101,7 +101,7 @@ test_ssh_connection() {
 
 main() {
 
-    print_in_purple "\n • Set up GitHub SSH keys\n\n"
+    print_info "• Set up GitHub SSH keys"
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
