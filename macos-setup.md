@@ -26,7 +26,7 @@
 
 ### Mouse
 Disable mouse acceleration
-`defaults write -g com.apple.mouse.scaling -integer -1` 
+`defaults write -g com.apple.mouse.scaling -integer -1`
 
 ### Misc
 * Disable Siri
@@ -37,7 +37,7 @@ Disable mouse acceleration
 ### Finder Settings
 * Preferences > Show filename extensions
 * Change New Finder window to show to open in Home Directory
-* Show dotfiles > Cmd + shift + . 
+* Show dotfiles > Cmd + shift + .
 * Show path bar in footer
 * Create `Code` and "`Work` folder in sidebar, remove excessive bookmarks
 * Show hidden files
@@ -83,7 +83,7 @@ Change terminal font in iTerm
 
 ### Install GUI Applications
 ```
-brew install --cask alfred deluge discord dozer evernote spotify slack vlc streamio private-internet-access google-chrome-dev visual-studio-code
+brew install --cask alfred deluge discord dozer spotify vlc streamio visual-studio-code
 ```
 Launch Alfred at Login, get preferences from iCloud, and change hotkey to Cmd + Space
 
@@ -133,25 +133,3 @@ Create a Laravel Project Directory
 `valet park`
 
 `laravel new blog`
-
-
-### Install NVM
-https://github.com/nvm-sh/nvm
-```
-nvm install node
-nvm use node
-node -v && npm -v
-```
-
-### Install Python
-```
-brew install pyenv
-echo 'eval "$(pyenv init -)"' >> ~/.zshrc
-```
-
-### Configure Github
-https://blog.sffc.xyz/post/185195398930/why-you-should-use-git-pull-ff-only-git-is-a
-```
-git config --global pull.ff only 
-```
-Set name, email, default branch in `.gitconfig`

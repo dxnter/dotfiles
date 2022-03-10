@@ -1,6 +1,18 @@
-# Installation
+# dotfiles
+
+My personal configuration files and scripts.
+
+## Installation
+
+
+macOS Install
+
+```bash
+xcode-select --install
+```
 
 Clone this repo to `~/.dotfiles` with:
+
 ```bash
 git clone git@github.com:dxnter/dotfiles.git ~/.dotfiles
 ```
@@ -13,6 +25,15 @@ git clone git@github.com:dxnter/dotfiles.git ~/.dotfiles
 ./bootstrap.sh
 ```
 
+```bash
+# vim-plug install
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+# vim plugin install
+vim ~/.vimrc
+:PlugInstall
+```
 
 ## Firefox
 

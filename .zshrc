@@ -8,22 +8,10 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # -----------------------------------------------------------------------------------
-#                          EXPORTS PATHS                                            |
+#                          OTHER CONFIGURATIONS                                     |
 # -----------------------------------------------------------------------------------
 export ZSH="$HOME/.oh-my-zsh"
 
-export DISABLE_UPDATE_PROMPT=true
-export TERM=xterm-256color
-export GPG_TTY=$(tty)
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-export DISABLE_UPDATE_PROMPT=true
-
-
-# -----------------------------------------------------------------------------------
-#                          OTHER CONFIGURATIONS                                     |
-# -----------------------------------------------------------------------------------
-# Set zsh theme
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 plugins=(
@@ -45,6 +33,8 @@ source $ZSH/oh-my-zsh.sh
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
+
+[ -f ~/.zsh_profile ] && source ~/.zsh_profile
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
   # End Fig Environment Variables

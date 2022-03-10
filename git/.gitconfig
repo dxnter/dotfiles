@@ -1,11 +1,13 @@
 [include]
   path = .gitconfig-personal
-[includeIf "gitdir:**/nuit/**/.git"]
+[includeIf "gitdir:**/work/**/.git"]
   path = .gitconfig-work
 [core]
   editor = code --wait
   autocrlf = input
   pager = delta --line-numbers --dark
+[init]
+  defaultBranch = main
 [color]
   branch = auto
   diff = auto
@@ -28,3 +30,5 @@
 [url "git@github.com:"]
     insteadOf = github:
     insteadOf = gh:
+[pull]
+	ff = only

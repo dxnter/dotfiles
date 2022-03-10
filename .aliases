@@ -21,6 +21,11 @@ alias la="ls -a"
 alias lla="ls -la"
 alias lt="ls --tree"
 
+# nvim
+alias vim="nvim"
+alias vi="nvim"
+alias oldvim="\vim"
+
 # tmux
 alias t="tmux"
 alias ta="t a -t"

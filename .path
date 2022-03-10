@@ -1,0 +1,15 @@
+# User bin
+export PATH="$PATH:$HOME/bin"
+
+# Local bin
+export PATH="$HOME/.local/bin:$PATH"
+
+# Homebrew
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/opt/homebrew/sbin:$PATH"
+
+# Composer
+export PATH="$HOME/.composer/vendor/bin:$PATH"
+
+# Cargo
+export PATH="$HOME/.cargo/bin:$PATH"

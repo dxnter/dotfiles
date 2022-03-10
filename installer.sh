@@ -2,9 +2,10 @@
 
 echo "[-] Creating folders..."
 mkdir -p $HOME/apps
-mkdir -p $HOME/bin
+mkdir -p $HOME/code
 mkdir -p $HOME/work
 mkdir -p $HOME/personal
+mkdir -p $HOME/bin
 mkdir -p $HOME/.undodir
 
 ./bootstrap.sh
