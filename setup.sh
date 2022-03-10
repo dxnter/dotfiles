@@ -1,5 +1,15 @@
 #!/usr/bin/env bash
 
+# TODO: Source utils file
+execution_dir=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+
+clear
+print_in_orange '\nOS X Config Dotfiles - Carlos Cuesta\n\n'
+ask_for_sudo
+
+chmod u+x ./shared/installs/*.sh
+
+
 #####################
 # Setup Environment / Vars
 #####################
@@ -16,7 +26,6 @@ printsl() {
 }
 
 popos_install() {
-    # Need these to install ppas and setup scripts
     printsl "[-] Installing prerequesites before installing PPAs"
     sudo apt update
     sudo apt install apt-transport-https curl software-properties-common
@@ -24,35 +33,29 @@ popos_install() {
     printsl "[-] Adding Git Core PPA for latest stable upstream of Git"
     add-apt-repository ppa:git-core/ppa
 
-    # Update system && install packages
     printsl "[-] Updating System"
     sudo apt-get update && sudo apt upgrade -y
 
     printsl "[-] Installing apt packages"
     cat apt.list | xargs sudo apt-get -y install
 
-    # Remove geary
     printsl "[-] Removing geary"
     sudo apt purge --auto-remove -y geary
 
-    # Enable Firewall
     printsl "[-] Enabling firewall"
     sudo ufw enable
 
-    # System settings
     printsl "[-] Configuring system settings"
     sudo systemctl enable fstrim.timer
     sudo sysctl -w fs.inotify.max_user_watches=100000
 
     sudo adduser "$(whoami)" libvirtd
 
-    # Installing Flatpaks
     printsl "[-] Installing flatpaks"
     flatpak install flathub \
         com.spotify.Client \
         us.zoom.Zoom
 
-    # Add Pop!_OS boot splash screen
     printsl "[-] Adding Pop!_OS kernal logo"
     sudo apt install plymouth-theme-pop-logo
     sudo update-alternatives --config default.plymouth
@@ -68,23 +71,15 @@ popos_install() {
 
 
 macos_install() {
-    # Install macos devtools
     printsl "[-] Installing terminal tools"
     xcode-select --install
 
-    # install homebrew
-    printsl "[-] Installing homebrew"
+    printsl "[-] Installing Homebrew"
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     brew doctor
 
-    # Install brew packages
-    # Add docker to the brewfile
-    # Add git-delta to brewfile
-    # Add fd to brewfile
-    # Add lsd to brewfile
-    # Add docker-compose to the brewfile
     printsl "[-] Installing brew packages"
-    brew bundle install --no-lock
+    ./shared/installs/1-brew.sh
 
     # Add system defaults
 }
@@ -97,27 +92,27 @@ crossplatform_section() {
         sudo updatedb
     fi
 
-    printsl "[-] Defaulting to zsh"
+    printsl "[-] Defaulting to zsh shell"
     chsh -s $(which zsh)
 
-    printsl "[-] Installing oh-my-zsh"
+    printsl "[-] Installing oh-my-zsh framework for zsh"
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
-    sh $CONFIG_DIR/installs/1-asdf.sh
-    sh $CONFIG_DIR/installs/1-ctop.sh
-    sh $CONFIG_DIR/installs/1-delta.sh
-    sh $CONFIG_DIR/installs/1-docker.sh
-    sh $CONFIG_DIR/installs/1-lsd.sh
-    sh $CONFIG_DIR/installs/1-rust.sh
-    sh $CONFIG_DIR/installs/1-tmux.sh
-    sh $CONFIG_DIR/installs/2-alacritty.sh
-    sh $CONFIG_DIR/installs/2-asdf.bat.sh
-    sh $CONFIG_DIR/installs/2-asdf.nodejs.sh
-    sh $CONFIG_DIR/installs/2-asdf.python.sh
-    sh $CONFIG_DIR/installs/2-docker-compose.sh
-    sh $CONFIG_DIR/installs/3-poetry.sh
-    sh $CONFIG_DIR/installs/3-zsh-plugins.sh
-    sh $CONFIG_DIR/installs/4-nerd-fonts.sh
+    ./shared/installs/1-asdf.sh
+    ./shared/installs/1-ctop.sh
+    ./shared/installs/1-delta.sh
+    ./shared/installs/1-docker.sh
+    ./shared/installs/1-lsd.sh
+    ./shared/installs/1-rust.sh
+    ./shared/installs/1-tmux.sh
+    ./shared/installs/2-alacritty.sh
+    ./shared/installs/2-asdf.bat.sh
+    ./shared/installs/2-asdf.nodejs.sh
+    ./shared/installs/2-asdf.python.sh
+    ./shared/installs/2-docker-compose.sh
+    ./shared/installs/3-poetry.sh
+    ./shared/installs/3-zsh-plugins.sh
+    ./shared/installs/4-nerd-fonts.sh
 }
 
 main() {

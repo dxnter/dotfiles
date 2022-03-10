@@ -1,4 +1,4 @@
-# dotfiles
+# ⚙️ dotfiles
 
 My personal configuration files and scripts.
 
@@ -13,7 +13,7 @@ xcode-select --install
 Clone this repo to `~/.dotfiles` with:
 
 ```bash
-git clone git@github.com:dxnter/dotfiles.git ~/.dotfiles
+git clone https://github.com/dxnter/dotfiles ~/.dotfiles && cd ~/.dotfiles && ./setup.sh
 ```
 
 ```bash
