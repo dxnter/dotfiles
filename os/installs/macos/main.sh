@@ -9,18 +9,28 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 ./xcode.sh
 ./homebrew.sh
 ./zsh.sh
-
 ./git.sh
-./browsers.sh
-./cli_tools.sh
-./../asdf.sh
-./ctf_tools.sh
-./dev_tools.sh
 ./gpg.sh
-./misc.sh
-./tmux.sh
+
+./cli_tools.sh
+./ctf_tools.sh
+
+./../rust.sh
+
+./../asdf.sh
+./../python.sh
+./../node.sh
+
+
+./../poetry.sh
+
+./dev_tools.sh
+
+
 ./video_tools.sh
+./browsers.sh
 ./fonts.sh
+./misc.sh
 
 ./cleanup.sh
 

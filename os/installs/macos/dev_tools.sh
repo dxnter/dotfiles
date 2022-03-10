@@ -17,6 +17,7 @@ brew_install "Redis" "redis"
 
 # GUI Tools
 brew_install "Visual Studio Code" "visual-studio-code" "--cask"
+brew install "Alacritty" "alacritty" "--cask"
 brew_install "DBeaver" "dbeaver-community" "--cask"
 brew_install "Postman" "postman" "--cask"
 brew_install "PHPStorm" "phpstorm" "--cask"

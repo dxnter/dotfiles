@@ -13,5 +13,6 @@ else
   print_info "Installing Rust"
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
   rustc --version
-  print_success "Rust installed"
 fi
+
+print_success "Rust installed"
