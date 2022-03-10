@@ -15,17 +15,12 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 ./cli_tools.sh
 ./ctf_tools.sh
 
-./../rust.sh
-
 ./../asdf.sh
 ./../python.sh
-./../node.sh
-
-
+./../nodejs.sh
 ./../poetry.sh
-
+./../rust.sh
 ./dev_tools.sh
-
 
 ./video_tools.sh
 ./browsers.sh
