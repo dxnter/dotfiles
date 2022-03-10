@@ -9,4 +9,3 @@ else
   sudo curl -L -o /usr/local/bin/ctop https://github.com/bcicen/ctop/releases/download/v${ctop_version}/ctop-${ctop_version}-linux-amd64
   sudo chmod +x /usr/local/bin/ctop
 fi
-installs

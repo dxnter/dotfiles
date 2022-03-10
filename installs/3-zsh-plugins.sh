@@ -16,6 +16,7 @@ install_zsh_plugin https://github.com/zsh-users/zsh-syntax-highlighting.git zsh-
 install_zsh_plugin https://github.com/zsh-users/zsh-autosuggestions.git zsh-autosuggestions
 install_zsh_plugin https://github.com/lukechilds/zsh-nvm zsh-nvm
 install_zsh_plugin https://github.com/wfxr/forgit forgit
+install_zsh_plugin https://github.com/asdf-vm/asdf.git asdf
 
 
 if [ ! -d "${ZSH_CUSTOM}/themes/powerlevel10k" ]; then

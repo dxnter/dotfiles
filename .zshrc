@@ -17,6 +17,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(
   git
   asdf
+  forgit
   zsh-syntax-highlighting
   zsh-autosuggestions
 )

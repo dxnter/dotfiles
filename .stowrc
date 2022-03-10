@@ -9,5 +9,6 @@
 --ignore=Brewfile
 --ignore=install.sh
 --ignore=\*.md
+--ignore=.macos
 --ignore=Makefile
 --target=$HOME
