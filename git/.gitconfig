@@ -6,6 +6,7 @@
   editor = code --wait
   autocrlf = input
   pager = delta --line-numbers --dark
+  excludesfile = ~/.gitignore_global
 [init]
   defaultBranch = main
 [color]
@@ -17,6 +18,11 @@
   ui = true
 [delta]
   side-by-side = true
+[pager]
+  diff = delta
+	log = delta
+	reflog = delta
+	show = delta
 [color "status"]
   added = green
   changed = yellow

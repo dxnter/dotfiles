@@ -13,3 +13,6 @@ export PATH="$HOME/.composer/vendor/bin:$PATH"
 
 # Cargo
 export PATH="$HOME/.cargo/bin:$PATH"
+
+# Dotfiles
+export DOTFILES="$HOME/.dotfiles"
