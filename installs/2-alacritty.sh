@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 if type alacritty >/dev/null 2>&1; then
   echo "[-] alacritty already installed => skipping"

@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 cd "$(dirname "${BASH_SOURCE[0]}")" \
     && . "../utils.sh"

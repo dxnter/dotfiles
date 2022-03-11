@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 if type docker >/dev/null 2>&1; then
   echo "[-] docker already installed => skipping"

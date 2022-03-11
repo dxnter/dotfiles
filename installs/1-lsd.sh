@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 lsd_version="0.21.0"
 

@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 docker_compose_version="1.29.2"
 
