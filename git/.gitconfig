@@ -1,7 +1,7 @@
 [include]
   path = .gitconfig-personal
-[includeIf "gitdir:**/work/**/.git"]
-  path = .gitconfig-work
+# [includeIf "gitdir:**/work/**/.git"]
+#   path = .gitconfig-work
 [core]
   editor = code --wait
   autocrlf = input
