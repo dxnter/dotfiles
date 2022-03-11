@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 delta_version="0.12.0"
 
