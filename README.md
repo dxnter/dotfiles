@@ -11,18 +11,6 @@ My personal configuration files and scripts.
 | macOS  | `bash -c "$(curl -LsS https://raw.github.com/alrra/dotfiles/main/os/setup.sh)"`  |
 | Ubuntu | `bash -c "$(wget -qO - https://raw.github.com/alrra/dotfiles/main/os/setup.sh)"` |
 
-## `vim-plug`
-
-```bash
-# vim-plug install
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-# vim plugin install
-vim ~/.vimrc
-:PlugInstall
-```
-
 ## Firefox
 
 1. Download Firefox
