@@ -210,20 +210,16 @@ main() {
     # Ensure that the following actions
     # are made relative to this file's path.
 
-    printf "Before checking dir"
-
     cd "$(dirname "${BASH_SOURCE[0]}")" \
         || exit 1
 
-    printf "After checking dir"
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     # Load utils
-    printf "Before loading utils"
+
     if [ -x "utils.sh" ]; then
         . "utils.sh" || exit 1
     else
-        printf "Downloading utils"
         download_utils || exit 1
     fi
 
@@ -231,7 +227,7 @@ main() {
 
     # Ensure the OS is supported and
     # it's above the required version.
-    printf "Verifying OS"
+
     verify_os \
         || exit 1
 
