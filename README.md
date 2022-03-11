@@ -9,7 +9,7 @@ My personal configuration files and scripts.
 | OS     | Snippet                                                                          |
 | :----- | :------------------------------------------------------------------------------- |
 | macOS  | `bash -c "$(curl -LsS https://raw.github.com/alrra/dotfiles/main/os/setup.sh)"`  |
-| Ubuntu | `bash -c "$(wget -qO - https://raw.github.com/alrra/dotfiles/main/os/setup.sh)"` |
+| Pop!_OS | `bash -c "$(wget -qO - https://raw.github.com/alrra/dotfiles/main/os/setup.sh)"` |
 
 ## Firefox
 
