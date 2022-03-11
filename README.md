@@ -1,20 +1,15 @@
 # ⚙️ dotfiles
 
+# THIS IS A WORK IN PROGRESS, DO NOT USE
+
 My personal configuration files and scripts.
 
 ## Installation
 
-macOS Install
-
-```bash
-xcode-select --install
-```
-
-Clone this repo to `~/.dotfiles` with:
-
-```bash
-git clone https://github.com/dxnter/dotfiles ~/.dotfiles && cd ~/.dotfiles && ./setup.sh
-```
+| OS     | Snippet                                                                          |
+| :----- | :------------------------------------------------------------------------------- |
+| macOS  | `bash -c "$(curl -LsS https://raw.github.com/alrra/dotfiles/main/os/setup.sh)"`  |
+| Ubuntu | `bash -c "$(wget -qO - https://raw.github.com/alrra/dotfiles/main/os/setup.sh)"` |
 
 ```bash
 # vim-plug install
@@ -31,10 +26,9 @@ vim ~/.vimrc
 1. Download Firefox
 2. Log in with Mozilla account
 3. Open `about:support`
-
-- Open the directory of **Profile Directory**
-- Close Firefox
-- Copy/Paste the `/extras/user.js` file into the profile directory
+4. Open the directory of **Profile Directory**
+5. Close Firefox
+6. Copy/Paste the `/extras/user.js` file into the profile directory
 
 ## uBlock Origin
 
