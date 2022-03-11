@@ -10,4 +10,4 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Execute full install
-      run: ./../os/setup.sh
+      run: ./os/setup.sh
