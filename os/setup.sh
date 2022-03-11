@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 declare -r GITHUB_REPOSITORY="dxnter/dotfiles"
 
