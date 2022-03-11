@@ -12,14 +12,13 @@ print_info "• Browsers"
 
 printf "\n"
 
-brew_install "Chromium" "chromium" "--cask" "homebrew/cask-versions"
+brew_install "Chrome Canary" "google-chrome-canary" "--cask" "homebrew/cask-versions"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 printf "\n"
 
 brew_install "Firefox" "firefox" "--cask"
-brew_install "Firefox Nightly" "firefox-nightly" "--cask" "homebrew/cask-versions"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
