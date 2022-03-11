@@ -84,7 +84,7 @@ execute "defaults write com.apple.systempreferences NSQuitAlwaysKeepsWindows -bo
 execute "sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName" \
     "Reveal IP address, hostname, OS version, etc. when clicking the clock in the login window"
 
-execute "defaults write com.apple.menuextra.clock 'DateFormat' 'EEE d MMM  hh:mm'" \
+execute "defaults write com.apple.menuextra.clock 'DateFormat' 'EEE d MMM  hh:mm a'" \
     "Set date format"
 
 execute "defaults write .GlobalPreferences com.apple.mouse.scaling -1" \
