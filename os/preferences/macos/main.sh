@@ -19,8 +19,8 @@ cd "$(dirname "${BASH_SOURCE[0]}")"
 ./maps.sh
 ./photos.sh
 ./safari.sh
-./terminal.sh
+./mail.sh
+./activity_monitor.sh
 ./textedit.sh
-./trackpad.sh
 ./transmission.sh
 ./ui_and_ux.sh

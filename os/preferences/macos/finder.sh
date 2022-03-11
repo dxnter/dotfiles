@@ -23,9 +23,6 @@ execute "defaults write com.apple.frameworks.diskimages auto-open-ro-root -bool 
          defaults write com.apple.finder OpenWindowForNewRemovableDisk -bool true" \
     "Automatically open a new Finder window when a volume is mounted"
 
-execute "defaults write com.apple.LaunchServices LSQuarantine -bool false" \
-    "Disable application dialog warnings"
-
 execute "defaults write com.apple.finder _FXShowPosixPathInTitle -bool true" \
     "Use full POSIX path as window title"
 
@@ -78,31 +75,17 @@ execute "defaults write -g AppleShowAllExtensions -bool true" \
 execute "defaults write com.apple.finder AppleShowAllFiles -bool true" \
     "Show hidden files and folders"
 
-execute "defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true" \
-    "Avoid creating .DS_Store files on network volumes"
-
-execute "defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true" \
-    "Avoid creating .DS_Store files on USB volumes"
-
 execute "defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true" \
     "Enable AirDrop over Ethernet"
 
-execute "defaults write com.apple.frameworks.diskimages skip-verify -bool true" \
+execute "defaults write com.apple.frameworks.diskimages skip-verify -bool true && \
+         defaults write com.apple.frameworks.diskimages skip-verify-locked -bool true && \
+         defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true" \
     "Disable disk image verification"
 
-execute "defaults write com.apple.frameworks.diskimages skip-verify-locked -bool true" \
-    "Disable disk image verification locked"
-
-execute "defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true" \
-    "Disable disk image verification remote"
-
-execute "defaults write com.apple.frameworks.diskimages auto-open-ro-root -bool true" \
-    "Automatically open a new Finder window when a volume is mounted"
-
-execute "defaults write com.apple.frameworks.diskimages auto-open-rw-root -bool true" \
-    "Automatically open a new Finder window when a volume is mounted"
-
-execute "defaults write com.apple.finder OpenWindowForNewRemovableDisk -bool true" \
+execute "defaults write com.apple.frameworks.diskimages auto-open-ro-root -bool true && \
+         defaults write com.apple.frameworks.diskimages auto-open-rw-root -bool true && \
+         defaults write com.apple.finder OpenWindowForNewRemovableDisk -bool true" \
     "Automatically open a new Finder window when a volume is mounted"
 
 execute "/usr/libexec/PlistBuddy -c 'Set :DesktopViewSettings:IconViewSettings:iconSize 72' ~/Library/Preferences/com.apple.finder.plist && \

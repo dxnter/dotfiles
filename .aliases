@@ -11,7 +11,7 @@ alias weather="curl https://wttr.in/"
 # Directories
 alias dotfiles="cd $DOTFILES"
 alias dev="cd $HOME/code"
-alias work="cd $HOME/code/nuit"
+alias work="cd $HOME/code/work"
 
 # lsd
 alias ls="lsd"
