@@ -40,6 +40,8 @@ typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 if [[ "$OSTYPE" == "darwin"* ]]; then
   # End Fig Environment Variables
   [ -s ~/.fig/fig.sh ] && source ~/.fig/fig.sh
+  # Fig post block. Keep at the bottom of this file.
+  eval "$(fig init zsh post)"
 fi
 
 # -----------------------------------------------------------------------------------
