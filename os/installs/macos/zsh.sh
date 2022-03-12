@@ -21,11 +21,8 @@ zsh() {
     print_info "• zsh"
     brew_install "zsh" "zsh"
 
-    print_info "Defaulting to zsh shell"
-    chsh -s $(which zsh)
-
     print_info "oh-my-zsh"
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" "" --unattended
+    git clone --depth=1 git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh --quiet
 
     print_info "oh-my-zsh plugins"
     install_zsh_plugin https://github.com/zsh-users/zsh-syntax-highlighting.git zsh-syntax-highlighting
