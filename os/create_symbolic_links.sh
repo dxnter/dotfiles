@@ -9,27 +9,28 @@ create_symlinks() {
 
     declare -a FILES_TO_SYMLINK=(
 
-        "shell/aliases"
-        "shell/bash_profile"
-        "shell/exports"
-        "shell/hushlogin"
-        "shell/inputrc"
+        "shell/.aliases"
+        "shell/.bash_profile"
+        "shell/.exports"
+        "shell/.hushlogin"
+        "shell/.inputrc"
         "shell/p10k.zsh"
-        "shell/path"
-        "shell/zsh_profile"
-        "shell/zshenv"
-        "shell/zshrc"
+        "shell/.path"
+        "shell/.zsh_profile"
+        "shell/.zshenv"
+        "shell/.zshrc"
 
-        "git/gitconfig"
-        "git/gitignore_global"
+        "git/.gitconfig"
+        "git/.gitignore_global"
 
-        "config/alacritty/alacritty.yml"
-        "config/asdf/asdfrc"
-        "config/nvim/init.vim"
+        ".config/alacritty/alacritty.yml"
+        ".config/asdf/.asdfrc"
 
-        "tmux/tmux.conf"
+        "tmux/.tmux.conf"
 
-        "vim/vimrc"
+        ".config/nvim/init.vim"
+        ".config/nvim/plug.vim"
+        "vim/.vimrc"
 
     )
 
@@ -48,7 +49,11 @@ create_symlinks() {
     for i in "${FILES_TO_SYMLINK[@]}"; do
 
         sourceFile="$(cd .. && pwd)/$i"
-        targetFile="$HOME/.$(printf "%s" "$i" | sed "s/.*\/\(.*\)/\1/g")"
+        if [[ $i == .* ]]; then
+            targetFile="$HOME/${i}"
+        else
+            targetFile="$HOME/$(printf "%s" "$i" | sed "s/.*\/\(.*\)/\1/g")"
+        fi
 
         if [ ! -e "$targetFile" ] || $skipQuestions; then
 

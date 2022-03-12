@@ -8,8 +8,8 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 create_directories() {
 
     declare -a DIRECTORIES=(
-        "$HOME/.config/nvim"
         "$HOME/.config/alacritty"
+        "$HOME/.nvim"
         "$HOME/Documents/screenshots"
         "$HOME/Documents/notes"
         "$HOME/code"
