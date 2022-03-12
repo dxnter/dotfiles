@@ -18,8 +18,18 @@ install_zsh_plugin() {
 }
 
 zsh() {
-    print_info "• zsh"
+    print_info "• Shell Configuration"
     brew_install "zsh" "zsh"
+    [[ -n "$(command -v brew)" ]] && zsh_path="$(brew --prefix)/bin/zsh" || zsh_path="$(which zsh)"
+    if ! grep "$zsh_path" /etc/shells; then
+        print_info "Adding $zsh_path to /etc/shells"
+        echo "$zsh_path" | sudo tee -a /etc/shells
+    fi
+
+    if [[ "$SHELL" != "$zsh_path" ]]; then
+        chsh -s "$zsh_path"
+        print_info "Default shell changed to $zsh_path"
+    fi
 
     print_info "oh-my-zsh"
     git clone --depth=1 git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh --quiet

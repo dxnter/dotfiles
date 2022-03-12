@@ -6,6 +6,8 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+# SYMLINK
+
 ./xcode.sh
 ./homebrew.sh
 ./zsh.sh

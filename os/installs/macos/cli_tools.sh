@@ -41,5 +41,3 @@ brew_install "tmux (pasteboard)" "reattach-to-user-namespace"
 brew_install "htop" "htop"
 brew_install "ctop" "ctop"
 brew_install "grip" "grip"
-
-print_success "CLI Tools installed"

@@ -6,7 +6,9 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-print_info "• GPG"
+print_info "• Vim"
 
-brew_install "GPG" "gpg"
-brew_install "Pinentry" "pinentry-mac"
+
+print_info "• Vim Plugins"
+
+nvim -E +PlugInstall +qall || true

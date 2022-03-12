@@ -21,5 +21,3 @@ printf "\n"
 brew_install "Firefox" "firefox" "--cask"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-print_success "Browsers installed"

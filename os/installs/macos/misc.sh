@@ -16,5 +16,3 @@ brew_install "VLC" "vlc" "--cask"
 brew_install "Obsidian" "obsidian" "--cask"
 brew_install "Dozer" "dozer" "--cask"
 brew_install "Rectangle" "rectangle" "--cask"
-
-print_success "Miscellaneous applications installed"

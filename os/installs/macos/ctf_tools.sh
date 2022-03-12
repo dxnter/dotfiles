@@ -32,5 +32,3 @@ brew_install "tcptrace" "tcptrace"
 brew_install "ucspi-tcp" "ucspi-tcp"
 brew_install "xpdf" "xpdf"
 brew_install "xz" "xz"
-
-print_success "CTF Tools installed"

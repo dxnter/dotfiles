@@ -1,7 +1,3 @@
-[include]
-  path = .gitconfig-personal
-# [includeIf "gitdir:**/work/**/.git"]
-#   path = .gitconfig-work
 [core]
   editor = code --wait
   autocrlf = input
@@ -38,3 +34,7 @@
     insteadOf = gh:
 [pull]
 	ff = only
+[user]
+  useConfigOnly = true
+[include]
+  path = ~/.gitconfig.local

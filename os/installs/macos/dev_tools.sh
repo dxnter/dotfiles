@@ -11,7 +11,6 @@ print_info "• Development Tools"
 # CLI Tools
 brew_install "Docker" "docker"
 brew_install "Docker Compose" "docker-compose"
-brew_install "Neovim" "neovim"
 brew_install "HTTP Server" "http-server"
 brew_install "Redis" "redis"
 

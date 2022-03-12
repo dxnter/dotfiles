@@ -7,6 +7,8 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+[ -f ~/.zsh_profile ] && source ~/.zsh_profile
+
 # -----------------------------------------------------------------------------------
 #                          OTHER CONFIGURATIONS                                     |
 # -----------------------------------------------------------------------------------
@@ -34,8 +36,6 @@ source $ZSH/oh-my-zsh.sh
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
-
-[ -f ~/.zsh_profile ] && source ~/.zsh_profile
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
   # End Fig Environment Variables

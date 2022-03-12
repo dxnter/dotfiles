@@ -35,9 +35,6 @@ main() {
     print_info "• Xcode"
 
     install_xcode_command_line_tools
-
-    print_success "Xcode installed"
-
 }
 
 main
