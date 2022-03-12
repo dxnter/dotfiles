@@ -10,9 +10,15 @@ print_info "• Vim"
 
 brew_install "neovim" "neovim"
 
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 print_info "• Vim Plugins"
 
-
-nvim -E +PlugInstall +qall || true
+nvim -E -s <<-EOF
+    :source ~/.vimrc
+    :PlugInstall
+    :PlugClean
+    :qa
+EOF
 
 print_success "Vim plugins installed"

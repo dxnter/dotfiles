@@ -25,5 +25,9 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 " File type icons to NERDTree
 Plug 'ryanoasis/vim-devicons'
 
+" fzf
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
 filetype plugin indent on                   " required!
 call plug#end()

@@ -1,3 +1,5 @@
-set runtimepath^=~/.vim runtimepath+=~/.vim/after
+set runtimepath^=~/.config/nvim runtimepath+=~/.config/nvim/after
 let &packpath = &runtimepath
-source ~/.vimrc
+
+source $HOME/.vimrc
+lua require('config')

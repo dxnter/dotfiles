@@ -30,6 +30,7 @@ create_symlinks() {
 
         ".config/nvim/init.vim"
         ".config/nvim/plug.vim"
+        ".config/nvim/lua/config.lua"
         "vim/.vimrc"
 
     )
