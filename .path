@@ -10,6 +10,13 @@ export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/sbin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 
+# zsh history file
+export HISTFILE=$HOME/.zsh-history
+
+# asdf
+export ASDF_DIR=$HOME/.asdf
+export PATH="$HOME/.asdf/bin:$HOME/.asdf/shims:$PATH"
+
 # Composer
 export PATH="$HOME/.composer/vendor/bin:$PATH"
 

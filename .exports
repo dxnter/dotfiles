@@ -2,7 +2,6 @@
 export EDITOR="code"
 
 # Larger bash history (allow 32³ entries; default is 500)
-export HISTFILE=$HOME/.zsh-history
 export HISTSIZE=100000
 export SAVEHIST=1000000
 
