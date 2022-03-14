@@ -2,8 +2,15 @@ env:
   TERM: xterm-256color
   WINIT_X11_SCALE_FACTOR: '1.0'
 
+window:
+  dynamic_padding: true
+  dynamic_title: true
+  padding:
+    x: 20
+    y: 20
+
 font:
-  size: 9
+  size: 9.0
   normal:
     family: Hack Nerd Font Mono
     style: Regular
@@ -14,19 +21,46 @@ font:
     family: Hack Nerd Font Mono
     style: Italic
 
-window:
-  padding:
-    x: 20
-    y: 20
-  dynamic_padding: true
-
 draw_bold_text_with_bright_colors: true
+
+
+colors:
+  primary:
+    # foreground: "0xaaaaaa"
+    background: "0x181818"
+
+  normal:
+    black:   "0x181818"
+    red:     "0xac4242"
+    green:   "0x90a959"
+    yellow:  "0xf4bf75"
+    blue:    "0x6a9fb5"
+    magenta: "0xaa759f"
+    white:   "0x666666"
+
+  search:
+    matches:
+      foreground: "0x181818"
+      background: "0xac4242"
+    focused_match:
+      foreground: "0xac4242"
+      background: "0x181818"
+    bar:
+      foreground: "0xaaaaaa"
+      background: "0x282828"
+
+  hints:
+    start:
+      foreground: "0x181818"
+      background: "0xac4242"
+    end:
+      background: "0xac4242"
+      foreground: "0x181818"
+
 
 hints:
   launcher: xdg-open
   modifiers: None
-
-window.dynamic_title: true
 
 selection:
   save_to_clipboard: true
@@ -37,6 +71,24 @@ mouse:
       program: firefox
       args:
         - --new-window
+
+hints:
+  alphabet: "hutenosadigpc.r,l'"
+  enabled:
+   - regex: "(mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)\
+             [^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`]+"
+     command: firefox --new-window
+     post_processing: true
+     mouse:
+       enabled: true
+     binding:
+       key: U
+       mods: Control|Shift
+   - regex: "[a-f0-9]{40}|[a-f0-9]{7,8}"
+     action: Copy
+     binding:
+       key: H
+       mods: Control|Shift
 
 scrolling:
   history: 10000
