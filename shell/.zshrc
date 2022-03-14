@@ -35,7 +35,7 @@ source $ZSH/oh-my-zsh.sh
 #                          FINAL SOURCES                                            |
 # -----------------------------------------------------------------------------------
 
-[[ ! -f ~/p10k.zsh ]] || source ~/p10k.zsh
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 
 if [[ "$OSTYPE" == "darwin"* ]]; then

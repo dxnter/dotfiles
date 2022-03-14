@@ -26,8 +26,8 @@ execute "defaults write com.apple.screencapture disable-shadow -bool true" \
 execute "defaults write com.apple.screencapture location -string '$HOME/Documents/screenshots'" \
     "Save screenshots to Documents/screenshots"
 
-execute "defaults write com.apple.screencapture show-thumbnail -bool false" \
-    "Do not show thumbnail"
+execute "defaults write com.apple.screencapture show-thumbnail -bool true" \
+    "Show thumbnail image for screen captures"
 
 execute "defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true" \
     "Disable Time Machine new disk creation warnings"

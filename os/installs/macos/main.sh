@@ -28,7 +28,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 ./browsers.sh
 ./fonts.sh
 ./misc.sh
-./dockutil.sh
+./dock.sh
 
 ./cleanup.sh
 

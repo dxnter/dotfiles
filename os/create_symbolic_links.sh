@@ -14,7 +14,7 @@ create_symlinks() {
         "shell/.exports"
         "shell/.hushlogin"
         "shell/.inputrc"
-        "shell/p10k.zsh"
+        "shell/.p10k.zsh"
         "shell/.path"
         "shell/.zsh_profile"
         "shell/.zshenv"

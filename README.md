@@ -13,6 +13,8 @@ My personal configuration files and scripts.
 
 Restart your computer
 
+Edit .gitconfig.local
+
 ## Firefox
 
 1. Download Firefox

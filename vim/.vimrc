@@ -113,7 +113,8 @@ set background=dark
 let g:material_terminal_italics = 1
 let g:material_theme_style = 'darker-community'
 colorscheme material
-
+:highlight Normal ctermfg=darkblue ctermbg=darkblue
+" let s:bg = { 'gui': '#0x181818', 'cterm': 'none' }
 " When completing, fill with the longest common string
 " Auto select the first option
 set completeopt=longest,menuone

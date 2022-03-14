@@ -21,7 +21,6 @@ brew_install "Alacritty" "alacritty" "--cask"
 brew_install "DBeaver" "dbeaver-community" "--cask"
 brew_install "Virtual Box" "virtualbox" "--cask"
 brew_install "Postman" "postman" "--cask"
-brew_install "PHPStorm" "phpstorm" "--cask"
 brew_install "Cyberduck" "cyberduck" "--cask"
 brew_install "Fig" "fig" "--cask"
 

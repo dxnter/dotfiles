@@ -46,3 +46,5 @@ Plug 'jiangmiao/auto-pairs'
 
 filetype plugin indent on                   " required!
 call plug#end()
+
+autocmd ColorScheme * highlight! Normal ctermbg=NONE guibg=NONE
