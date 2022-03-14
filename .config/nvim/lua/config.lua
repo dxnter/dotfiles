@@ -1,4 +1,3 @@
-
 -- Alacritty Padding Configuration
 --[[
   A padding of 20 is set in alacritty.yml but it looks unappealing when

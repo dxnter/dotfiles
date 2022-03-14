@@ -37,6 +37,7 @@ set history=200                 " Remember the last 200 :ex commands
 set secure                      " disable unsafe commands in local .vimrc files
 set clipboard^=unnamed,unnamedplus
 set noswapfile                  " Don't use swap files (saves memory)
+set updatetime=100
 
 " }}}-------------------------------------------------------------------------
 "   Visual                                                                {{{

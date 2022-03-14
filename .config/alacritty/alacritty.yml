@@ -31,6 +31,13 @@ window.dynamic_title: true
 selection:
   save_to_clipboard: true
 
+mouse:
+  url:
+    launcher:
+      program: firefox
+      args:
+        - --new-window
+
 scrolling:
   history: 10000
   multiplier: 3

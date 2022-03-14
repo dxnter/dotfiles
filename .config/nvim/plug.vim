@@ -25,9 +25,24 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 " File type icons to NERDTree
 Plug 'ryanoasis/vim-devicons'
 
+" NERDTree comments
+Plug 'preservim/nerdcommenter'
+
 " fzf
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+
+" Show git diffs
+Plug 'airblade/vim-gitgutter'
+
+" Indent Blankline
+Plug 'lukas-reineke/indent-blankline.nvim'
+
+" Surround/parenthesizing
+Plug 'tpope/vim-surround'
+
+" Insert brackets, parens, quotes in pair
+Plug 'jiangmiao/auto-pairs'
 
 filetype plugin indent on                   " required!
 call plug#end()
