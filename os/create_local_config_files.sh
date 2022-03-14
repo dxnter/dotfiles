@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 cd "$(dirname "${BASH_SOURCE[0]}")" \
     && . "utils.sh"
@@ -16,7 +16,7 @@ create_zsh_local() {
         DOTFILES_BIN_DIR="$(dirname "$(pwd)")/bin/"
 
         printf "%s\n" \
-"#!/bin/bash
+"#!/usr/bin/env bash
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

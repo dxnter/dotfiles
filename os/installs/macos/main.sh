@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 cd "$(dirname "${BASH_SOURCE[0]}")" \
     && . "../../utils.sh" \
@@ -28,6 +28,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 ./browsers.sh
 ./fonts.sh
 ./misc.sh
+./dockutil.sh
 
 ./cleanup.sh
 
