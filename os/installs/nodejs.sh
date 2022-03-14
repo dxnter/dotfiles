@@ -9,8 +9,7 @@ nodejs_version="16.13.2"
 
 print_info "• Node.js"
 
-asdf plugin add nodejs
-bash -c '${ASDF_DATA_DIR:=$HOME/.asdf}/plugins/nodejs/bin/import-release-team-keyring'
+asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
 asdf install nodejs "${nodejs_version}"
 asdf global nodejs "${nodejs_version}"
 
