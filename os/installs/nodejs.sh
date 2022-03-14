@@ -9,7 +9,7 @@ nodejs_version="16.13.2"
 
 print_info "• Node.js"
 
-asdf uninstall python
+asdf plugin remove nodejs
 asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
 asdf install nodejs "${nodejs_version}"
 asdf global nodejs "${nodejs_version}"
