@@ -71,8 +71,6 @@ zsh() {
       print_info "powerline10k theme already installed => skipping"
     fi
 
-    source "$HOME/.zshrc"
-
  }
 
 zsh
