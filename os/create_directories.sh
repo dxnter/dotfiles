@@ -10,7 +10,7 @@ create_directories() {
     declare -a DIRECTORIES=(
         "$HOME/.config/alacritty"
         "$HOME/.config/asdf"
-        "$HOME/.config/.nvim"
+        "$HOME/.config/nvim"
         "$HOME/Documents/screenshots"
         "$HOME/Documents/notes"
         "$HOME/code"
