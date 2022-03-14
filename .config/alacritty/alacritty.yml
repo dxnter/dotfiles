@@ -32,7 +32,7 @@ selection:
   save_to_clipboard: true
 
 mouse:
-  url:
+  hints:
     launcher:
       program: firefox
       args:
