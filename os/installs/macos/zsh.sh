@@ -31,6 +31,8 @@ zsh() {
         print_info "Default shell changed to $zsh_path"
     fi
 
+    source "$HOME/.zshrc"
+
     print_info "oh-my-zsh"
     git clone --depth=1 git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh --quiet
 
