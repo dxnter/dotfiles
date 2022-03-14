@@ -8,7 +8,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 install_zsh_plugin() {
   local git_url=$1
   local plugin_name=$2
-  local plugin_folder="${ZSH_CUSTOM}/plugins/${plugin_name}"
+  local plugin_folder="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/${plugin_name}"
   if [ ! -d "${plugin_folder}" ]; then
     echo "[-] installing zsh plugin ${plugin_name}"
     git clone "${git_url}" "${plugin_folder}"
