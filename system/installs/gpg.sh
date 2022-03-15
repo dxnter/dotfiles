@@ -1,13 +1,11 @@
 #!/usr/bin/env bash
 
 cd "$(dirname "${BASH_SOURCE[0]}")" \
-    && . "../../utils.sh" \
-    && . "./utils.sh"
+    && . "../utils.sh"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-print_info "• Cleaning"
+print_info "• GPG"
 
-brew cleanup
-
-print_success "Packages cleaned up"
+brew_install "GPG" "gpg"
+brew_install "Pinentry" "pinentry-mac"
