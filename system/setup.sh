@@ -160,7 +160,6 @@ extract() {
 verify_os() {
 
     declare -r MINIMUM_MACOS_VERSION="10.10"
-    declare -r MINIMUM_POP_VERSION="21.10"
 
     local os_name="$(get_os)"
     local os_version="$(get_os_version)"
@@ -180,21 +179,8 @@ verify_os() {
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    # Check if the OS is `Pop!_OS` and
-    # it's above the required version.
-
-    elif [ "$os_name" == "pop" ]; then
-
-        if is_supported_version "$os_version" "$MINIMUM_POP_VERSION"; then
-            return 0
-        else
-            printf "Sorry, this script is intended only for Pop!_OS %s+" "$MINIMUM_POP_VERSION"
-        fi
-
-    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
     else
-        printf "Sorry, this script is intended only for macOS and Pop!_OS"
+        printf "Sorry, this script is intended only for macOS"
     fi
 
     return 1
@@ -272,12 +258,6 @@ main() {
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     if cmd_exists "git"; then
-
-        if [ "$(git config --get remote.origin.url)" != "$DOTFILES_ORIGIN" ]; then
-            ./initialize_git_repository.sh "$DOTFILES_ORIGIN"
-        fi
-
-        # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
         if ! $skipQuestions; then
             ./update_content.sh

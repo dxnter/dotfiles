@@ -6,16 +6,35 @@ My personal configuration files and scripts.
 
 ## Installation
 
-| OS       | Snippet                                                                           |
-| :------- | :-------------------------------------------------------------------------------- |
-| macOS    | `bash -c "$(curl -LsS https://raw.github.com/dxnter/dotfiles/main/os/setup.sh)"`  |
-| Pop!\_OS | `bash -c "$(wget -qO - https://raw.github.com/dxnter/dotfiles/main/os/setup.sh)"` |
+### Requirements
 
-Restart your computer
+Xcode Command Line Tools include the `git` and `make` requirement. Install them in the terminal.
+
+```bash
+sudo softwareupdate -i -a
+xcode-select --install
+```
+
+1. Clone the repository locally and navigate to the installed location:
+
+```bash
+$ git clone https://github.com/dxnter/dotfiles.git ~/.dotfiles
+```
+
+2. Run the setup script:
+
+```bash
+$ cd ~/.dotfiles
+$ make
+```
+
+## Post Installation
+
+### Edit Local Files
 
 Edit .gitconfig.local
 
-## Firefox
+### Firefox
 
 1. Download Firefox
 2. Log in with Mozilla account
@@ -24,7 +43,7 @@ Edit .gitconfig.local
 5. Close Firefox
 6. Copy/Paste the `/extras/user.js` file into the profile directory
 
-## uBlock Origin
+### uBlock Origin
 
 1. Paste `extras/ublock-filters.txt` in **My filters** and **Apply changes**
 2. Enable **AdGuard URL Tracking Protection** under the **Privacy** category

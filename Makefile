@@ -1,7 +1,8 @@
-
+SHELL = /bin/bash
+HOMEBREW_PREFIX := $(shell bin/is-supported bin/is-arm64 /opt/homebrew /usr/local)
+export XDG_CONFIG_HOME = $(HOME)/.config
+export STOW_DIR = $(DOTFILES_DIR)
 export ACCEPT_EULA=Y
-SHELL := /bin/bash
-DOTFILES_ROOT := `pwd -P`
 
 
 brew:
