@@ -2,7 +2,7 @@
 
 Fully automated macOS software installation/configuration, modified system preferences, and extra necessities.
 
-While possible for some, this repository does not serve as a universal macOS setup script. The software I use and configuration defined are catered to my individual use. I recommend reviewing the [setup script](https://github.com/dxnter/dotfiles/blob/main/system/setup.sh) and making changes to any other files before running the script.
+This repository does not serve as a universal macOS setup script. The software I use and configuration defined are catered to my individual use. I recommend reviewing the [setup script](https://github.com/dxnter/dotfiles/blob/main/system/setup.sh) and making changes to any other files before running the script.
 
 ## Setup
 
@@ -17,7 +17,7 @@ xcode-select --install
 
 ### Installation
 
-1. Clone the repository locally and navigate to the installed location:
+1. Clone the repository locally:
 
 ```bash
 git clone https://github.com/dxnter/dotfiles.git ~/.dotfiles
@@ -30,11 +30,11 @@ cd ~/.dotfiles
 make
 ```
 
-After the installation script is complete, a GPG key needs to be generated to sign commits.
+After the installation script is complete, a GPG key needs to be generated to sign commits:
 ```bash
 make gpg
 ```
-Your public GPG key will be copied to the clipboard and a GitHub page will open in your browser. Select **New GPG Key** at the bottom and paste in the textbox.
+Your public GPG key will be copied to the clipboard and a GitHub page will open in your browser. Select **New GPG Key** at the bottom and paste inside the textbox.
 
 ## Customize
 
@@ -109,16 +109,16 @@ nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up>    :echoe "Use k"<CR>
 ```
 
-## Miscellaneous
+### Miscellaneous
 
-### Firefox
+#### Firefox
 
 1. Open `about:support`
 2. Next to **Profile Folder** click **Show in Finder**
 3. Close Firefox
 4. Copy/Paste the `/extras/user.js` file into the profile directory
 
-### uBlock Origin
+#### uBlock Origin
 
 1. Paste the contents of `extras/ublock-filters.txt` in **My filters** and **Apply changes**
 2. Enable **AdGuard URL Tracking Protection** under the **Privacy** category
