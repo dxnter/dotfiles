@@ -18,20 +18,8 @@ add_ssh_configs() {
 
 copy_public_ssh_key_to_clipboard () {
 
-    if cmd_exists "pbcopy"; then
-
-        pbcopy < "$1"
-        print_result $? "Copy public SSH key to clipboard"
-
-    elif cmd_exists "xclip"; then
-
-        xclip -selection clip < "$1"
-        print_result $? "Copy public SSH key to clipboard"
-
-    else
-        print_warning "Please copy the public SSH key ($1) to clipboard"
-    fi
-
+    pbcopy < "$1"
+    print_result $? "Copy public SSH key to clipboard"
 }
 
 generate_ssh_keys() {
@@ -47,12 +35,7 @@ open_github_ssh_page() {
 
     declare -r GITHUB_SSH_URL="https://github.com/settings/ssh"
 
-    # The order of the following checks matters
-    # as on Ubuntu there is also a utility called `open`.
-
-    if cmd_exists "xdg-open"; then
-        xdg-open "$GITHUB_SSH_URL"
-    elif cmd_exists "open"; then
+    if cmd_exists "open"; then
         open "$GITHUB_SSH_URL"
     else
         print_warning "Please add the public SSH key to GitHub ($GITHUB_SSH_URL)"
@@ -125,3 +108,4 @@ main() {
 }
 
 main
+
