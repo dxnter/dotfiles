@@ -36,12 +36,11 @@ Edit .gitconfig.local
 
 ### Firefox
 
-1. Download Firefox
-2. Log in with Mozilla account
-3. Open `about:support`
-4. Open the directory of **Profile Directory**
-5. Close Firefox
-6. Copy/Paste the `/extras/user.js` file into the profile directory
+1. Log in with Mozilla account
+2. Open `about:support`
+3. Next to **Profile Folder** click **Show in Finder**
+4. Close Firefox
+5. Copy/Paste the `/extras/user.js` file into the profile directory
 
 ### uBlock Origin
 
