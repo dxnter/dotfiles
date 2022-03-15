@@ -31,9 +31,11 @@ make
 ```
 
 After the installation script is complete, a GPG key needs to be generated to sign commits:
+
 ```bash
 make gpg
 ```
+
 Your public GPG key will be copied to the clipboard and a GitHub page will open in your browser. Select **New GPG Key** at the bottom and paste inside the textbox.
 
 ## Customize
@@ -123,6 +125,16 @@ nnoremap <Up>    :echoe "Use k"<CR>
 1. Paste the contents of `extras/ublock-filters.txt` in **My filters** and **Apply changes**
 2. Enable **AdGuard URL Tracking Protection** under the **Privacy** category
 3. Add the [LegitimateURLShortener](https://raw.githubusercontent.com/DandelionSprout/adfilt/master/LegitimateURLShortener.txt) URL under **Custom**
+
+#### Fig Alacritty Integration
+
+At the time of writing, the Fig integration with Alacritty is a preview. Follow these steps to enable Fig in Alacritty.
+
+1. Run `fig settings integrations.experimental true` and then restart the Fig app
+2. Click the Fig menubar icon > Integrations > Alacritty > "Attempt to Install"
+3. Go to a terminal and run `fig debug ime enable`. A System Preferences window will appear and prompt you to install a third party Input Method.
+4. Run `fig debug ime select`
+5. Restart Alacritty
 
 ## Credits
 
