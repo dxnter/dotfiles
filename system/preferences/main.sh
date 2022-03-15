@@ -17,6 +17,7 @@ print_info "• Preferences"
 ./dock.sh
 ./finder.sh
 ./keyboard.sh
+./spotlight.sh
 ./language_and_region.sh
 ./maps.sh
 ./photos.sh
@@ -26,3 +27,5 @@ print_info "• Preferences"
 ./textedit.sh
 ./transmission.sh
 ./ui_and_ux.sh
+./network.sh
+./dockutil.sh

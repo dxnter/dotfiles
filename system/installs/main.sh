@@ -27,7 +27,6 @@ print_info "• Installs"
 ./browsers.sh
 ./fonts.sh
 ./misc.sh
-./dock.sh
 
 ./cleanup.sh
 

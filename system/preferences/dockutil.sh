@@ -43,9 +43,6 @@ execute "dockutil --no-restart --add '/Applications/DBeaver.app'" \
 execute "dockutil --no-restart --add '/Applications/Cyberduck.app'" \
     "Cyberduck"
 
-execute "dockutil --no-restart --add '/System/Applications/Utilities/Activity Monitor.app'" \
-    "Activity Monitor"
-
 execute "dockutil --no-restart --add '/System/Applications/System Preferences.app'" \
     "System Preferences"
 

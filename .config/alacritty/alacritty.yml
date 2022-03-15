@@ -5,9 +5,10 @@ env:
 window:
   dynamic_padding: true
   dynamic_title: true
+  decorations: 'Transparent'
   padding:
     x: 20
-    y: 20
+    y: 30
 
 font:
   size: 12.0
