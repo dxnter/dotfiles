@@ -1,12 +1,13 @@
 # ⚙️ dotfiles
 
-# THIS IS A WORK IN PROGRESS, DO NOT USE
+Fully automated macOS software installation/configuration, modified system preferences, and extra necessities.
 
-My personal configuration files and scripts.
+While possible for some, this repository does not serve as a universal macOS setup script. The software I use and configuration defined are catered to my individual use. I recommend reviewing the [setup script](https://github.com/dxnter/dotfiles/blob/main/system/setup.sh) and making changes to any other files before running the script.
 
-## Installation
+## Setup
 
 ### Requirements
+---------
 
 Xcode Command Line Tools include the `git` and `make` requirement. Install them in the terminal.
 
@@ -14,6 +15,9 @@ Xcode Command Line Tools include the `git` and `make` requirement. Install them 
 sudo softwareupdate -i -a
 xcode-select --install
 ```
+
+### Installation
+---------
 
 1. Clone the repository locally and navigate to the installed location:
 
@@ -28,7 +32,8 @@ $ cd ~/.dotfiles
 $ make
 ```
 
-## Post Installation
+## Customize
+---------
 
 ### Edit Local Files
 
@@ -47,3 +52,7 @@ Edit .gitconfig.local
 1. Paste `extras/ublock-filters.txt` in **My filters** and **Apply changes**
 2. Enable **AdGuard URL Tracking Protection** under the **Privacy** category
 3. Add the URL to [LegitimateURLShortener](https://raw.githubusercontent.com/DandelionSprout/adfilt/master/LegitimateURLShortener.txt) under **Custom**
+
+## Credits
+
+- [alraa/dotfiles](https://github.com/alrra/dotfiles)
