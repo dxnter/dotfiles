@@ -38,7 +38,7 @@ zsh() {
     print_info "oh-my-zsh"
 
     if [ ! -d "$HOME/.oh-my-zsh" ]; then
-        execute "git clone --depth=1 git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh --quiet" \
+        execute "git clone --depth=1 git://github.com/robbyrussell/oh-my-zsh.git ~/.config/zsh/.oh-my-zsh --quiet" \
             "oh-my-zsh"
     else
         print_info "oh-my-zsh already installed => skipping"

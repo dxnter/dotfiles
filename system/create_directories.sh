@@ -12,7 +12,7 @@ create_directories() {
         "$HOME/.config/alacritty"
         "$HOME/.config/asdf"
         "$HOME/.config/nvim"
-        "$HOME/.config/nvim/lua"
+        "$HOME/.config/zsh"
         "$HOME/Documents/screenshots"
         "$HOME/Documents/notes"
         "$HOME/code"

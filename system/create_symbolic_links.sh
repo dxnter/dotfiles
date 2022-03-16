@@ -9,16 +9,15 @@ create_symlinks() {
 
     declare -a FILES_TO_SYMLINK=(
 
-        "shell/.aliases"
-        "shell/.bash_profile"
-        "shell/.exports"
-        "shell/.hushlogin"
-        "shell/.inputrc"
-        "shell/.p10k.zsh"
-        "shell/.path"
-        "shell/.zsh_profile"
+        ".config/zsh/.aliases"
+        ".config/zsh/.bash_profile"
+        ".config/zsh/.hushlogin"
+        ".config/zsh/.inputrc"
+        ".config/zsh/.p10k.zsh"
+        ".config/zsh/.zsh_profile"
+        ".config/zsh/.zshrc"
+        ".config/zsh/.zshenv"
         "shell/.zshenv"
-        "shell/.zshrc"
 
         "git/.gitconfig"
         "git/.gitignore_global"
@@ -30,7 +29,6 @@ create_symlinks() {
 
         ".config/nvim/init.vim"
         ".config/nvim/plug.vim"
-        ".config/nvim/lua/config.lua"
         "vim/.vimrc"
 
     )

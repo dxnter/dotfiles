@@ -1,0 +1,2 @@
+source "$HOME/.config/zsh/.aliases"
+source "$HOME/.zshrc.local"

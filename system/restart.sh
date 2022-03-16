@@ -7,14 +7,10 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 
 main() {
 
-    print_info "• Restart"
+    print_error "System restarting in 3 seconds..."
 
-    ask_for_confirmation "Do you want to restart?"
-    printf "\n"
-
-    if answer_is_yes; then
-        sudo shutdown -r now &> /dev/null
-    fi
+    sleep 3
+    sudo shutdown -r now &> /dev/null
 
  }
 

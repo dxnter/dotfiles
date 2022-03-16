@@ -9,7 +9,7 @@ alias diff="delta"
 alias weather="curl https://wttr.in/"
 
 # Directories
-alias dotfiles="cd $DOTFILES"
+alias dotfiles="cd ~/.dotfiles"
 alias dev="cd $HOME/code"
 alias work="cd $HOME/code/work"
 
