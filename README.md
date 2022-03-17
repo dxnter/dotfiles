@@ -4,7 +4,7 @@ Fully automated macOS software installation/configuration, modified system prefe
 
 This repository does not serve as a universal macOS setup script. The software I use and configuration defined are catered to my individual use. I recommend reviewing the [setup script](https://github.com/dxnter/dotfiles/blob/main/system/setup.sh) and making changes to any other files before running the script.
 
-## 🔧 Installation
+## 🔧 Setup
 
 ### Requirements
 
@@ -14,6 +14,8 @@ Xcode Command Line Tools include the `git` and `make` requirement. Install them 
 sudo softwareupdate -i -a
 xcode-select --install
 ```
+
+### Installation
 
 1. Clone the repository locally:
 
@@ -28,13 +30,11 @@ cd ~/.dotfiles
 make
 ```
 
-After the installation script is complete and your system restarts, a GPG key needs to be generated to sign commits:
+3. After the installation script is complete and your system restarts, a GPG key needs to be generated to sign commits. After completion, your public GPG key will be copied to the clipboard and a GitHub page will open in your browser. Select **New GPG Key** at the bottom and paste inside the textbox.
 
 ```bash
 make gpg
 ```
-
-Your public GPG key will be copied to the clipboard and a GitHub page will open in your browser. Select **New GPG Key** at the bottom and paste inside the textbox.
 
 ## ⚙️ Customize
 
@@ -144,7 +144,15 @@ At the time of writing, the Fig integration with Alacritty is a preview. Follow 
 
 ## ⏫ Adding Additional Dotfiles
 
-Naturally, there will dotfiles of your own that are missing from this repository. For consistency, create application specific folders in the root directory of this repository.
+Naturally, there will dotfiles of your own that are missing from this repository. Adding them to this project allows a centralized location to symlink, maintain, and version control.
+
+Files that are kept directly in `$HOME` should be kept inside an
+
+`system/create_symbolic_links.sh`
+
+- Directories inside `.config` (e.g. `.config/nvim/*`) will symlink the folder and contained files to `$HOME/.config/`
+- Directories
+- Directories that do not start with a `.` (e.g. `tmux/.tmux.conf`) will symlink the contained files directly to `$HOME`
 
 ```bash
 make links
@@ -157,3 +165,4 @@ Usage is provided under the [MIT License](https://opensource.org/licenses/MIT).
 ## 👏 Acknowledgments
 
 - [alraa/dotfiles](https://github.com/alrra/dotfiles)
+- [webpro/dotfiles](https://github.com/webpro/dotfiles)

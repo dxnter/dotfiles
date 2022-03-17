@@ -3,6 +3,10 @@
 cd "$(dirname "${BASH_SOURCE[0]}")" \
     && . "../utils.sh"
 
+if [ ! `which dockutil` ]; then
+    brew install dockutil
+fi
+
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 print_info "• Set Dock Apps"
