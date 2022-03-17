@@ -10,8 +10,8 @@ gpg:
 		./system/create_gpg_key.sh
 
 links:
-		./system/create_symbolic_links.sh
+		./system/create_symlinks.sh
 
 
 
-.PHONY: setup links
+.PHONY: setup gpg links
