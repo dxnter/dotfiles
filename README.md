@@ -144,19 +144,27 @@ At the time of writing, the Fig integration with Alacritty is a preview. Follow 
 
 ## ⏫ Adding Additional Dotfiles
 
-Naturally, there will dotfiles of your own that are missing from this repository. Adding them to this project allows a centralized location to symlink, maintain, and version control.
+Naturally, there will dotfiles of your own that are missing from this repository. Adding them to this directory allows a centralized location to symlink, maintain, and version control.
 
-Files that are kept directly in `$HOME` should be kept inside an
+`stow` is used to create symbolic links to your `$HOME` directory. An example of the expected folder structure is shown below. The top level directory should correspond to the name of the package, while the contents will be symlinked relative to your `$HOME` directory.
 
-`system/create_symbolic_links.sh`
+```
+nvim
+├── .config
+│   └── nvim
+│       ├── init.vim
+│       └── plug.vim
+└── .vimrc
+```
 
-- Directories inside `.config` (e.g. `.config/nvim/*`) will symlink the folder and contained files to `$HOME/.config/`
-- Directories
-- Directories that do not start with a `.` (e.g. `tmux/.tmux.conf`) will symlink the contained files directly to `$HOME`
+Once the new files are created, the `symlink_dirs` file needs to be updated with the directory name.
 
 ```bash
-make links
+# Example
+echo 'nvim' >> symlink_dirs
 ```
+
+Lastly, run `make links` to create the new symbolic links.
 
 ## 📑 License
 

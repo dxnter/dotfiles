@@ -7,16 +7,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 create_symlinks() {
-	PACKAGES=(
-		alacritty
-		asdf
-		git
-		nvim
-		tmux
-		zsh
-	)
-
-	for PKG in ${PACKAGES[@]}; do
+	while read PKG; do
 		CONFLICTS=$(stow --no --verbose $PKG 2>&1 | awk '/\* existing target is/ {print $NF}')
 		for filename in ${CONFLICTS[@]}; do
 			if [[ -f $HOME/$filename || -L $HOME/$filename ]]; then
@@ -27,7 +18,7 @@ create_symlinks() {
 
 		execute "stow --no-folding --verbose $PKG" \
 			"Linked $PKG"
-	done
+	done < "$HOME/.dotfiles/packages.txt"
 
 }
 

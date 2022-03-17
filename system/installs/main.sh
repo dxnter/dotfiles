@@ -16,6 +16,7 @@ print_info "• Installs"
 ./cli_tools.sh
 ./ctf_tools.sh
 
+./../create_symlinks.sh
 ./asdf.sh
 ./python.sh
 ./nodejs.sh
