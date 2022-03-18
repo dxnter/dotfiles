@@ -18,7 +18,7 @@ create_symlinks() {
 
 		execute "stow --no-folding --verbose $PKG" \
 			"Linked $PKG"
-	done < "$HOME/.dotfiles/packages.txt"
+	done < "$HOME/.dotfiles/symlink_dirs"
 
 }
 
