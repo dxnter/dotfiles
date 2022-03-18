@@ -1,8 +1,8 @@
 # Shortcuts
 alias c="clear"
 alias code="code -n"
-alias change="code ~/.zshrc"
-alias update="source ~/.zshrc"
+alias change="code ~/.config/zsh/.zshrc"
+alias update="source ~/.config/zsh/.zshrc"
 alias grep="rg"
 alias cat="bat"
 alias diff="delta"
