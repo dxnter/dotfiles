@@ -8,6 +8,9 @@ export ACCEPT_EULA=Y
 setup:
 		./system/setup.sh
 
+backup:
+		./system/backup.sh
+
 gpg:
 		./system/create_gpg_key.sh
 
@@ -20,4 +23,4 @@ unlink:
 prefs:
 		./system/preferences/main.sh
 
-.PHONY: setup gpg links unlink prefs
+.PHONY: setup backup gpg links unlink prefs

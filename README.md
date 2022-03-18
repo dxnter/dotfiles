@@ -2,13 +2,11 @@
 
 # dotfiles
 
-[![Platform](https://img.shields.io/static/v1?label=platform&message=macOS&color=success&style=flat-square&logo=apple)](https://www.apple.com/macos)
-[![Commit Activity](https://img.shields.io/github/commit-activity/m/dxnter/dotfiles?color=success&style=flat-square)](https://github.com/dxnter/dotfiles/commits/main)
-[![License](https://img.shields.io/github/license/dxnter/dotfiles?color=success&logo=github&style=flat-square)](https://github.com/dxnter/dotfiles/blob/main/LICENSE)
+[![Platform](https://img.shields.io/static/v1?label=platform&message=macOS&color=white&style=flat-square&logo=apple)](https://www.apple.com/macos)
 
 Fully automated macOS software installation/configuration, modified system preferences, and extra necessities.
 
-⚠️ **Warning:** The software I use and configuration defined are catered to my individual use. I strongly recommend forking this repository, reviewing the [setup script](https://github.com/dxnter/dotfiles/blob/main/system/setup.sh) and making changes to any other files before running the script.
+⚠️ **Warning:** The software I use and configuration defined are catered to my individual use. I strongly recommend forking this repository, reviewing the [setup script](https://github.com/dxnter/dotfiles/blob/main/system/setup.sh), and making changes to any other files before running the script.
 
 <details open="open">
   <summary>Table of Contents</summary>
@@ -17,8 +15,9 @@ Fully automated macOS software installation/configuration, modified system prefe
       <a href="#setup">🔧 Setup</a>
       <ul>
         <li><a href="#requirements">Requirements</a></li>
-        <li><a href="#installation">Installation</a></li>
-        <li><a href="#system-preferences">System Preferences</a></li>
+        <li><a href="#installation">🚀 Installation</a></li>
+        <li><a href="#caveat">⚠️  Caveat</a></li>
+        <li><a href="#usage">💡 Usage</a></li>
       </ul>
     </li>
     <li>
@@ -44,8 +43,9 @@ Fully automated macOS software installation/configuration, modified system prefe
     </li>
     <li><a href="#adding-dotfiles">⏫ Adding Dotfiles</a></li>
     <li><a href="#system-prefs">⚙️ System Preferences</a></li>
-    <li><a href="#license">📑 License</a></li>
     <li><a href="#acknowledgments">👏 Acknowledgments</a></li>
+    <li><a href="#license">📝 License</a></li>
+
   </ul>
 </details>
 
@@ -62,22 +62,34 @@ sudo softwareupdate -i -a
 xcode-select --install
 ```
 
-<h3 id="installation">Installation</h3>
+<h3 id="installation">🚀 Installation</h3>
 
-1. Clone the repository locally:
+Clone the repository locally
 
 ```bash
 git clone https://github.com/dxnter/dotfiles.git ~/.dotfiles
 ```
 
-2. Run the setup script:
+<h3 id="caveat">⚠️ Caveat</h3>
+
+Be aware that the setup script will **_overwrite_** existing dotfiles with local versions in this repository. Create a backup if you are not running the dotfiles setup on a fresh macOS installation.
+
+```bash
+make backup
+```
+
+The files will be saved inside `~/.dotfiles/backup`.
+
+<h3 id="usage">💡 Usage</h3>
+
+Run the setup script
 
 ```bash
 cd ~/.dotfiles
 make
 ```
 
-3. After the installation script is complete and your system restarts, a GPG key needs to be generated to sign commits. After completion, your public GPG key will be copied to the clipboard and a GitHub page will open in your browser. Select **New GPG Key** at the bottom and paste inside the textbox.
+After the installation script is complete and your system restarts, a GPG key needs to be generated to sign commits. After completion, your public GPG key will be copied to the clipboard and a GitHub page will open in your browser. Select **New GPG Key** at the bottom and paste inside the textbox.
 
 ```bash
 make gpg
@@ -209,7 +221,7 @@ Once the new files are created, the `symlink_dirs` file needs to be updated with
 echo 'nvim' >> symlink_dirs
 ```
 
-Create symlinks for the newly created files with
+Lastly, create symlinks for the newly created files
 
 ```bash
 make links
@@ -233,3 +245,7 @@ make prefs
 
 - [alraa/dotfiles](https://github.com/alrra/dotfiles)
 - [webpro/dotfiles](https://github.com/webpro/dotfiles)
+
+<h2 id="license">📝 License</h2>
+
+Usage is provided under the [MIT License](https://github.com/dxnter/dotfiles/blob/main/LICENSE).
