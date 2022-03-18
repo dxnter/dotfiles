@@ -6,9 +6,51 @@ Fully automated macOS software installation/configuration, modified system prefe
 
 ⚠️ **Warning:** This repository does not serve as a universal macOS setup script. The software I use and configuration defined are catered to my individual use. I recommend reviewing the [setup script](https://github.com/dxnter/dotfiles/blob/main/system/setup.sh) and making changes to any other files before running the script.
 
-## 🔧 Setup
+<details open="open">
+  <summary>Table of Contents</summary>
+  <ul>
+    <li>
+      <a href="#setup">🔧 Setup</a>
+      <ul>
+        <li><a href="#requirements">Requirements</a></li>
+        <li><a href="#installation"> ➤ Installation</a></li>
+        <li><a href="#configuration"> ➤ Configuration</a></li>
+        <li><a href="#usage"> ➤ Usage</a></li>
+        <li><a href="#deployment"> ➤ Deployment</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#customize">⚙️ Customize</a>
+      <ul>
+        <li>
+        <a href="#local-settings">Local Settings</a>
+        <ul>
+            <li><a href="#zshrclocal">~/.zshrc.local</a></li>
+            <li><a href="#gitconfiglocal">~/.gitconfig.local</a></li>
+            <li><a href="#vimrclocal">~/.vimrc.local</a></li>
+        </ul>
+        </li>
+        <li>
+        <a href="#miscellaneous">Miscellaneous</a>
+        <ul>
+            <li><a href="#firefox">🦊 Firefox</a></li>
+            <li><a href="#ublock">🛡️ uBlock Origin</a></li>
+            <li><a href="#fig">🔳 Fig Alacritty Integration</a></li>
+        </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#adding-dotfiles">⏫ Adding Dotfiles</a></li>
+    <li><a href="#license">📑 License</a></li>
+    <li><a href="#acknowledgments">👏 Acknowledgments</a></li>
+  </ul>
+</details>
 
-### Requirements
+----
+
+<h2 id="setup">🔧 Setup</h2>
+
+<h3 id="requirements">Requirements</h3>
 
 Xcode Command Line Tools include the `git` and `make` requirement. Install them in the terminal.
 
@@ -17,7 +59,7 @@ sudo softwareupdate -i -a
 xcode-select --install
 ```
 
-### Installation
+<h3 id="installation">Installation</h3>
 
 1. Clone the repository locally:
 
@@ -38,9 +80,9 @@ make
 make gpg
 ```
 
-## ⚙️ Customize
+<h2 id="customize">⚙️ Customize</h3>
 
-### Local Settings
+<h3 id="local-settings">Local Settings</h3>
 
 The dotfiles can be easily extended to suit additional local
 requirements by using the following files:
@@ -115,22 +157,22 @@ nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up>    :echoe "Use k"<CR>
 ```
 
-### Miscellaneous
+<h3 id="miscellaneous">Miscellaneous</h3>
 
-#### 🦊 Firefox
+<h4 id="firefox">🦊 Firefox</h4>
 
 1. Open `about:support`
 2. Next to **Profile Folder** click **Show in Finder**
 3. Close Firefox
 4. Copy/Paste the `/extras/user.js` file into the profile directory
 
-#### 🛡️ uBlock Origin
+<h4 id="ublock">🛡️ uBlock Origin</h4>
 
 1. Paste the contents of `extras/ublock-filters.txt` in **My filters** and **Apply changes**
 2. Enable **AdGuard URL Tracking Protection** under the **Privacy** category
 3. Add the [LegitimateURLShortener](https://raw.githubusercontent.com/DandelionSprout/adfilt/master/LegitimateURLShortener.txt) URL under **Custom**
 
-#### 🔳 Fig Alacritty Integration
+<h4 id="fig">🔳 Fig Alacritty Integration</h4>
 
 At the time of writing, the Fig integration with Alacritty is a preview. Follow these steps to enable Fig in Alacritty.
 
@@ -142,7 +184,7 @@ At the time of writing, the Fig integration with Alacritty is a preview. Follow 
 
 ---
 
-## ⏫ Adding Additional Dotfiles
+<h2 id="adding-dotfiles">⏫ Adding Dotfiles</h2>
 
 Naturally, there will be dotfiles of your own that are missing from this repository. Adding them to this directory allows a centralized location to symlink, maintain, and version control.
 
@@ -166,11 +208,11 @@ echo 'nvim' >> symlink_dirs
 
 Lastly, run `make link` to create the new symbolic links.
 
-## 📑 License
+<h2 id="license">📑 License</h2>
 
 Usage is provided under the [MIT License](https://opensource.org/licenses/MIT).
 
-## 👏 Acknowledgments
+<h2 id="acknowledgments">👏 Acknowledgments</h2>
 
 - [alraa/dotfiles](https://github.com/alrra/dotfiles)
 - [webpro/dotfiles](https://github.com/webpro/dotfiles)
