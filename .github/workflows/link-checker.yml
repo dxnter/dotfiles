@@ -1,6 +1,12 @@
 name: Check Markdown links
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
+  schedule:
+    # Run every Monday at 8:00 AM (CST)
+    - cron: "0 12 * * 1"
 
 jobs:
   markdown-link-check:
