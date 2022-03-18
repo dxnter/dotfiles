@@ -2,9 +2,9 @@
 
 # dotfiles
 
+[![Platform](https://img.shields.io/static/v1?label=platform&message=macOS&color=success&style=flat-square&logo=apple)](https://www.apple.com/macos)
+[![Commit Activity](https://img.shields.io/github/commit-activity/m/dxnter/dotfiles?color=success&style=flat-square)](https://github.com/dxnter/dotfiles/commits/main)
 [![License](https://img.shields.io/github/license/dxnter/dotfiles?color=success&logo=github&style=flat-square)](https://github.com/dxnter/dotfiles/blob/main/LICENSE)
-
-[![Platform](https://img.shields.io/static/v1?label=platform&message=macOS&color=success&style=flat-square&logo=apple)](https://github.com/dxnter/dotfiles/blob/main/LICENSE)
 
 Fully automated macOS software installation/configuration, modified system preferences, and extra necessities.
 
