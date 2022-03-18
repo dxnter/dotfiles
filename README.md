@@ -112,9 +112,9 @@ alias g="git"
 
 Any other universal modifications to the shell should take place in the appropriate file.
 
-- `~/.config/zsh/.zshenv` → Environment variables, `$PATH` exports, and global directory paths
-- `~/.config/zsh/.aliases` → Command aliases
-- `~/.config/zsh/.zshrc` → Theme, sourcing, and plugin settings
+- `./zsh/.config/zsh/.zshenv` → Environment variables, `$PATH` exports, and global directory paths
+- `./zsh/.config/zsh/.aliases` → Command aliases
+- `./zsh/.config/zsh/.zshrc` → Theme, sourcing, and plugin settings
 
 #### `~/.gitconfig.local`
 
@@ -205,7 +205,17 @@ Once the new files are created, the `symlink_dirs` file needs to be updated with
 echo 'nvim' >> symlink_dirs
 ```
 
-Lastly, run `make link` to create the new symbolic links.
+Create symlinks for the newly created files with
+
+```bash
+make links
+```
+
+Remove all created symlinks
+
+```bash
+make unlink
+```
 
 <h2 id="system-prefs">⚙️ System Preferences</h2>
 

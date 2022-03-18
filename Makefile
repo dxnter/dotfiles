@@ -11,10 +11,13 @@ setup:
 gpg:
 		./system/create_gpg_key.sh
 
-link:
+links:
 		./system/create_symlinks.sh
+
+unlink:
+		./system/remove_symlinks.sh
 
 prefs:
 		./system/preferences/main.sh
 
-.PHONY: setup gpg link prefs
+.PHONY: setup gpg links unlink prefs
