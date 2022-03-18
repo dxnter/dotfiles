@@ -26,6 +26,7 @@ print_info "• Installs"
 
 ./video_tools.sh
 ./browsers.sh
+./amm.sh
 ./fonts.sh
 ./misc.sh
 
