@@ -24,11 +24,11 @@ Fully automated macOS software installation/configuration, modified system prefe
       <a href="#customize">🎨 Customize</a>
       <ul>
         <li>
-        <a href="#local-settings">Local Settings</a>
+        <a href="#local-settings">🌐 Local Settings</a>
         <ul>
-            <li><a href="#zshrclocal">~/.zshrc.local</a></li>
-            <li><a href="#gitconfiglocal">~/.gitconfig.local</a></li>
-            <li><a href="#vimrclocal">~/.vimrc.local</a></li>
+            <li><a href="#zshrclocal">🐚 ~/.zshrc.local</a></li>
+            <li><a href="#gitconfiglocal">🔁 ~/.gitconfig.local</a></li>
+            <li><a href="#vimrclocal">⌨️ ~/.vimrc.local</a></li>
         </ul>
         </li>
         <li>
