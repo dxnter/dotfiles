@@ -4,7 +4,7 @@
 
 Fully automated macOS software installation/configuration, modified system preferences, and extra necessities.
 
-⚠️ **Warning:** This repository does not serve as a universal macOS setup script. The software I use and configuration defined are catered to my individual use. I recommend reviewing the [setup script](https://github.com/dxnter/dotfiles/blob/main/system/setup.sh) and making changes to any other files before running the script.
+⚠️ **Warning:** The software I use and configuration defined are catered to my individual use. I recommend reviewing the [setup script](https://github.com/dxnter/dotfiles/blob/main/system/setup.sh) and making changes to any other files before running the script.
 
 <details open="open">
   <summary>Table of Contents</summary>
@@ -13,14 +13,12 @@ Fully automated macOS software installation/configuration, modified system prefe
       <a href="#setup">🔧 Setup</a>
       <ul>
         <li><a href="#requirements">Requirements</a></li>
-        <li><a href="#installation"> ➤ Installation</a></li>
-        <li><a href="#configuration"> ➤ Configuration</a></li>
-        <li><a href="#usage"> ➤ Usage</a></li>
-        <li><a href="#deployment"> ➤ Deployment</a></li>
+        <li><a href="#installation">Installation</a></li>
+        <li><a href="#system-preferences">System Preferences</a></li>
       </ul>
     </li>
     <li>
-      <a href="#customize">⚙️ Customize</a>
+      <a href="#customize">🎨 Customize</a>
       <ul>
         <li>
         <a href="#local-settings">Local Settings</a>
@@ -41,18 +39,19 @@ Fully automated macOS software installation/configuration, modified system prefe
       </ul>
     </li>
     <li><a href="#adding-dotfiles">⏫ Adding Dotfiles</a></li>
+    <li><a href="#system-prefs">⚙️ System Preferences</a></li>
     <li><a href="#license">📑 License</a></li>
     <li><a href="#acknowledgments">👏 Acknowledgments</a></li>
   </ul>
 </details>
 
-----
+---
 
 <h2 id="setup">🔧 Setup</h2>
 
 <h3 id="requirements">Requirements</h3>
 
-Xcode Command Line Tools include the `git` and `make` requirement. Install them in the terminal.
+Run the following commands in the terminal to ensure the latest version of macOS is being used and to install the Xcode Command Line Tools.
 
 ```bash
 sudo softwareupdate -i -a
@@ -80,7 +79,7 @@ make
 make gpg
 ```
 
-<h2 id="customize">⚙️ Customize</h3>
+<h2 id="customize">🎨 Customize</h3>
 
 <h3 id="local-settings">Local Settings</h3>
 
@@ -207,6 +206,14 @@ echo 'nvim' >> symlink_dirs
 ```
 
 Lastly, run `make link` to create the new symbolic links.
+
+<h2 id="system-prefs">⚙️ System Preferences</h2>
+
+The standard installation already makes modifications to the System Preferences, but they can also be made independently if you do not wish to run the entire installation.
+
+```bash
+make prefs
+```
 
 <h2 id="license">📑 License</h2>
 

@@ -14,4 +14,7 @@ gpg:
 link:
 		./system/create_symlinks.sh
 
-.PHONY: setup gpg link
+prefs:
+		./system/preferences/main.sh
+
+.PHONY: setup gpg link prefs
