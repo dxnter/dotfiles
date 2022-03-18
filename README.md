@@ -14,7 +14,7 @@ Fully automated macOS software installation/configuration, modified system prefe
     <li>
       <a href="#setup">🔧 Setup</a>
       <ul>
-        <li><a href="#requirements">Requirements</a></li>
+        <li><a href="#requirements">✅ Requirements</a></li>
         <li><a href="#installation">🚀 Installation</a></li>
         <li><a href="#caveat">⚠️  Caveat</a></li>
         <li><a href="#usage">💡 Usage</a></li>
@@ -53,7 +53,7 @@ Fully automated macOS software installation/configuration, modified system prefe
 
 <h2 id="setup">🔧 Setup</h2>
 
-<h3 id="requirements">Requirements</h3>
+<h3 id="requirements">✅ Requirements</h3>
 
 Run the following commands in the terminal to ensure the latest version of macOS is being used and to install the Xcode Command Line Tools.
 
