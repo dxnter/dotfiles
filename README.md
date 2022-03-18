@@ -36,7 +36,7 @@ Fully automated macOS software installation/configuration, modified system prefe
         <ul>
             <li><a href="#firefox">🦊 Firefox</a></li>
             <li><a href="#ublock">🛡️ uBlock Origin</a></li>
-            <li><a href="#fig">🔳 Fig Alacritty Integration</a></li>
+            <li><a href="#fig">🔳 Fig - Alacritty Integration</a></li>
         </ul>
         </li>
       </ul>
@@ -183,17 +183,17 @@ nnoremap <Up>    :echoe "Use k"<CR>
 
 <h4 id="ublock">🛡️ uBlock Origin</h4>
 
-1. Paste the contents of `extras/ublock-filters.txt` in **My filters** and **Apply changes**
-2. Enable **AdGuard URL Tracking Protection** under the **Privacy** category
-3. Add the [LegitimateURLShortener](https://raw.githubusercontent.com/DandelionSprout/adfilt/master/LegitimateURLShortener.txt) URL under **Custom**
+1. Select the uBlock Origin extension widget and **Open the dashboard** in the bottom right corner
+2. Under **My filters**, paste the contents of `extras/ublock-filters.txt` inside and **Apply changes**
+3. Under **Filter lists**, enable **AdGuard URL Tracking Protection** under the **Privacy** category. Under **Custom**, select **Import** and paste the URL of [Actually Legitimate URL Shortener Tool](https://raw.githubusercontent.com/DandelionSprout/adfilt/master/LegitimateURLShortener.txt).
 
-<h4 id="fig">🔳 Fig Alacritty Integration</h4>
+<h4 id="fig">🔳 Fig - Alacritty Integration</h4>
 
 At the time of writing, the Fig integration with Alacritty is a preview. Follow these steps to enable Fig in Alacritty.
 
 1. Run `fig settings integrations.experimental true` and then restart the Fig app
 2. Click the Fig menubar icon > Integrations > Alacritty > "Attempt to Install"
-3. Go to a terminal and run `fig debug ime enable`. A System Preferences window will appear and prompt you to install a third party Input Method.
+3. Go to a terminal and run `fig debug ime enable`. A System Preferences window will appear and prompt you to install a third-party Input Method.
 4. Run `fig debug ime select`
 5. Restart Alacritty
 
@@ -203,7 +203,7 @@ At the time of writing, the Fig integration with Alacritty is a preview. Follow 
 
 Naturally, there will be dotfiles of your own that are missing from this repository. Adding them to this directory allows a centralized location to symlink, maintain, and version control.
 
-`stow` is used to create symbolic links to your `$HOME` directory. An example of the expected folder structure is shown below. The top level directory should correspond to the name of the package, while the contents will be symlinked relative to your `$HOME` directory.
+`stow` is used to create symbolic links to your `$HOME` directory. An example of the expected folder structure is shown below. The top-level directory should correspond to the name of the package, while the contents will be symlinked relative to your `$HOME` directory.
 
 ```
 nvim
@@ -235,7 +235,7 @@ make unlink
 
 <h2 id="system-prefs">⚙️ System Preferences</h2>
 
-The standard installation already makes modifications to the System Preferences, but they can also be made independently if you do not wish to run the entire installation.
+The standard installation makes modifications to the System Preferences. However, they can also be made independently if you do not wish to run the entire installation.
 
 ```bash
 make prefs
