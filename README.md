@@ -2,9 +2,13 @@
 
 # dotfiles
 
+[![License](https://img.shields.io/github/license/dxnter/dotfiles?color=success&logo=github&style=flat-square)](https://github.com/dxnter/dotfiles/blob/main/LICENSE)
+
+[![Platform](https://img.shields.io/static/v1?label=platform&message=macOS&color=success&style=flat-square&logo=apple)](https://github.com/dxnter/dotfiles/blob/main/LICENSE)
+
 Fully automated macOS software installation/configuration, modified system preferences, and extra necessities.
 
-⚠️ **Warning:** The software I use and configuration defined are catered to my individual use. I recommend reviewing the [setup script](https://github.com/dxnter/dotfiles/blob/main/system/setup.sh) and making changes to any other files before running the script.
+⚠️ **Warning:** The software I use and configuration defined are catered to my individual use. I strongly recommend forking this repository, reviewing the [setup script](https://github.com/dxnter/dotfiles/blob/main/system/setup.sh) and making changes to any other files before running the script.
 
 <details open="open">
   <summary>Table of Contents</summary>
@@ -224,10 +228,6 @@ The standard installation already makes modifications to the System Preferences,
 ```bash
 make prefs
 ```
-
-<h2 id="license">📑 License</h2>
-
-Usage is provided under the [MIT License](https://opensource.org/licenses/MIT).
 
 <h2 id="acknowledgments">👏 Acknowledgments</h2>
 
