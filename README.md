@@ -1,8 +1,10 @@
+![cover](./images/cover.png)
+
 # dotfiles
 
 Fully automated macOS software installation/configuration, modified system preferences, and extra necessities.
 
-This repository does not serve as a universal macOS setup script. The software I use and configuration defined are catered to my individual use. I recommend reviewing the [setup script](https://github.com/dxnter/dotfiles/blob/main/system/setup.sh) and making changes to any other files before running the script.
+⚠️ **Warning:** This repository does not serve as a universal macOS setup script. The software I use and configuration defined are catered to my individual use. I recommend reviewing the [setup script](https://github.com/dxnter/dotfiles/blob/main/system/setup.sh) and making changes to any other files before running the script.
 
 ## 🔧 Setup
 
@@ -58,9 +60,7 @@ Here is an example:
 
 # Set PATH additions.
 
-PATH="$HOME/.composer/vendor/bin:$PATH"
-
-export PATH
+export PATH="$HOME/.composer/vendor/bin:$PATH"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -124,7 +124,7 @@ nnoremap <Up>    :echoe "Use k"<CR>
 3. Close Firefox
 4. Copy/Paste the `/extras/user.js` file into the profile directory
 
-#### 🟥 uBlock Origin
+#### 🛡️ uBlock Origin
 
 1. Paste the contents of `extras/ublock-filters.txt` in **My filters** and **Apply changes**
 2. Enable **AdGuard URL Tracking Protection** under the **Privacy** category
@@ -144,7 +144,7 @@ At the time of writing, the Fig integration with Alacritty is a preview. Follow 
 
 ## ⏫ Adding Additional Dotfiles
 
-Naturally, there will dotfiles of your own that are missing from this repository. Adding them to this directory allows a centralized location to symlink, maintain, and version control.
+Naturally, there will be dotfiles of your own that are missing from this repository. Adding them to this directory allows a centralized location to symlink, maintain, and version control.
 
 `stow` is used to create symbolic links to your `$HOME` directory. An example of the expected folder structure is shown below. The top level directory should correspond to the name of the package, while the contents will be symlinked relative to your `$HOME` directory.
 
@@ -164,7 +164,7 @@ Once the new files are created, the `symlink_dirs` file needs to be updated with
 echo 'nvim' >> symlink_dirs
 ```
 
-Lastly, run `make links` to create the new symbolic links.
+Lastly, run `make link` to create the new symbolic links.
 
 ## 📑 License
 
