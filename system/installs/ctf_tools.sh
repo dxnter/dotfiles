@@ -7,7 +7,6 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 
 print_info "• CTF Tools"
 
-brew_install "aircrack-ng" "aircrack-ng"
 brew_install "bfg" "bfg"
 brew_install "binutils" "binutils"
 brew_install "binwalk" "binwalk"
