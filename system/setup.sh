@@ -18,7 +18,8 @@ main() {
 
     if [ -x "utils.sh" ]; then
         . "utils.sh" || exit 1
-
+    fi
+    
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     # Ensure the OS is macOS and
