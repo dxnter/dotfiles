@@ -60,6 +60,9 @@ main() {
     print_info "• Homebrew"
 
     install_homebrew
+    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+    
     opt_out_of_analytics
 
     brew_update
