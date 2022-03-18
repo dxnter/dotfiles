@@ -2,7 +2,6 @@ export XDG_CONFIG_HOME="${HOME}/.config"
 export XDG_CACHE_HOME="${HOME}/.cache"
 export XDG_LOCAL_HOME="${HOME}/.local"
 export XDG_DATA_HOME="${XDG_LOCAL_HOME}/share"
-export ZSH="${XDG_CONFIG_HOME}/oh-my-zsh"
 
 if [[ ! -d "${XDG_CONFIG_HOME}/zsh" ]]; then
 	mkdir -p "${XDG_CONFIG_HOME}/zsh"
@@ -15,6 +14,9 @@ fi
 export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
 export ZSH="${XDG_CONFIG_HOME}/zsh/.oh-my-zsh"
 export ZSH_COMPDUMP="${XDG_CACHE_HOME}/zsh/zcompdump-${SHORT_HOST}-${ZSH_VERSION}"
+
+export DOTFILES_DIR="${HOME}/.dotfiles"
+export DOTFILES_IDE="code"
 
 # Language
 export LANGUAGE="en_US.UTF-8"
@@ -47,6 +49,9 @@ export PATH="$PATH:$HOME/bin"
 
 # Local bin
 export PATH="$HOME/.local/bin:$PATH"
+
+# dotfiles utilities
+export PATH="$DOTFILES_DIR/bin:$PATH"
 
 # Homebrew
 export PATH="/opt/homebrew/bin:$PATH"
