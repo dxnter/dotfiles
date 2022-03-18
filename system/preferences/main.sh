@@ -1,10 +1,25 @@
 #!/usr/bin/env bash
 
-cd "$(dirname "${BASH_SOURCE[0]}")"
+cd "$(dirname "${BASH_SOURCE[0]}")" \
+    && . "../utils.sh"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+# Ensure the OS is macOS and
+# it's above the required version.
+
+verify_os \
+    || exit 1
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 print_info "• Preferences"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+ask_for_sudo
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 # Close any open `System Preferences` panes in order to
 # avoid overriding the preferences that are being changed.
@@ -28,4 +43,8 @@ print_info "• Preferences"
 ./transmission.sh
 ./ui_and_ux.sh
 ./network.sh
-./dockutil.sh
+
+ask_for_confirmation "Do you want to clear the dock and set it to applications in system/preferences/dockutil.sh?\n"
+if answer_is_yes; then
+    ./dockutil.sh
+fi
