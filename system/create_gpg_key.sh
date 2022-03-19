@@ -12,13 +12,12 @@ add_gpg_config() {
     printf "%s\n" \
         "auto-key-retrieve" \
         "no-emit-version" \
-        "use-agent" \
-        "no-tty" >> ~/.gnupg/gpg.conf
+        "use-agent" > ~/.gnupg/gpg.conf
 
     printf "%s\n" \
         "default-cache-ttl 600" \
         "max-cache-ttl 7200" \
-        "pinentry-program $(brew --prefix)/bin/pinentry-mac" >> ~/.gnupg/gpg-agent.conf
+        "pinentry-program $(brew --prefix)/bin/pinentry-mac" > ~/.gnupg/gpg-agent.conf
 
     execute "chmod 700 ~/.gnupg" \
         "Set permissions for gpg directory"
@@ -37,7 +36,7 @@ generate_gpg_key() {
 
 modify_local_git_config() {
 
-    sed -i '' 's|signingkey =|signingkey = '"$gpgIdentifier"'|g' ~/test.txt
+    sed -i '' 's|signingkey =|signingkey = '"$gpgIdentifier"'|g' ~/.gitconfig.local
 
     print_result $? "Add GPG Key $gpgIdentifier to .gitconfig.local"
 }
