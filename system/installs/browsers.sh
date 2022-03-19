@@ -9,7 +9,7 @@ print_info "• Browsers"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-brew_install "Chrome Canary" "google-chrome-canary" "--cask" "homebrew/cask-versions"
+brew_install "Brave" "brave-browser" "--cask"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
