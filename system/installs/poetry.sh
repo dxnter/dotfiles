@@ -16,7 +16,8 @@ else
       pythonPath="/opt/homebrew/bin/python3"
   else
       pythonPath="/usr/local/bin/python3"
+  fi
 
-  execute "curl -sSL https://install.python-poetry.org | "$pythonPath" -" \
+  execute "curl -sSL https://install.python-poetry.org | $pythonPath -" \
       "Installing Poetry"
 fi
