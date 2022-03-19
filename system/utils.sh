@@ -446,4 +446,8 @@ brew_external_sources() {
     execute \
         "$brewCommand tap homebrew/cask" \
         "homebrew/cask tapped"
+
+    execute \
+        "$brewCommand tap homebrew/cask-fonts" \
+        "homebrew/cask-fonts tapped"
 }

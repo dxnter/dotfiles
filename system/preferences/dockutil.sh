@@ -25,12 +25,6 @@ execute "$dockutil --no-restart --add '/Applications/Spotify.app'" \
 execute "$dockutil --no-restart --add '/Applications/Discord.app'" \
     "Discord"
 
-execute "$dockutil --no-restart --add '/Applications/Microsoft Outlook.app'" \
-    "Microsoft Outlook"
-
-execute "$dockutil --no-restart --add '/Applications/Microsoft Teams.app'" \
-    "Microsoft Teams"
-
 execute "$dockutil --no-restart --add '/Applications/zoom.us.app'" \
     "Zoom"
 

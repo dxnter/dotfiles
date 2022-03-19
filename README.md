@@ -55,11 +55,14 @@ Fully automated macOS software installation/configuration, modified system prefe
 
 <h3 id="requirements">✅ Requirements</h3>
 
-Run the following commands in the terminal to ensure the latest version of macOS is being used and to install the Xcode Command Line Tools.
+Run the following commands in the terminal to ensure the latest version of macOS is being used and to install the Xcode Command Line Tools. If you're running a device with an M1 chipset, run the last command to install Rosetta 2.
 
 ```bash
 sudo softwareupdate -i -a
 xcode-select --install
+
+# M1 CPU Only
+sudo softwareupdate --install-rosetta
 ```
 
 <h3 id="installation">🚀 Installation</h3>
