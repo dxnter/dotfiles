@@ -16,5 +16,3 @@ if [ ! -d "${asdf_home}" ]; then
 else
   print_info "asdf already installed => skipping"
 fi
-
-print_success "asdf installed"

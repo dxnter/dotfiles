@@ -18,7 +18,6 @@ print_info "• Installs"
 
 ./../create_symlinks.sh
 ./asdf.sh
-./python.sh
 ./nodejs.sh
 ./poetry.sh
 ./rust.sh
