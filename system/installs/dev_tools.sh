@@ -12,6 +12,7 @@ brew_install "Docker" "docker"
 brew_install "Docker Compose" "docker-compose"
 brew_install "HTTP Server" "http-server"
 brew_install "Redis" "redis"
+brew_install "Python" "python"
 
 # GUI Tools
 brew_install "Visual Studio Code" "visual-studio-code" "--cask"
