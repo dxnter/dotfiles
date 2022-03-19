@@ -10,7 +10,7 @@ print_info "• Poetry"
 if type poetry >/dev/null 2>&1; then
   print_info "Poetry already installed => skipping"
 else
-  local pythonPath = ""
+  pythonPath=""
 
   if [[ "$(arch)" == "arm64" ]]; then
       pythonPath="/opt/homebrew/bin/python3"
