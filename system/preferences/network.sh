@@ -3,18 +3,23 @@
 cd "$(dirname "${BASH_SOURCE[0]}")" \
     && . "../utils.sh"
 
+activeNetwork=$(route get default | grep interface | awk '{print $2}')
+activeNetworkName=$(/usr/sbin/networksetup -listnetworkserviceorder | awk -v DEV="$activeNetwork" -F': |,' '$0~ DEV  {print $2;exit;}')
+
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 print_info "• Network"
+
+execute "networksetup -setdnsservers $activeNetworkName 1.1.1.1 1.0.0.1 2606:4700:4700::1111 2606:4700:4700::1001" \
+    "Set DNS servers to Cloudflare"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 execute "networksetup -setairportpower en0 off" \
     "Turn off network interfaces"
 
 execute "echo '127.0.0.1 ocsp.apple.com' | sudo tee -a /etc/hosts" \
     "Block application launch information from being sent to Apple"
-
-execute "networksetup -setdnsservers Wi-Fi 1.1.1.1 1.0.0.1 2606:4700:4700::1111 2606:4700:4700::1001" \
-    "Set DNS servers to Cloudflare"
 
 execute "sudo defaults write /Library/Preferences/com.apple.alf globalstate -int 1 && \
          sudo defaults write /Library/Preferences/com.apple.alf stealthenabled -int 1 && \
