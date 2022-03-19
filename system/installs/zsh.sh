@@ -4,6 +4,73 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
     && . "../utils.sh"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+change_default_shell_to_zsh() {
+
+  declare -r LOCAL_SHELL_CONFIG_FILE="$HOME/.zshrc.local"
+
+  local configs=""
+  local pathConfig=""
+
+  local shellPath=""
+  local brewPrefix=""
+
+  # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  # Try to get the path of the `Bash`
+    # version installed through `Homebrew`.
+
+    brewPrefix="$(brew_prefix)" \
+        || return 1
+
+    pathConfig="PATH=\"$brewPrefix/bin:\$PATH\""
+    configs="
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+$pathConfig
+export PATH
+"
+
+    shellPath="$brewPrefix/bin/zsh" \
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    # Add the path of the `Bash` version installed through `Homebrew`
+    # to the list of login shells from the `/etc/shells` file.
+    #
+    # This needs to be done because applications use this file to
+    # determine whether a shell is valid (e.g.: `chsh` consults the
+    # `/etc/shells` to determine whether an unprivileged user may
+    # change the login shell for her own account).
+    #
+    # http://www.linuxfromscratch.org/blfs/view/7.4/postlfs/etcshells.html
+
+    if ! grep "$shellPath" < /etc/shells &> /dev/null; then
+        execute \
+            "printf '%s\n' '$shellPath' | sudo tee -a /etc/shells" \
+            "Zsh (add '$shellPath' in '/etc/shells')" \
+        || return 1
+    fi
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    chsh -s "$shellPath" &> /dev/null
+    print_result $? "Zsh (use latest version)"
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    # If needed, add the necessary configs in the
+    # local shell configuration file.
+
+    if ! grep "^$pathConfig" < "$LOCAL_SHELL_CONFIG_FILE" &> /dev/null; then
+        execute \
+            "printf '%s' '$configs' >> $LOCAL_SHELL_CONFIG_FILE \
+                && . $LOCAL_SHELL_CONFIG_FILE" \
+            "Zsh (update $LOCAL_SHELL_CONFIG_FILE)"
+    fi
+
+}
+
 install_zsh_plugin() {
   local git_url=$1
   local plugin_name=$2
@@ -20,22 +87,12 @@ zsh() {
 
     print_info "• Shell Configuration"
 
-    brew_install "zsh" "zsh"
-
-    [[ -n "$(command -v brew)" ]] && zsh_path="$(brew --prefix)/bin/zsh" || zsh_path="$(which zsh)"
-    if ! grep "$zsh_path" /etc/shells; then
-        print_info "Adding $zsh_path to /etc/shells"
-        echo "$zsh_path" | sudo tee -a /etc/shells
-    fi
-
-    if [[ "$SHELL" != "$zsh_path" ]]; then
-        chsh -s "$zsh_path"
-        print_info "Default shell changed to $zsh_path"
-    fi
+    brew_install "zsh" "zsh" \
+        && change_default_shell_to_zsh
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    print_info "oh-my-zsh"
+    print_info "• oh-my-zsh"
 
     if [ ! -d "$HOME/.config/zsh/.oh-my-zsh" ]; then
         execute "git clone --depth=1 https://github.com/robbyrussell/oh-my-zsh.git ~/.config/zsh/.oh-my-zsh --quiet" \
@@ -46,7 +103,7 @@ zsh() {
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    print_info "oh-my-zsh plugins"
+    print_info "• oh-my-zsh plugins"
 
     execute "install_zsh_plugin https://github.com/asdf-vm/asdf.git asdf" \
         "asdf"
