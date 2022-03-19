@@ -5,6 +5,8 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+export PATH="~/.asdf/bin:$PATH"
+
 nodejs_version="16.13.2"
 
 print_info "• Node.js"

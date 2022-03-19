@@ -9,7 +9,6 @@ print_info "• asdf"
 
 asdf_version="0.9.0"
 asdf_home="$HOME/.asdf"
-export PATH="~/.asdf/bin:$PATH"
 
 if [ ! -d "${asdf_home}" ]; then
   execute "git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch 'v${asdf_version}'" \
