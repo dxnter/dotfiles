@@ -355,15 +355,14 @@ get_brew_bin() {
         brewCommand = "brew"
     elif [[ "$(arch)" == "arm64" ]]; then
         brewCommand="/opt/homebrew/bin/brew"
-    elif [[ "$(arch)" == "x86_64" ]]; then
-        brewCommand="/usr/local/bin/brew"
     else
-        print_error "$FORMULA_READABLE_NAME ('Homebrew' is not installed)"
-        return 1
+        brewCommand="/usr/local/bin/brew"
     fi
+
+    echo "$brewCommand"
 }
 
-brewBin=$(get_brew_bin)
+brewCommand=$(get_brew_bin)
 
 brew_install() {
 
@@ -379,7 +378,7 @@ brew_install() {
 
     if [ -n "$TAP_VALUE" ]; then
         if ! brew_tap "$TAP_VALUE"; then
-            print_error "$FORMULA_READABLE_NAME ('$brewBin tap $TAP_VALUE' failed)"
+            print_error "$FORMULA_READABLE_NAME ('$brewCommand tap $TAP_VALUE' failed)"
             return 1
         fi
     fi
@@ -389,11 +388,11 @@ brew_install() {
     # Install the specified formula.
 
     # shellcheck disable=SC2086
-    if $brewBin list "$FORMULA" &> /dev/null; then
+    if $brewCommand list "$FORMULA" &> /dev/null; then
         print_success "$FORMULA_READABLE_NAME"
     else
         execute \
-            "$brewBin install $FORMULA $ARGUMENTS" \
+            "$brewCommand install $FORMULA $ARGUMENTS" \
             "$FORMULA_READABLE_NAME"
     fi
 
@@ -405,7 +404,7 @@ brew_prefix() {
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    if path="$($brewBin --prefix 2> /dev/null)"; then
+    if path="$($brewCommand --prefix 2> /dev/null)"; then
         printf "%s" "$path"
         return 0
     else
@@ -416,13 +415,13 @@ brew_prefix() {
 }
 
 brew_tap() {
-    $brewBin tap "$1" &> /dev/null
+    $brewCommand tap "$1" &> /dev/null
 }
 
 brew_update() {
 
     execute \
-        "$brewBin update" \
+        "$brewCommand update" \
         "Homebrew (update)"
 
 }
@@ -430,21 +429,21 @@ brew_update() {
 brew_upgrade() {
 
     execute \
-        "$brewBin upgrade" \
+        "$brewCommand upgrade" \
         "Homebrew (upgrade)"
 
 }
 
 brew_external_sources() {
     execute \
-        "$brewBin tap homebrew/bundle" \
+        "$brewCommand tap homebrew/bundle" \
         "homebrew/bundle tapped"
 
     execute \
-        "$brewBin tap homebrew/core" \
+        "$brewCommand tap homebrew/core" \
         "homebrew/core tapped"
 
     execute \
-        "$brewBin tap homebrew/cask" \
+        "$brewCommand tap homebrew/cask" \
         "homebrew/cask tapped"
 }
