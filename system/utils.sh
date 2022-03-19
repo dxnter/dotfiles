@@ -347,22 +347,22 @@ show_spinner() {
     done
 }
 
-get_brew_bin() {
+resolve_bin() {
 
-    local brewCommand=""
+    local command=""
 
-    if cmd_exists "brew"; then
-        brewCommand = "brew"
+    if cmd_exists "$1"; then
+        command="$1"
     elif [[ "$(arch)" == "arm64" ]]; then
-        brewCommand="/opt/homebrew/bin/brew"
+        command="/opt/homebrew/bin/$1"
     else
-        brewCommand="/usr/local/bin/brew"
+        command="/usr/local/bin/$1"
     fi
 
-    echo "$brewCommand"
+    echo "$command"
 }
 
-brewCommand=$(get_brew_bin)
+brewCommand=$(resolve_bin "brew")
 
 brew_install() {
 
@@ -446,19 +446,4 @@ brew_external_sources() {
     execute \
         "$brewCommand tap homebrew/cask" \
         "homebrew/cask tapped"
-}
-
-get_stow_bin() {
-
-    local stowCommand=""
-
-    if cmd_exists "stow"; then
-        stowCommand = "stow"
-    elif [[ "$(arch)" == "arm64" ]]; then
-        stowCommand="/opt/homebrew/bin/stow"
-    else
-        stowCommand="/usr/local/bin/stow"
-    fi
-
-    echo "$stowCommand"
 }
