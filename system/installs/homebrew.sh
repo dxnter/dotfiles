@@ -25,14 +25,6 @@ install_homebrew() {
 
     if ! cmd_exists "brew"; then
         printf "\n" | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-        if [[ "$(arch)" == "arm64" ]]; then
-            echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
-            eval "$(/opt/homebrew/bin/brew shellenv)"
-        else
-            echo 'eval "$(/usr/local/bin/brew shellenv)"' >> ~/.zprofile
-            eval "$(/usr/local/bin/brew shellenv)"
-        fi
     fi
 
     print_result $? "Homebrew"

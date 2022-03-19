@@ -347,6 +347,24 @@ show_spinner() {
     done
 }
 
+get_brew_bin() {
+
+    local brewCommand=""
+
+    if cmd_exists "brew"; then
+        brewCommand = "brew"
+    elif [[ "$(arch)" == "arm64" ]]; then
+        brewCommand="/opt/homebrew/bin/brew"
+    elif [[ "$(arch)" == "x86_64" ]]; then
+        brewCommand="/usr/local/bin/brew"
+    else
+        print_error "$FORMULA_READABLE_NAME ('Homebrew' is not installed)"
+        return 1
+    fi
+}
+
+brewBin=$(get_brew_bin)
+
 brew_install() {
 
     declare -r ARGUMENTS="$3"
@@ -356,21 +374,12 @@ brew_install() {
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    # Check if `Homebrew` is installed.
-
-    if ! cmd_exists "brew"; then
-        print_error "$FORMULA_READABLE_NAME ('Homebrew' is not installed)"
-        return 1
-    fi
-
-    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
     # If `brew tap` needs to be executed,
     # check if it executed correctly.
 
     if [ -n "$TAP_VALUE" ]; then
         if ! brew_tap "$TAP_VALUE"; then
-            print_error "$FORMULA_READABLE_NAME ('brew tap $TAP_VALUE' failed)"
+            print_error "$FORMULA_READABLE_NAME ('$brewBin tap $TAP_VALUE' failed)"
             return 1
         fi
     fi
@@ -380,11 +389,11 @@ brew_install() {
     # Install the specified formula.
 
     # shellcheck disable=SC2086
-    if brew list "$FORMULA" &> /dev/null; then
+    if $brewBin list "$FORMULA" &> /dev/null; then
         print_success "$FORMULA_READABLE_NAME"
     else
         execute \
-            "brew install $FORMULA $ARGUMENTS" \
+            "$brewBin install $FORMULA $ARGUMENTS" \
             "$FORMULA_READABLE_NAME"
     fi
 
@@ -396,7 +405,7 @@ brew_prefix() {
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    if path="$(brew --prefix 2> /dev/null)"; then
+    if path="$($brewBin --prefix 2> /dev/null)"; then
         printf "%s" "$path"
         return 0
     else
@@ -407,13 +416,13 @@ brew_prefix() {
 }
 
 brew_tap() {
-    brew tap "$1" &> /dev/null
+    $brewBin tap "$1" &> /dev/null
 }
 
 brew_update() {
 
     execute \
-        "brew update" \
+        "$brewBin update" \
         "Homebrew (update)"
 
 }
@@ -421,21 +430,21 @@ brew_update() {
 brew_upgrade() {
 
     execute \
-        "brew upgrade" \
+        "$brewBin upgrade" \
         "Homebrew (upgrade)"
 
 }
 
 brew_external_sources() {
     execute \
-        "brew tap homebrew/bundle" \
+        "$brewBin tap homebrew/bundle" \
         "homebrew/bundle tapped"
 
     execute \
-        "brew tap homebrew/core" \
+        "$brewBin tap homebrew/core" \
         "homebrew/core tapped"
 
     execute \
-        "brew tap homebrew/cask" \
+        "$brewBin tap homebrew/cask" \
         "homebrew/cask tapped"
 }
