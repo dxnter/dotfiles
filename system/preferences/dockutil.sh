@@ -4,12 +4,12 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
     && . "../utils.sh"
 
 if [ ! `which dockutil` ]; then
-    wget="$(resolve_bin "wget")"
+    wget="$(resolve_bin 'wget')"
 
     print_info "• Dockutil"
 
     dockutilDownloadURL=$(curl -s https://api.github.com/repos/kcrawford/dockutil/releases/latest \
-            | grep 'dockutil-*.pkg' \
+            | grep 'browser_download_url.*pkg' \
             | cut -d : -f 2,3 \
             | tr -d \" \
             | $wget -O /tmp/dockutil.pkg -qi -)
