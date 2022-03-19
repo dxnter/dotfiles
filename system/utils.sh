@@ -447,3 +447,18 @@ brew_external_sources() {
         "$brewCommand tap homebrew/cask" \
         "homebrew/cask tapped"
 }
+
+get_stow_bin() {
+
+    local stowCommand=""
+
+    if cmd_exists "stow"; then
+        stowCommand = "stow"
+    elif [[ "$(arch)" == "arm64" ]]; then
+        stowCommand="/opt/homebrew/bin/stow"
+    else
+        stowCommand="/usr/local/bin/stow"
+    fi
+
+    echo "$stowCommand"
+}
