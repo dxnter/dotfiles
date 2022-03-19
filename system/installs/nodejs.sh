@@ -11,17 +11,15 @@ nodejs_version="16.13.2"
 
 print_info "• Node.js"
 
-execute "~/.asdf/bin/asdf update" \
-    "Update asdf"
+if ! asdf plugin list | grep -q nodejs; then
+    execute "~/.asdf/bin/asdf plugin-add nodejs" \
+        "Add nodejs plugin"
+fi
 
-execute "~/.asdf/bin/asdf plugin remove nodejs" \
-    "Remove nodejs plugin if it exists"
-
-execute "~/.asdf/bin/asdf plugin-add nodejs" \
-    "Add nodejs plugin"
-
-execute "~/.asdf/bin/asdf install nodejs '${nodejs_version}'" \
-    "Install nodejs ${nodejs_version}"
+if ! asdf current nodejs | grep -q $nodejs_version; then
+    execute "~/.asdf/bin/asdf install nodejs ${nodejs_version}" \
+        "Install nodejs ${nodejs_version}"
+fi
 
 execute "~/.asdf/bin/asdf global nodejs '${nodejs_version}'" \
     "Set nodejs ${nodejs_version} as global default"
