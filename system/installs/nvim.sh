@@ -13,7 +13,7 @@ brew_install "neovim" "neovim"
 
 print_info "• Vim Plugins"
 
-nvim -E -s <<-EOF
+$(resolve_bin "nvim") -E -s <<-EOF
     :source ~/.vimrc
     :PlugInstall
     :PlugClean
