@@ -6,7 +6,7 @@
 
 Fully automated macOS software installation/configuration, modified system preferences, and extra necessities.
 
-⚠️ **Warning:** The software I use and configuration defined are catered to my individual use. I strongly recommend forking this repository, reviewing the [setup script](https://github.com/dxnter/dotfiles/blob/main/system/setup.sh), and making changes to any other files before running the script.
+⚠️ **Warning:** The software I use and configuration defined are catered to my individual use. I strongly recommend forking this repository, reviewing the [setup script](https://github.com/dxnter/dotfiles/blob/main/system/setup.sh), and making modifications to the [software installed](#custom-software) before running the script.
 
 <details open="open">
   <summary>Table of Contents</summary>
@@ -43,6 +43,8 @@ Fully automated macOS software installation/configuration, modified system prefe
     </li>
     <li><a href="#adding-dotfiles">⏫ Adding Dotfiles</a></li>
     <li><a href="#system-prefs">⚙️ System Preferences</a></li>
+    <li><a href="#custom-software">💾 Custom Software</a></li>
+    <li><a href="#troubleshooting">❓ Troubleshooting</a></li>
     <li><a href="#acknowledgments">👏 Acknowledgments</a></li>
     <li><a href="#license">📝 License</a></li>
 
@@ -230,7 +232,7 @@ Lastly, create symlinks for the newly created files
 make links
 ```
 
-Remove all created symlinks
+To remove all symlinks, run the following
 
 ```bash
 make unlink
@@ -243,6 +245,30 @@ The standard installation makes modifications to the System Preferences. However
 ```bash
 make prefs
 ```
+
+<h2 id="custom-software">💾 Custom Software</h2>
+
+The software installed is loosely categorized to different files inside the [`system/installs`](https://github.com/dxnter/dotfiles/tree/main/system/installs) directory.
+
+Search for Homebrew formulae and casks with the [package browser](https://formulae.brew.sh/). To add a package in a script, use the following format:
+
+```bash
+brew_install <readableName> <formulaName> [cask]
+
+# system/installs/dev_tools.sh
+brew_install "Docker" "docker"
+brew_install "Mullvad" "mullvadvpn" "--cask"
+```
+
+When adding or removing files inside the directory, make the subsequent changes to the [`main.sh`](https://github.com/dxnter/dotfiles/blob/main/system/installs/main.sh) script. New scripts should also be made executable with `chmod +x <filename>` before running the setup.
+
+<h2 id="troubleshooting">❓ Troubleshooting</h2>
+
+### Question marks are displaying in my terminal
+
+![missing-glyphs](./images/missing-glyphs.png)
+
+If you choose not to use Alacritty as your terminal, you may see an output like above. To fix this, set the font for your terminal to a patched font with icons that was installed from [`system/installs/fonts.sh`](https://github.com/dxnter/dotfiles/blob/main/system/installs/fonts.sh).
 
 <h2 id="acknowledgments">👏 Acknowledgments</h2>
 

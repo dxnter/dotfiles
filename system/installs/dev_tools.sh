@@ -22,5 +22,4 @@ brew_install "UTM" "utm" "--cask"
 brew_install "Postman" "postman" "--cask"
 brew_install "Cyberduck" "cyberduck" "--cask"
 brew_install "Fig" "fig" "--cask"
-
-print_success "Development Tools installed"
+brew_install "Mullvad" "mullvadvpn" "--cask"

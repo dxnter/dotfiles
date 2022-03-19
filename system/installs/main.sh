@@ -14,7 +14,11 @@ print_info "• Installs"
 ./gpg.sh
 
 ./cli_tools.sh
-./ctf_tools.sh
+
+ask_for_confirmation "Do you want to install CTF tools? (nmap, hydra, john, etc.) \n"
+if answer_is_yes; then
+    ./ctf_tools.sh
+fi
 
 ./../create_symlinks.sh
 ./asdf.sh
@@ -24,7 +28,7 @@ print_info "• Installs"
 ./nvim.sh
 ./dev_tools.sh
 
-./video_tools.sh
+./media_tools.sh
 ./browsers.sh
 ./amm.sh
 ./fonts.sh

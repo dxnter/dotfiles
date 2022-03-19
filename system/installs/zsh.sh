@@ -35,7 +35,7 @@ export PATH
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    # Add the path of the `Bash` version installed through `Homebrew`
+    # Add the path of the `Zsh` version installed through `Homebrew`
     # to the list of login shells from the `/etc/shells` file.
     #
     # This needs to be done because applications use this file to

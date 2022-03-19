@@ -4,7 +4,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
     && . "../utils.sh"
 
 if [ ! `which dockutil` ]; then
-    brew_install dockutil
+    brew_install "Dockutil" "dockutil"
 fi
 
 dockutil=$(resolve_bin "dockutil")

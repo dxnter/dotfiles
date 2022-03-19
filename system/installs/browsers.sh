@@ -9,13 +9,9 @@ print_info "• Browsers"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-printf "\n"
-
 brew_install "Chrome Canary" "google-chrome-canary" "--cask" "homebrew/cask-versions"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-printf "\n"
 
 brew_install "Firefox" "firefox" "--cask"
 
