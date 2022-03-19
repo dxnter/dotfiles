@@ -17,8 +17,8 @@ if [ ! `which dockutil` ]; then
     execute "$dockutilDownloadURL" \
         "Downloading dockutil"
 
-    execute "installer -pkg /tmp/dockutil.pkg -target CurrentUserHomeDirectory" \
-        "Installing dockutil"
+    sudo installer -pkg /tmp/dockutil.pkg -target /
+    print_info "Installed dockutil"
 fi
 
 dockutil=$(resolve_bin "dockutil")
