@@ -4,7 +4,21 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
     && . "../utils.sh"
 
 if [ ! `which dockutil` ]; then
-    brew_install "Dockutil" "dockutil"
+    wget="$(resolve_bin "wget")"
+
+    print_info "• Dockutil"
+
+    dockutilDownloadURL=$(curl -s https://api.github.com/repos/kcrawford/dockutil/releases/latest \
+            | grep 'dockutil-*.pkg' \
+            | cut -d : -f 2,3 \
+            | tr -d \" \
+            | $wget -O /tmp/dockutil.pkg -qi -)
+
+    execute "$dockutilDownloadURL" \
+        "Downloading dockutil"
+
+    execute "installer -pkg /tmp/dockutil.pkg -target CurrentUserHomeDirectory" \
+        "Installing dockutil"
 fi
 
 dockutil=$(resolve_bin "dockutil")
