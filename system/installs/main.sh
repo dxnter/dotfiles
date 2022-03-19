@@ -22,6 +22,7 @@ print_info "• Installs"
 ./nodejs.sh
 ./poetry.sh
 ./rust.sh
+./nvim.sh
 ./dev_tools.sh
 
 ./video_tools.sh

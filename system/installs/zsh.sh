@@ -7,7 +7,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 install_zsh_plugin() {
   local git_url=$1
   local plugin_name=$2
-  local plugin_folder="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/${plugin_name}"
+  local plugin_folder="$HOME/.config/zsh/.oh-my-zsh/custom/plugins/${plugin_name}"
   if [ ! -d "${plugin_folder}" ]; then
     echo "[-] installing zsh plugin ${plugin_name}"
     git clone "${git_url}" "${plugin_folder}"
@@ -37,8 +37,8 @@ zsh() {
 
     print_info "oh-my-zsh"
 
-    if [ ! -d "$HOME/.oh-my-zsh" ]; then
-        execute "git clone --depth=1 git://github.com/robbyrussell/oh-my-zsh.git ~/.config/zsh/.oh-my-zsh --quiet" \
+    if [ ! -d "$HOME/.config/zsh/.oh-my-zsh" ]; then
+        execute "git clone --depth=1 https://github.com/robbyrussell/oh-my-zsh.git ~/.config/zsh/.oh-my-zsh --quiet" \
             "oh-my-zsh"
     else
         print_info "oh-my-zsh already installed => skipping"
@@ -62,9 +62,9 @@ zsh() {
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    if [ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k" ]; then
+    if [ ! -d "$HOME/.config/zsh/.oh-my-zsh/custom/themes/powerlevel10k" ]; then
       print_info "powerline10k theme"
-      execute "git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k" \
+      execute "git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $HOME/.config/zsh/.oh-my-zsh/custom/themes/powerlevel10k" \
         "powerline10k theme"
     else
       print_info "powerline10k theme already installed => skipping"
