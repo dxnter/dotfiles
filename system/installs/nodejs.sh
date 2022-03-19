@@ -15,7 +15,7 @@ execute "~/.asdf/bin/asdf update" \
 execute "~/.asdf/bin/asdf plugin remove nodejs" \
     "Remove nodejs plugin if it exists"
 
-execute "~/.asdf/bin/asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git" \
+execute "~/.asdf/bin/asdf plugin-add nodejs" \
     "Add nodejs plugin"
 
 execute "~/.asdf/bin/asdf install nodejs '${nodejs_version}'" \
