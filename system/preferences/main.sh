@@ -32,7 +32,6 @@ ask_for_sudo
 ./dock.sh
 ./finder.sh
 ./keyboard.sh
-./spotlight.sh
 ./language_and_region.sh
 ./maps.sh
 ./photos.sh
