@@ -13,6 +13,9 @@ alias dotfiles="cd ~/.dotfiles"
 alias dev="cd $HOME/code"
 alias work="cd $HOME/code/work"
 
+# sed
+alias sed="gsed"
+
 # lsd
 alias ls="lsd"
 alias l="ls"

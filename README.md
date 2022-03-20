@@ -270,6 +270,8 @@ When adding or removing files inside the directory, make the subsequent changes 
 
 If you choose not to use Alacritty as your terminal, you may see an output like above. To fix this, set the font for your terminal to a patched font with icons that was installed from [`system/installs/fonts.sh`](https://github.com/dxnter/dotfiles/blob/main/system/installs/fonts.sh).
 
+If you need additional support, please [open an issue](https://github.com/dxnter/dotfiles/issues/new).
+
 <h2 id="acknowledgments">👏 Acknowledgments</h2>
 
 - [alraa/dotfiles](https://github.com/alrra/dotfiles)

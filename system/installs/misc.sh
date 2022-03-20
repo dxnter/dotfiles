@@ -7,7 +7,6 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 
 print_info "• Miscellaneous"
 
-brew_install "Rectangle" "rectangle" "--cask"
 brew_install "Dozer" "dozer" "--cask"
 brew_install "Raycast" "raycast" "--cask"
 brew_install "Mos" "mos" "--cask"
