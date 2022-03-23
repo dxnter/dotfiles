@@ -24,8 +24,8 @@ get_homebrew_git_config_file_path() {
 install_homebrew() {
 
     if ! cmd_exists "brew"; then
-        execute "/bin/bash -c '$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)'" \
-            "Homebrew"
+        ask_for_sudo
+        printf "\n" | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" &> /dev/null
     fi
 
 }
