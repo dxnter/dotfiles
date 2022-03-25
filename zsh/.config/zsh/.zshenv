@@ -49,6 +49,7 @@ export PATH="$PATH:$HOME/bin"
 
 # Local bin
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="/usr/local/bin:$PATH"
 
 # dotfiles utilities
 export PATH="$DOTFILES_DIR/bin:$PATH"
@@ -57,10 +58,6 @@ export PATH="$DOTFILES_DIR/bin:$PATH"
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/sbin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
-
-# asdf
-export ASDF_DIR=$HOME/.asdf
-export PATH="$HOME/.asdf/bin:$HOME/.asdf/shims:$PATH"
 
 # Composer
 export PATH="$HOME/.composer/vendor/bin:$PATH"
