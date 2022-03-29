@@ -10,14 +10,12 @@ print_info "• Poetry"
 if type poetry >/dev/null 2>&1; then
   print_info "Poetry already installed => skipping"
 else
-  pythonPath=""
+    execute "pyenv install 3.9.10" \
+        "Install Python 3.9.10"
 
-  if [[ "$(arch)" == "arm64" ]]; then
-      pythonPath="/opt/homebrew/bin/python3"
-  else
-      pythonPath="/usr/local/bin/python3"
-  fi
+    execute "pyenv global 3.9.10" \
+        "Set Python 3.9.10 as global"
 
-  execute "curl -sSL https://install.python-poetry.org | $pythonPath -" \
-      "Installing Poetry"
+    execute "curl -sSL https://install.python-poetry.org | python -" \
+        "Installing Poetry"
 fi

@@ -65,3 +65,9 @@ export PATH="$HOME/.composer/vendor/bin:$PATH"
 # Cargo
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.cargo/env:$PATH"
+
+# pyenv
+export PATH="$HOME/.pyenv/shims:$PATH"
+
+# Poetry
+export PATH="$HOME/.poetry/bin:$PATH"
