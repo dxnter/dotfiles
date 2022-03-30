@@ -15,8 +15,7 @@ create_directories() {
         "$HOME/.config/zsh"
         "$HOME/Documents/screenshots"
         "$HOME/Documents/notes"
-        "$HOME/code"
-        "$HOME/code/work"
+        "$HOME/dev"
     )
 
     for i in "${DIRECTORIES[@]}"; do

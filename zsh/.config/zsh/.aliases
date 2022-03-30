@@ -10,8 +10,7 @@ alias weather="curl https://wttr.in/"
 
 # Directories
 alias dotfiles="cd ~/.dotfiles"
-alias dev="cd $HOME/code"
-alias work="cd $HOME/code/work"
+alias dev="cd $HOME/dev"
 
 # sed
 alias sed="gsed"
