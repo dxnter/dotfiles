@@ -7,7 +7,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 
 print_info "• Miscellaneous"
 
-brew_install "Dozer" "dozer" "--cask"
+brew_install "Hidden Bar" "hiddenbar" "--cask"
 brew_install "Raycast" "raycast" "--cask"
 brew_install "LinearMouse" "linearmouse" "--cask"
 brew_install "Transmission" "transmission" "--cask"
