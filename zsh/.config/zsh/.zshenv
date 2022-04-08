@@ -40,6 +40,7 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 export DISABLE_UPDATE_PROMPT=true
 export TERM=xterm-256color
 export GPG_TTY=$(tty)
+export XDEBUG_CONFIG="idekey=VSCODE"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # PATH
