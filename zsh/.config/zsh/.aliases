@@ -1,5 +1,19 @@
+# PHP
+alias phpunit="vendor/bin/phpunit"
+alias phpunitw="phpunit-watcher watch"
+alias art="php artisan"
+alias cda="composer dump-autoload -o"
+alias mfs='php artisan migrate:fresh --seed'
+alias pp="php artisan test --parallel"
+alias sail='./vendor/bin/sail'
+
+# JavaScript
+alias jest="./node_modules/.bin/jest"
+
+
 # Shortcuts
 alias c="clear"
+alias o="open ."
 alias code="code -n"
 alias change="code ~/.config/zsh/.zshrc"
 alias update="source ~/.config/zsh/.zshrc"
@@ -7,6 +21,8 @@ alias grep="rg"
 alias cat="bat"
 alias diff="delta"
 alias weather="curl https://wttr.in/"
+alias ip="curl ifconfig.me ; echo"
+alias copykey="command cat ~/.ssh/id_rsa.pub | pbcopy"
 
 # Directories
 alias dotfiles="cd ~/.dotfiles"
