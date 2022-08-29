@@ -10,3 +10,30 @@ function camerausedby() {
 	usedby=$(lsof | grep -w "AppleCamera\|USBVDC\|iSight" | awk '{printf $2"\n"}' | xargs ps)
 	echo -e "Recent camera uses:\n$usedby"
 }
+
+# Run tests
+function p() {
+   if [ -f vendor/bin/pest ]; then
+      vendor/bin/pest "$@"
+   else
+      vendor/bin/phpunit "$@"
+   fi
+}
+
+function pf() {
+   if [ -f vendor/bin/pest ]; then
+      vendor/bin/pest --filter "$@"
+   else
+      vendor/bin/phpunit --filter "$@"
+   fi
+}
+
+function tinker()
+{
+  if [ -z "$1" ]
+    then
+       php artisan tinker
+    else
+       php artisan tinker --execute="dd($1);"
+  fi
+}
