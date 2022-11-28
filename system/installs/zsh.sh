@@ -119,14 +119,10 @@ zsh() {
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    if [ ! -d "$HOME/.config/zsh/.oh-my-zsh/custom/themes/powerlevel10k" ]; then
-      print_info "powerline10k theme"
-      execute "git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $HOME/.config/zsh/.oh-my-zsh/custom/themes/powerlevel10k" \
-        "powerline10k theme"
-    else
-      print_info "powerline10k theme already installed => skipping"
-    fi
+    print_info "Starship prompt"
 
+    execute "curl -sS https://starship.rs/install.sh | sh" \
+        "Starship prompt"
  }
 
 zsh
