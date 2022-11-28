@@ -9,7 +9,6 @@ create_directories() {
 
     declare -a DIRECTORIES=(
         "$HOME/.gnupg"
-        "$HOME/.config/alacritty"
         "$HOME/.config/asdf"
         "$HOME/.config/nvim"
         "$HOME/.config/zsh"

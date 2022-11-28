@@ -16,10 +16,10 @@ brew_install "Python" "python"
 
 # GUI Tools
 brew_install "Visual Studio Code" "visual-studio-code" "--cask"
-brew_install "Alacritty" "alacritty" "--cask"
+brew_install "Warp" "warp" "--cask"
 brew_install "DBeaver" "dbeaver-community" "--cask"
 brew_install "UTM" "utm" "--cask"
-brew_install "Postman" "postman" "--cask"
+brew_install "Insomnia" "insomnia" "--cask"
 brew_install "Cyberduck" "cyberduck" "--cask"
 brew_install "Fig" "fig" "--cask"
 brew_install "Mullvad" "mullvadvpn" "--cask"

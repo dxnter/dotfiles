@@ -9,7 +9,7 @@ print_info "• Browsers"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-brew_install "Brave" "brave-browser" "--cask"
+brew_install "Chromium" "chromium" "--cask"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

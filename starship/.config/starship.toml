@@ -1,0 +1,89 @@
+# ~/.config/starship.toml
+
+add_newline = false
+
+command_timeout = 5000
+
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_state\
+$git_status\
+$fill\
+$nodejs\
+$php\
+$cmd_duration $jobs"""
+
+[nodejs]
+format = "[$symbol($version )]($style)"
+
+[fill]
+symbol = " "
+
+[line_break]
+disabled = true
+
+[directory]
+style = "bold blue"
+read_only = " "
+truncation_length = 4
+truncate_to_repo = false
+
+[character]
+success_symbol = ""
+error_symbol = ""
+
+[git_branch]
+symbol = " "
+format = "[$symbol$branch]($style) "
+style = "bright-green"
+
+[jobs]
+symbol = ""
+style = "bold red"
+number_threshold = 1
+format = "[$symbol]($style)"
+
+[git_status]
+ahead = '[↑$count ](red)'
+behind = '[↓$count ](red)'
+diverged = "↑ ${ahead_count} ↓ ${behind_count}"
+untracked = '[?$count ](blue)'
+stashed = "📦 "
+modified = '[!$count ](yellow)'
+staged = '[+$count ](red)'
+deleted = '[-$count ](red)'
+format = "$all_status$ahead_behind"
+
+[git_commit]
+commit_hash_length = 8
+style = "bold white"
+
+[git_state]
+format = '\([$state( $progress_current/$progress_total)]($style)\) '
+style = "bright-black"
+
+[cmd_duration]
+min_time = 5_000
+show_milliseconds = false
+format = "[$duration]($style)"
+style = "yellow"
+
+[memory_usage]
+symbol = " "
+
+[php]
+format = "[$symbol$version]($style) "
+symbol = " "
+
+[rust]
+symbol = " "
+
+[battery]
+discharging_symbol = "💀 "
+
+[[battery.display]]  # "bold red" style when capacity is between 0% and 10%
+threshold = 10
+style = "bold red"

@@ -36,7 +36,6 @@ Fully automated macOS software installation/configuration, modified system prefe
         <ul>
             <li><a href="#firefox">🦊 Firefox</a></li>
             <li><a href="#ublock">🛡️ uBlock Origin</a></li>
-            <li><a href="#fig">🔳 Fig - Alacritty Integration</a></li>
         </ul>
         </li>
       </ul>
@@ -192,16 +191,6 @@ nnoremap <Up>    :echoe "Use k"<CR>
 2. Under **My filters**, paste the contents of `extras/ublock-filters.txt` inside and **Apply changes**
 3. Under **Filter lists**, enable **AdGuard URL Tracking Protection** under the **Privacy** category. Under **Custom**, select **Import** and paste the URL of [Actually Legitimate URL Shortener Tool](https://raw.githubusercontent.com/DandelionSprout/adfilt/master/LegitimateURLShortener.txt).
 
-<h4 id="fig">🔳 Fig - Alacritty Integration</h4>
-
-At the time of writing, the Fig integration with Alacritty is a preview. Follow these steps to enable Fig in Alacritty.
-
-1. Run `fig settings integrations.experimental true` and then restart the Fig app
-2. Click the Fig menubar icon > Integrations > Alacritty > "Attempt to Install"
-3. Go to a terminal and run `fig debug ime enable`. A System Preferences window will appear and prompt you to install a third-party Input Method.
-4. Run `fig debug ime select`
-5. Restart Alacritty
-
 ---
 
 <h2 id="adding-dotfiles">⏫ Adding Dotfiles</h2>
@@ -263,12 +252,6 @@ brew_install "Mullvad" "mullvadvpn" "--cask"
 When adding or removing files inside the directory, make the subsequent changes to the [`main.sh`](https://github.com/dxnter/dotfiles/blob/main/system/installs/main.sh) script. New scripts should also be made executable with `chmod +x <filename>` before running the setup.
 
 <h2 id="troubleshooting">❓ Troubleshooting</h2>
-
-### Question marks are displaying in my terminal
-
-![missing-glyphs](./images/missing-glyphs.png)
-
-If you choose not to use Alacritty as your terminal, you may see an output like above. To fix this, set the font for your terminal to a patched font with icons that was installed from [`system/installs/fonts.sh`](https://github.com/dxnter/dotfiles/blob/main/system/installs/fonts.sh).
 
 If you need additional support, please [open an issue](https://github.com/dxnter/dotfiles/issues/new).
 
