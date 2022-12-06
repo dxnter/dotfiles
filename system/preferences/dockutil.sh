@@ -45,8 +45,8 @@ execute "$dockutil --no-restart --add '/Applications/Spotify.app'" \
 execute "$dockutil --no-restart --add '/Applications/GitHub Desktop.app'" \
     "GitHub Desktop"
 
-execute "$dockutil --no-restart --add '/Applications/Warp.app'" \
-    "Warp"
+execute "$dockutil --no-restart --add '/Applications/iTerm.app'" \
+    "iTerm"
 
 execute "$dockutil --no-restart --add '/Applications/Visual Studio Code.app'" \
     "Visual Studio Code"

@@ -16,7 +16,7 @@ brew_install "Python" "python"
 
 # GUI Tools
 brew_install "Visual Studio Code" "visual-studio-code" "--cask"
-brew_install "Warp" "warp" "--cask"
+brew_install "iTerm 2" "iterm2" "--cask"
 brew_install "DBeaver" "dbeaver-community" "--cask"
 brew_install "UTM" "utm" "--cask"
 brew_install "Insomnia" "insomnia" "--cask"
