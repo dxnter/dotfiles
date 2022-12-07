@@ -72,3 +72,6 @@ export PATH="$HOME/.pyenv/shims:$PATH"
 
 # Poetry
 export PATH="$HOME/.poetry/bin:$PATH"
+
+# pnpm
+export PNPM_HOME="$HOME/.local/share/pnpm:$PATH"
