@@ -12,8 +12,6 @@ create_directories() {
         "$HOME/.config/asdf"
         "$HOME/.config/nvim"
         "$HOME/.config/zsh"
-        "$HOME/Documents/screenshots"
-        "$HOME/Documents/notes"
         "$HOME/dev"
     )
 

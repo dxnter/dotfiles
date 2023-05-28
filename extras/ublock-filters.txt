@@ -1,34 +1,7 @@
-! 2021-09-04 https://www.youtube.com
-ww.youtube.com###scroll-container > .ytd-feed-filter-chip-bar-renderer.style-scope
-ww.youtube.com###contents
-www.youtube.com##ytd-guide-section-renderer.ytd-guide-renderer.style-scope:nth-of-type(2)
-www.youtube.com##ytd-guide-section-renderer.ytd-guide-renderer.style-scope:nth-of-type(3)
-www.youtube.com###guide-links-primary
-www.youtube.com###guide-links-secondary
-www.youtube.com###copyright
-www.youtube.com##.ytd-two-column-browse-results-renderer.style-scope > .ytd-rich-grid-renderer.style-scope
-www.youtube.com##ytd-item-section-renderer.ytd-watch-next-secondary-results-renderer.style-scope
-#www.youtube.com###secondary
-
 ! 2021-09-04 https://twitter.com
 twitter.com##.r-1udh08x.r-1bro5k0.r-1ifxtd0.r-rs99b7.r-1phboty.r-1867qdf.r-k0dy70.r-1ysxnx4.css-1dbjc4n > .css-1dbjc4n
 twitter.com##.r-1udh08x.r-1bro5k0.r-1ifxtd0.r-rs99b7.r-1phboty.r-1867qdf.r-k0dy70.r-1ysxnx4.css-1dbjc4n
 twitter.com##.r-ymttw5.r-1w6e6rj.r-18u37iz.css-1dbjc4n
-
-! 2021-09-12 https://coinmarketcap.com
-||s2.coinmarketcap.com/static/cloud/img/video-icon-128.png?_=1bc6cf6$image
-coinmarketcap.com##.carousel-items-wrapper
-coinmarketcap.com##.show.carousel-arrow-prev > svg > circle
-coinmarketcap.com##.show.carousel-arrow-prev > svg
-coinmarketcap.com##.show.carousel-arrow-next > svg > circle
-coinmarketcap.com##.show.carousel-arrow-next > svg
-coinmarketcap.com##.gpCSzb.sc-1o3rzds-2.sc-1o3rzds-0
-coinmarketcap.com##.kCGQUC.sc-1a0iugo-0
-||s2.coinmarketcap.com/static/cloud/img/video-icon-128.png?_=1bc6cf6$image
-coinmarketcap.com##.hwcIBL.x0o17e-0
-coinmarketcap.com##.kPvqGV.x0o17e-0
-||s2.coinmarketcap.com/static/cloud/img/video-icon-128.png?_=1bc6cf6$image
-coinmarketcap.com##.ghXWUB.sc-1a0iugo-0
 
 ! 2021-09-13 https://www.reddit.com
 www.reddit.com##._10wb7d3rGvj56Gcs4IQWL5._1FUNcfOeszr8eruqLxCMcR > ._2QeqBqfT5UbHBoViZUt-wX._1G4yU68P50vRZ4USXfaceV
@@ -37,15 +10,4 @@ www.reddit.com##div._2vEf-C2keJaBMY9qk_BxVn > ._2QeqBqfT5UbHBoViZUt-wX._1G4yU68P
 www.reddit.com##._1oRQu-aolgpPPJDblUGTw5
 www.reddit.com##.scrollerItem.hrQ5rXDbyl6t3TIXxENXB._3Qkp11fjcAw9I9wtLo8frE._1EG7_Cm18ANvUvJ4rJdRgQ
 
-! 2021-09-13 https://www.coingecko.com
-www.coingecko.com##.d-lg-block.tw-hidden.text-center.py-3.topfooter
-
-! 2021-09-13 https://coinmarketcap.com
-coinmarketcap.com##.iMyvIy.sc-1rmt1nr-2.sc-1rmt1nr-0
-
-! 2021-09-20 https://www.youtube.com
-#www.youtube.com###main
-||www.gstatic.com/youtube/img/promos/growth/bd0a967d0b4c29b81ce5424661fb81414dd686a511e7f55f45eca9bfe192a0fa_384x384.png$image
-
-! 2021-09-24 https://www.youtube.com
-www.youtube.com###scroll-container
+twitch.tv##+js(twitch-videoad)

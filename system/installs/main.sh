@@ -26,6 +26,7 @@ fi
 ./poetry.sh
 ./rust.sh
 ./nvim.sh
+./go.sh
 ./dev_tools.sh
 
 ./media_tools.sh

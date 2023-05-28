@@ -26,6 +26,9 @@ execute "defaults write com.apple.frameworks.diskimages auto-open-ro-root -bool 
 execute "defaults write com.apple.finder _FXShowPosixPathInTitle -bool true" \
     "Use full POSIX path as window title"
 
+execute "defaults write com.apple.finder QLEnableTextSelection -bool true" \
+    "Allow text selection in Quick Look"
+
 execute "defaults write com.apple.finder _FXSortFoldersFirst -bool true" \
     "Keep folders on top of the other items"
 

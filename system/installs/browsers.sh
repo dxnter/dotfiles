@@ -9,10 +9,10 @@ print_info "• Browsers"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-brew_install "Chromium" "chromium" "--cask"
+brew_install "Google Chrome" "google-chrome" "--cask"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-brew_install "Firefox" "firefox" "--cask"
+brew_install "Firefox Developer Edition" firefox-developer-edition "--cask" "homebrew/cask-versions"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

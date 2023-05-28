@@ -11,6 +11,15 @@ execute "defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool
          defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true" \
    "Avoid creating '.DS_Store' files on network or USB volumes"
 
+execute "defaults write com.apple.BluetoothAudioAgent 'Apple Bitpool Max (editable)' 80 && \
+        defaults write com.apple.BluetoothAudioAgent 'Apple Bitpool Min (editable)' 80 && \
+        defaults write com.apple.BluetoothAudioAgent 'Apple Initial Bitpool (editable)' 80 && \
+        defaults write com.apple.BluetoothAudioAgent 'Apple Initial Bitpool Min (editable)' 80 && \
+        defaults write com.apple.BluetoothAudioAgent 'Negotiated Bitpool' 80 && \
+        defaults write com.apple.BluetoothAudioAgent 'Negotiated Bitpool Max' 80 && \
+        defaults write com.apple.BluetoothAudioAgent 'Negotiated Bitpool Min' 80" \
+    "Increase sound quality for Bluetooth headphones/headsets"
+
 execute "defaults write com.apple.CrashReporter UseUNC 1" \
     "Make crash reports appear as notifications"
 

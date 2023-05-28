@@ -73,5 +73,16 @@ export PATH="$HOME/.pyenv/shims:$PATH"
 # Poetry
 export PATH="$HOME/.poetry/bin:$PATH"
 
+# Anaconda
+export PATH="/usr/local/anaconda3/bin:$PATH"
+
 # pnpm
 export PNPM_HOME="$HOME/.local/share/pnpm:$PATH"
+
+# Java
+export PATH="/opt/homebrew/opt/openjdk@19/bin:$PATH"
+
+# Go
+export GOPATH=$HOME/go
+export GOROOT="$(brew --prefix golang)/libexec"
+export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"

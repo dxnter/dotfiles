@@ -33,32 +33,44 @@ execute "$dockutil --no-restart --remove all" \
 execute "$dockutil --no-restart --add '/Applications/Todoist.app'" \
     "Todoist"
 
+execute "$dockutil --no-restart --add '/Applications/Google Chrome.app'" \
+    "Google Chrome"
+
 execute "$dockutil --no-restart --add '/Applications/1Password.app'" \
     "1Password"
 
-execute "$dockutil --no-restart --add '/Applications/Firefox.app'" \
-    "Firefox"
+execute "$dockutil --no-restart --add '/Applications/Obsidian.app'" \
+    "Obsidian"
+
+execute "$dockutil --no-restart --add '/Applications/Linear.app'" \
+    "Linear"
+
+execute "$dockutil --no-restart --add '/Applications/Fantastical.app'" \
+    "Fantastical"
 
 execute "$dockutil --no-restart --add '/Applications/Spotify.app'" \
     "Spotify"
 
-execute "$dockutil --no-restart --add '/Applications/GitHub Desktop.app'" \
-    "GitHub Desktop"
+execute "$dockutil --no-restart --add '/Applications/Discord.app'" \
+    "Discord"
+
+execute "$dockutil --no-restart --add '/Applications/Messages.app'" \
+    "Messages"
 
 execute "$dockutil --no-restart --add '/Applications/iTerm.app'" \
     "iTerm"
 
+execute "$dockutil --no-restart --add '/Applications/Docker.app'" \
+    "Docker"
+
+execute "$dockutil --no-restart --add '/Applications/RapidAPI.app'" \
+    "RapidAPI"
+
 execute "$dockutil --no-restart --add '/Applications/Visual Studio Code.app'" \
     "Visual Studio Code"
 
-execute "$dockutil --no-restart --add '/Applications/Insomnia'" \
-    "Insomnia"
-
 execute "$dockutil --no-restart --add '/Applications/DBeaver.app'" \
     "DBeaver"
-
-execute "$dockutil --no-restart --add '/System/Applications/System Preferences.app'" \
-    "System Preferences"
 
 execute "$dockutil --add '~/Downloads' --view fan --display stack --sort dateadded --no-restart" \
     "Downloads"

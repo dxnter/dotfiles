@@ -6,6 +6,8 @@
 plugins=(
   asdf
   git
+  macos
+  composer
   fzf-tab
   zsh-syntax-highlighting
   zsh-autosuggestions
