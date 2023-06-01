@@ -121,8 +121,7 @@ zsh() {
 
     print_info "Starship prompt"
 
-    execute "curl -sS https://starship.rs/install.sh | sh" \
-        "Starship prompt"
+    brew_install "Starship" "starship"
  }
 
 zsh
