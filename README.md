@@ -93,7 +93,13 @@ cd ~/.dotfiles
 make
 ```
 
-After the installation script is complete and your system restarts, a GPG key needs to be generated to sign commits. After completion, your public GPG key will be copied to the clipboard and a GitHub page will open in your browser. Select **New GPG Key** at the bottom and paste inside the textbox.
+After the installation script is complete and your system restarts, you can generate an SSH key to use with GitHub. After the script runs and the key is copied to the clipboard, a GitHub page will open in your browser. Select **New SSH Key** at the bottom and paste inside the textbox.
+
+```bash
+make ssh
+```
+
+Similarly, a GPG key can be generated to sign commits. After the script runs, your public GPG key will be copied to the clipboard and a GitHub page will open in your browser. Select **New GPG Key** at the bottom and paste inside the textbox.
 
 ```bash
 make gpg

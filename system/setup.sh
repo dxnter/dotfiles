@@ -19,7 +19,7 @@ main() {
     if [ -x "utils.sh" ]; then
         . "utils.sh" || exit 1
     fi
-    
+
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     # Ensure the OS is macOS and
@@ -51,10 +51,6 @@ main() {
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     ./preferences/main.sh
-
-    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-    ./set_github_ssh_key.sh
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

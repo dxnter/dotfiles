@@ -11,6 +11,9 @@ setup:
 backup:
 		./system/backup.sh
 
+ssh:
+		./system/set_github_ssh_key.sh
+
 gpg:
 		./system/create_gpg_key.sh
 
@@ -23,4 +26,4 @@ unlink:
 prefs:
 		./system/preferences/main.sh
 
-.PHONY: setup backup gpg links unlink prefs
+.PHONY: setup backup ssh gpg links unlink prefs
