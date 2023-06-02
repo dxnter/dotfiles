@@ -8,6 +8,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 print_info "• Miscellaneous"
 
 brew_install "1Password" "1password" "--cask"
+brew_install "KeePassXC" "keepassxc" "--cask"
 brew_install "Todoist" "todoist" "--cask"
 brew_install "Linear" "linear-linear" "--cask"
 brew_install "Fantastical" "fantastical" "--cask"
