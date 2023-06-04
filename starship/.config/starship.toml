@@ -14,13 +14,24 @@ $directory\
 $git_branch\
 $git_state\
 $git_status\
+$package\
 $fill\
 $nodejs\
+$bun\
 $php\
+$pulumi\
+$rust\
+$java\
+$golang\
+$python\
+$docker\
+$terraform\
+$vagrant\
+$conda\
+$aws\
+$container\
+$jobs\
 $cmd_duration $jobs"""
-
-[nodejs]
-format = "[$symbol($version )]($style)"
 
 [fill]
 symbol = " "
@@ -68,6 +79,9 @@ style = "bold white"
 format = '\([$state( $progress_current/$progress_total)]($style)\) '
 style = "bright-black"
 
+[package]
+format = ' [$symbol$version]($style)'
+
 [cmd_duration]
 min_time = 5_000
 show_milliseconds = false
@@ -77,12 +91,29 @@ style = "yellow"
 [memory_usage]
 symbol = " "
 
+[nodejs]
+format = "[$symbol($version )]($style) "
+
+[bun]
+format = "[$symbol($version )]($style) "
+
 [php]
 format = "[$symbol$version]($style) "
 symbol = " "
 
+[python]
+format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+style = 'blue bold'
+
 [rust]
+format = "[$symbol$version]($style) "
 symbol = " "
+
+[golang]
+format = "[$symbol$version]($style) "
+
+[vagrant]
+format = '[$symbol($version )]($style)'
 
 [battery]
 discharging_symbol = "💀 "
