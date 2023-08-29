@@ -10,6 +10,7 @@ alias sail-test="sail artisan test"
 alias cfresh="rm -rf vendor/ composer.lock && composer i"
 alias composer="php -d memory_limit=-1 /opt/homebrew/bin/composer"
 alias cda="composer dump-autoload -o"
+alias phpstorm='open -a /Applications/PhpStorm.app "`pwd`"'
 
 # JavaScript
 alias nfresh="rm -rf node_modules/ package-lock.json && npm install"
@@ -27,6 +28,7 @@ alias diff="delta"
 alias weather="curl https://wttr.in/"
 alias ip="curl ifconfig.me ; echo"
 alias copykey="command cat ~/.ssh/id_rsa.pub | pbcopy"
+alias search="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}' | xargs code"
 
 # Directories
 alias dotfiles="cd ~/.dotfiles"
@@ -53,3 +55,6 @@ alias t="tmux"
 alias ta="t a -t"
 alias tls="t ls"
 alias tn="t new -t"
+
+# Enable aliases to be sudo’ed
+alias sudo='sudo '
