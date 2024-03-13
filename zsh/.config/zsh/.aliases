@@ -11,6 +11,11 @@ alias cfresh="rm -rf vendor/ composer.lock && composer i"
 alias composer="php -d memory_limit=-1 /opt/homebrew/bin/composer"
 alias cda="composer dump-autoload -o"
 alias phpstorm='open -a /Applications/PhpStorm.app "`pwd`"'
+alias mfs='php artisan migrate:fresh --seed'
+alias pp="php artisan test --parallel"
+alias sail='./vendor/bin/sail'
+alias vapor='./vendor/bin/vapor'
+alias vm='ssh vagrant@127.0.0.1 -p 2222'
 
 # JavaScript
 alias nfresh="rm -rf node_modules/ package-lock.json && npm install"

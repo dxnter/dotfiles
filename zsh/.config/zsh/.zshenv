@@ -42,6 +42,10 @@ export TERM=xterm-256color
 export GPG_TTY=$(tty)
 export XDEBUG_CONFIG="idekey=VSCODE"
 
+# MinIO
+export MINIO_ROOT_USER="minio"
+export MINIO_ROOT_PASSWORD="password"
+
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # PATH
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -90,3 +94,7 @@ export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 # fzf
 export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix --hidden --follow --exclude .git'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+# Bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
