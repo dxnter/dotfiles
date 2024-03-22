@@ -23,3 +23,5 @@ fi
 
 execute "~/.asdf/bin/asdf global nodejs '${nodejs_version}'" \
     "Set nodejs ${nodejs_version} as global default"
+
+brew_install "pnpm" "pnpm"

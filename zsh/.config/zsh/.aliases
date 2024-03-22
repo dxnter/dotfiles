@@ -5,6 +5,7 @@ alias seed="php artisan db:seed"
 alias sail="[ -f sail ] && sh sail || sh vendor/bin/sail"
 alias sa="sail artisan"
 alias sail-test="sail artisan test"
+alias art="php artisan"
 
 # PHP
 alias cfresh="rm -rf vendor/ composer.lock && composer i"

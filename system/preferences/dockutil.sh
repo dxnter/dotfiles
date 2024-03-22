@@ -36,14 +36,14 @@ execute "$dockutil --no-restart --add '/Applications/Todoist.app'" \
 execute "$dockutil --no-restart --add '/Applications/Google Chrome.app'" \
     "Google Chrome"
 
+execute "$dockutil --no-restart --add '/Applications/Firefox Developer Edition.app'" \
+    "Firefox Developer Edition"
+
 execute "$dockutil --no-restart --add '/Applications/1Password.app'" \
     "1Password"
 
 execute "$dockutil --no-restart --add '/Applications/Obsidian.app'" \
     "Obsidian"
-
-execute "$dockutil --no-restart --add '/Applications/Linear.app'" \
-    "Linear"
 
 execute "$dockutil --no-restart --add '/Applications/Fantastical.app'" \
     "Fantastical"
@@ -59,9 +59,6 @@ execute "$dockutil --no-restart --add '/Applications/Messages.app'" \
 
 execute "$dockutil --no-restart --add '/Applications/iTerm.app'" \
     "iTerm"
-
-execute "$dockutil --no-restart --add '/Applications/Docker.app'" \
-    "Docker"
 
 execute "$dockutil --no-restart --add '/Applications/RapidAPI.app'" \
     "RapidAPI"

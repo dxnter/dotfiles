@@ -60,9 +60,13 @@ export PATH="/usr/local/bin:$PATH"
 export PATH="$DOTFILES_DIR/bin:$PATH"
 
 # Homebrew
-export PATH="/opt/homebrew/bin:$PATH"
-export PATH="/opt/homebrew/sbin:$PATH"
-export PATH="/usr/local/sbin:$PATH"
+if [[ "$(uname -m)" == "arm64" ]]; then
+  export PATH="/opt/homebrew/bin:$PATH"
+  export PATH="/opt/homebrew/sbin:$PATH"
+else
+  export PATH="/usr/local/bin:$PATH"
+  export PATH="/usr/local/sbin:$PATH"
+fi
 
 # Composer
 export PATH="$HOME/.composer/vendor/bin:$PATH"
@@ -77,6 +81,9 @@ export PATH="$HOME/.pyenv/shims:$PATH"
 # Poetry
 export PATH="$HOME/.poetry/bin:$PATH"
 
+# PHP Monitor
+export PATH=$HOME/bin:~/.config/phpmon/bin:$PATH
+
 # Anaconda
 export PATH="/usr/local/anaconda3/bin:$PATH"
 
@@ -84,7 +91,11 @@ export PATH="/usr/local/anaconda3/bin:$PATH"
 export PNPM_HOME="$HOME/.local/share/pnpm:$PATH"
 
 # Java
-export PATH="/opt/homebrew/opt/openjdk@19/bin:$PATH"
+if [[ "$(uname -m)" == "arm64" ]]; then
+  export PATH="/opt/homebrew/opt/openjdk@19/bin:$PATH"
+else
+  export PATH="/usr/local/opt/openjdk@19/bin:$PATH"
+fi
 
 # Go
 export GOPATH=$HOME/go
