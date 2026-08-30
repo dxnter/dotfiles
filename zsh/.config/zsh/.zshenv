@@ -88,7 +88,8 @@ export PATH=$HOME/bin:~/.config/phpmon/bin:$PATH
 export PATH="/usr/local/anaconda3/bin:$PATH"
 
 # pnpm
-export PNPM_HOME="$HOME/.local/share/pnpm:$PATH"
+export PNPM_HOME="$HOME/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
 
 # Java
 if [[ "$(uname -m)" == "arm64" ]]; then
