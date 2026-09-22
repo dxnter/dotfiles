@@ -48,3 +48,10 @@ desktop.ini
 .idea
 .iml
 *.sublime-workspace
+
+agents/
+
+CLAUDE.md
+.claude/*
+SENTRY_REPORT.md
+vapor-migration-evaluation/
