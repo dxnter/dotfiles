@@ -23,9 +23,15 @@ _prepend "${HOME}/.config/composer/vendor/bin"
 # Herd: PHP first on PATH, plus the default Node without loading nvm
 _prepend "${HOME}/Library/Application Support/Herd/bin"
 if [[ -n "${NVM_DIR}" && -f "${NVM_DIR}/alias/default" ]]; then
-  _nvm_default=$(command ls -d "${NVM_DIR}/versions/node/v$(<"${NVM_DIR}/alias/default")"* 2>/dev/null | sort -V | tail -1)
-  [[ -n "${_nvm_default}" ]] && _prepend "${_nvm_default}/bin"
-  unset _nvm_default
+  # Resolve the default alias (a version like "24", or a chain like lts/* -> lts/krypton -> v24.21.0)
+  _nvm_want=$(<"${NVM_DIR}/alias/default")
+  for _ in 1 2 3; do
+    [[ -f "${NVM_DIR}/alias/${_nvm_want}" ]] && _nvm_want=$(<"${NVM_DIR}/alias/${_nvm_want}") || break
+  done
+  _nvm_dirs=("${NVM_DIR}"/versions/node/v${_nvm_want#v}*(N/))
+  _nvm_dirs=(${(On)_nvm_dirs})                       # highest version first
+  (( ${#_nvm_dirs} )) && _prepend "${_nvm_dirs[1]}/bin"
+  unset _nvm_want _nvm_dirs
 fi
 
 # Own tools last so they win
