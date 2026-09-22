@@ -21,7 +21,6 @@ if answer_is_yes; then
 fi
 
 ./../create_symlinks.sh
-./asdf.sh
 ./nodejs.sh
 ./poetry.sh
 ./rust.sh
