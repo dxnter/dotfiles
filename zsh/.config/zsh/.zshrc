@@ -1,11 +1,7 @@
-# CodeWhisperer pre block. Keep at the top of this file.
-[[ -f "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.pre.zsh"
+# Interactive shells only.
 
-# -----------------------------------------------------------------------------------
-#                          OTHER CONFIGURATIONS                                     |
-# -----------------------------------------------------------------------------------
+# oh-my-zsh
 plugins=(
-  asdf
   git
   macos
   composer
@@ -13,27 +9,25 @@ plugins=(
   zsh-syntax-highlighting
   zsh-autosuggestions
 )
+source "${ZSH}/oh-my-zsh.sh"
 
-# Enable oh-my-zsh
-source $ZSH/oh-my-zsh.sh
+# History (set after oh-my-zsh, which resets HISTFILE)
+export HISTFILE="${ZDOTDIR}/.zsh_history"
+HISTSIZE=100000
+SAVEHIST=100000
+setopt SHARE_HISTORY HIST_IGNORE_ALL_DUPS HIST_IGNORE_SPACE HIST_REDUCE_BLANKS
 
-# Enable fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export GPG_TTY=$(tty)
 
-[ -f $ZDOTDIR/.zsh_profile ] && source $ZDOTDIR/.zsh_profile
+# nvm: load the functions but skip `nvm use default` (the default Node is already on PATH from .zprofile)
+[[ -n "${NVM_DIR}" && -s "${NVM_DIR}/nvm.sh" ]] && source "${NVM_DIR}/nvm.sh" --no-use
 
-
-# -----------------------------------------------------------------------------------
-#                          FINAL SOURCES                                            |
-# -----------------------------------------------------------------------------------
-# -----------------------------------------------------------------------------------
+# Aliases, functions, and ~/.zshrc.local
+[[ -f "${ZDOTDIR}/.zsh_profile" ]] && source "${ZDOTDIR}/.zsh_profile"
 
 eval "$(starship init zsh)"
 
-test -e "${ZDOTDIR}/.iterm2_shell_integration.zsh" && source "${ZDOTDIR}/.iterm2_shell_integration.zsh"
+[[ -s "${BUN_INSTALL}/_bun" ]] && source "${BUN_INSTALL}/_bun"
 
-
-[ -s "/Users/dannyfoster/.bun/_bun" ] && source "/Users/dannyfoster/.bun/_bun"
-
-# CodeWhisperer post block. Keep at the bottom of this file.
-[[ -f "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.post.zsh"
+# Installers (Herd, Codex, ...) append to ~/.zshrc, which zsh never reads once ZDOTDIR is set. Honour it anyway.
+[[ "${ZDOTDIR}" != "${HOME}" && -f "${HOME}/.zshrc" ]] && source "${HOME}/.zshrc"

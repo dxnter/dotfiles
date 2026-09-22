@@ -1,18 +1,14 @@
+# Read by every zsh (login, interactive, scripts). Environment only: no PATH edits,
+# no external commands, no secrets. PATH lives in .zprofile; interactive setup in .zshrc.
+
 export XDG_CONFIG_HOME="${HOME}/.config"
 export XDG_CACHE_HOME="${HOME}/.cache"
 export XDG_LOCAL_HOME="${HOME}/.local"
 export XDG_DATA_HOME="${XDG_LOCAL_HOME}/share"
-
-if [[ ! -d "${XDG_CONFIG_HOME}/zsh" ]]; then
-	mkdir -p "${XDG_CONFIG_HOME}/zsh"
-fi
-
-if [[ ! -d "${XDG_CACHE_HOME}/zsh" ]]; then
-	mkdir -p "${XDG_CACHE_HOME}/zsh"
-fi
+[[ -d "${XDG_CACHE_HOME}/zsh" ]] || mkdir -p "${XDG_CACHE_HOME}/zsh"
 
 export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
-export ZSH="${XDG_CONFIG_HOME}/zsh/.oh-my-zsh"
+export ZSH="${ZDOTDIR}/.oh-my-zsh"
 export ZSH_COMPDUMP="${XDG_CACHE_HOME}/zsh/zcompdump-${SHORT_HOST}-${ZSH_VERSION}"
 
 export DOTFILES_DIR="${HOME}/.dotfiles"
@@ -22,91 +18,27 @@ export DOTFILES_IDE="code"
 export LANGUAGE="en_US.UTF-8"
 export LANG="${LANGUAGE}"
 export LC_ALL="${LANGUAGE}"
-export LC_TYPE="${LANGUAGE}"
 
-# Editor
+# Editors
 export EDITOR=nvim
-export CVSEDITOR="${EDITOR}"
-export SVN_EDITOR="${EDITOR}"
-export GIT_EDITOR="code"
+export VISUAL="${EDITOR}"
+export GIT_EDITOR="code --wait"
 
-# History
-export HISTFILE="${XDG_CACHE_HOME}/zsh/history"
-export HISTSIZE=10000
-export SAVEHIST=1000000
+# Tool homes (PATH entries for these are added in .zprofile)
+export GOPATH="${HOME}/go"
+export BUN_INSTALL="${HOME}/.bun"
+export PNPM_HOME="${XDG_DATA_HOME}/pnpm"
 
 # Misc.
 export HOMEBREW_NO_AUTO_UPDATE=1
 export DISABLE_UPDATE_PROMPT=true
-export TERM=xterm-256color
-export GPG_TTY=$(tty)
 export XDEBUG_CONFIG="idekey=VSCODE"
+export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix --hidden --follow --exclude .git'
+export FZF_CTRL_T_COMMAND="${FZF_DEFAULT_COMMAND}"
 
-# MinIO
+# Herd MinIO (local dev only)
 export MINIO_ROOT_USER="minio"
 export MINIO_ROOT_PASSWORD="password"
 
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-# PATH
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-# User bin
-export PATH="$PATH:$HOME/bin"
-
-# Local bin
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="/usr/local/bin:$PATH"
-
-# dotfiles utilities
-export PATH="$DOTFILES_DIR/bin:$PATH"
-
-# Homebrew
-if [[ "$(uname -m)" == "arm64" ]]; then
-  export PATH="/opt/homebrew/bin:$PATH"
-  export PATH="/opt/homebrew/sbin:$PATH"
-else
-  export PATH="/usr/local/bin:$PATH"
-  export PATH="/usr/local/sbin:$PATH"
-fi
-
-# Composer
-export PATH="$HOME/.composer/vendor/bin:$PATH"
-
-# Cargo
-export PATH="$HOME/.cargo/bin:$PATH"
-export PATH="$HOME/.cargo/env:$PATH"
-
-# pyenv
-export PATH="$HOME/.pyenv/shims:$PATH"
-
-# Poetry
-export PATH="$HOME/.poetry/bin:$PATH"
-
-# PHP Monitor
-export PATH=$HOME/bin:~/.config/phpmon/bin:$PATH
-
-# Anaconda
-export PATH="/usr/local/anaconda3/bin:$PATH"
-
-# pnpm
-export PNPM_HOME="$HOME/.local/share/pnpm"
-export PATH="$PNPM_HOME:$PATH"
-
-# Java
-if [[ "$(uname -m)" == "arm64" ]]; then
-  export PATH="/opt/homebrew/opt/openjdk@19/bin:$PATH"
-else
-  export PATH="/usr/local/opt/openjdk@19/bin:$PATH"
-fi
-
-# Go
-export GOPATH=$HOME/go
-export GOROOT="$(brew --prefix golang)/libexec"
-export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
-
-# fzf
-export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix --hidden --follow --exclude .git'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-
-# Bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
+# Machine-local overrides and secrets (never committed): NVM_DIR, keychain-backed variables, etc.
+[[ -f "${HOME}/.zshenv.local" ]] && source "${HOME}/.zshenv.local"
