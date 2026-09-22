@@ -15,8 +15,8 @@ add_gpg_config() {
         "use-agent" > ~/.gnupg/gpg.conf
 
     printf "%s\n" \
-        "default-cache-ttl 600" \
-        "max-cache-ttl 7200" \
+        "default-cache-ttl 34560000" \
+        "max-cache-ttl 34560000" \
         "pinentry-program $(brew --prefix)/bin/pinentry-mac" > ~/.gnupg/gpg-agent.conf
 
     execute "chmod 700 ~/.gnupg" \
