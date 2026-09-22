@@ -18,6 +18,7 @@ _append "${GOPATH}/bin"
 _prepend "${HOME}/.cargo/bin"
 _prepend "${BUN_INSTALL}/bin"
 _prepend "${PNPM_HOME}"
+_prepend "${PNPM_HOME}/bin"          # standalone pnpm lives here, independent of the Node version
 _prepend "${HOME}/.config/composer/vendor/bin"
 
 # Herd: PHP first on PATH, plus the default Node without loading nvm
