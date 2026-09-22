@@ -27,6 +27,7 @@ Fully automated macOS software installation/configuration, modified system prefe
         <a href="#local-settings">🌐 Local Settings</a>
         <ul>
             <li><a href="#zshrclocal">🐚 ~/.zshrc.local</a></li>
+            <li><a href="#zshenvlocal">🔐 ~/.zshenv.local</a></li>
             <li><a href="#gitconfiglocal">🔁 ~/.gitconfig.local</a></li>
             <li><a href="#vimrclocal">⌨️ ~/.vimrc.local</a></li>
         </ul>
@@ -138,9 +139,27 @@ alias g="git"
 
 Any other universal modifications to the shell should take place in the appropriate file.
 
-- `./zsh/.config/zsh/.zshenv` → Environment variables, `$PATH` exports, and global directory paths
+- `./zsh/.config/zsh/.zshenv` → Environment variables read by every shell (no `PATH`, no commands, no secrets)
+- `./zsh/.config/zsh/.zprofile` → `PATH`, built once per login shell; each entry is added only if the directory exists
+- `./zsh/.config/zsh/.zshrc` → Interactive setup: oh-my-zsh, history, nvm, starship
 - `./zsh/.config/zsh/.aliases` → Command aliases
-- `./zsh/.config/zsh/.zshrc` → Theme, sourcing, and plugin settings
+
+#### `~/.zshenv.local`
+
+Sourced at the end of `.zshenv` by every shell, so it is the place for machine-specific
+environment (`NVM_DIR`, tool homes) and for secrets, which should be read from the
+login keychain rather than written in plain text:
+
+```shell
+export NVM_DIR="$HOME/Library/Application Support/Herd/config/nvm"
+export TF_VAR_local_state_passphrase="$(security find-generic-password -s tf-state-passphrase -w 2>/dev/null)"
+```
+
+Store a value with `security add-generic-password -a "$USER" -s <service> -w '<value>' -U`.
+
+**Note:** `~/.zshrc` and `~/.zprofile` are not read by zsh here because `ZDOTDIR` is `~/.config/zsh`.
+Installers still append to them, so the `ZDOTDIR` files source both at the end; keep your own
+settings in `~/.zshrc.local` and `~/.zshenv.local`.
 
 #### `~/.gitconfig.local`
 
