@@ -1,14 +1,6 @@
-#!/usr/bin/env bash
-
 # Create a directory and enter it
 function mkd() {
     mkdir -p "$@" && cd "$@"
-}
-
-function camerausedby() {
-	echo "Checking to see who is using the iSight camera… 📷"
-	usedby=$(lsof | grep -w "AppleCamera\|USBVDC\|iSight" | awk '{printf $2"\n"}' | xargs ps)
-	echo -e "Recent camera uses:\n$usedby"
 }
 
 # Run tests
@@ -36,14 +28,4 @@ function tinker()
     else
        php artisan tinker --execute="dd($1);"
   fi
-}
-
-switch-php() {
-    valet stop
-    brew list --formula -1 | grep php | grep ^php@ | xargs brew unlink
-    brew link --force --overwrite php@$1
-    brew services restart php@$1
-    composer global update
-    rm -f ~/.config/valet/valet.sock
-    valet install
 }
