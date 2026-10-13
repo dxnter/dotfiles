@@ -1,0 +1,11 @@
+# Global runtimes. Projects pin their own versions in mise.toml or .tool-versions.
+# Herd provides PHP; everything else language-shaped comes from here.
+
+[tools]
+node = "lts"
+pnpm = "latest"
+bun = "latest"
+python = "latest"
+uv = "latest"
+rust = "stable"
+go = "latest"

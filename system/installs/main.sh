@@ -9,31 +9,10 @@ print_info "• Installs"
 
 ./xcode.sh
 ./homebrew.sh
+./brew.sh
 ./zsh.sh
-./git.sh
-./gpg.sh
-
-./cli_tools.sh
-
-ask_for_confirmation "Do you want to install CTF tools? (nmap, hydra, john, etc.) \n"
-if answer_is_yes; then
-    ./ctf_tools.sh
-fi
-
 ./../create_symlinks.sh
-./nodejs.sh
-./poetry.sh
-./rust.sh
-./nvim.sh
-./go.sh
-./dev_tools.sh
-
-./media_tools.sh
-./browsers.sh
-./amm.sh
-./fonts.sh
-./misc.sh
-
+./mise.sh
 ./cleanup.sh
 
 print_success "macOS installs complete"

@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
 
+DOTFILES_DIR="${DOTFILES_DIR:-$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)}"
+export DOTFILES_DIR
+
 verify_os() {
 
-    declare -r MINIMUM_MACOS_VERSION="10.10"
+    # macOS 13 is the newest release the 2017 Intel Mac can run.
+    declare -r MINIMUM_MACOS_VERSION="13.0"
 
     local os_name="$(get_os)"
     local os_version="$(get_os_version)"
@@ -364,39 +368,10 @@ resolve_bin() {
 
 brewCommand=$(resolve_bin "brew")
 
-brew_install() {
-
-    declare -r ARGUMENTS="$3"
-    declare -r FORMULA="$2"
-    declare -r FORMULA_READABLE_NAME="$1"
-    declare -r TAP_VALUE="$4"
-
-    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-    # If `brew tap` needs to be executed,
-    # check if it executed correctly.
-
-    if [ -n "$TAP_VALUE" ]; then
-        if ! brew_tap "$TAP_VALUE"; then
-            print_error "$FORMULA_READABLE_NAME ('$brewCommand tap $TAP_VALUE' failed)"
-            return 1
-        fi
-    fi
-
-    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-    # Install the specified formula.
-
-    # shellcheck disable=SC2086
-    if $brewCommand list "$FORMULA" &> /dev/null; then
-        print_success "$FORMULA_READABLE_NAME"
-    else
-        execute \
-            "$brewCommand install $FORMULA $ARGUMENTS" \
-            "$FORMULA_READABLE_NAME"
-    fi
-
-}
+# Every installer runs in its own process, so load Homebrew's PATH here once it exists.
+if [ -x "$brewCommand" ]; then
+    eval "$("$brewCommand" shellenv)"
+fi
 
 brew_prefix() {
 
@@ -412,10 +387,6 @@ brew_prefix() {
         return 1
     fi
 
-}
-
-brew_tap() {
-    $brewCommand tap "$1" &> /dev/null
 }
 
 brew_update() {
@@ -434,20 +405,3 @@ brew_upgrade() {
 
 }
 
-brew_external_sources() {
-    execute \
-        "$brewCommand tap homebrew/bundle" \
-        "homebrew/bundle tapped"
-
-    execute \
-        "$brewCommand tap homebrew/core" \
-        "homebrew/core tapped"
-
-    execute \
-        "$brewCommand tap homebrew/cask" \
-        "homebrew/cask tapped"
-
-    execute \
-        "$brewCommand tap homebrew/cask-fonts" \
-        "homebrew/cask-fonts tapped"
-}

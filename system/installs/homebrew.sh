@@ -5,50 +5,26 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-get_homebrew_git_config_file_path() {
-
-    local path=""
-
-    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-    if path="$(brew --repository 2> /dev/null)/.git/config"; then
-        printf "%s" "$path"
-        return 0
-    else
-        print_error "Homebrew (get config file path)"
-        return 1
-    fi
-
-}
-
 install_homebrew() {
 
-    if ! cmd_exists "brew"; then
+    if ! cmd_exists "brew" && [ ! -x "$brewCommand" ]; then
         ask_for_sudo
-        printf "\n" | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" &> /dev/null
+        execute \
+            "NONINTERACTIVE=1 /bin/bash -c \"\$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\"" \
+            "Homebrew (install)" \
+            || exit 1
     fi
+
+    # A fresh install is not on PATH yet; load it for the rest of the setup.
+    eval "$("$brewCommand" shellenv)"
 
 }
 
 opt_out_of_analytics() {
 
-    local path=""
-
-    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-    # Try to get the path of the `Homebrew` git config file.
-
-    path="$(get_homebrew_git_config_file_path)" \
-        || return 1
-
-    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-    # Opt-out of Homebrew's analytics.
-
-    if [ "$(git config --file="$path" --get homebrew.analyticsdisabled)" != "true" ]; then
-        git config --file="$path" --replace-all homebrew.analyticsdisabled true &> /dev/null
-        print_result $? "Homebrew (opt-out of analytics)"
-    fi
+    execute \
+        "$brewCommand analytics off" \
+        "Homebrew (opt-out of analytics)"
 
 }
 
@@ -63,9 +39,7 @@ main() {
 
     brew_update
     brew_upgrade
-    brew_external_sources
 
-    print_success "Homebrew installed"
 }
 
 main
