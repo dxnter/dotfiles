@@ -55,3 +55,4 @@ CLAUDE.md
 .claude/*
 SENTRY_REPORT.md
 vapor-migration-evaluation/
+**/.claude/settings.local.json
