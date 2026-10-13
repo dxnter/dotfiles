@@ -3,76 +3,62 @@
 cd "$(dirname "${BASH_SOURCE[0]}")" \
     && . "../utils.sh"
 
-if [ ! `which dockutil` ]; then
-    wget="$(resolve_bin 'wget')"
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    print_info "• Dockutil"
-
-    dockutilDownloadURL=$(curl -s https://api.github.com/repos/kcrawford/dockutil/releases/latest \
-            | grep 'browser_download_url.*pkg' \
-            | cut -d : -f 2,3 \
-            | tr -d \" \
-            | $wget -O /tmp/dockutil.pkg -qi -)
-
-    execute "$dockutilDownloadURL" \
-        "Downloading dockutil"
-
-    sudo installer -pkg /tmp/dockutil.pkg -target /
-    print_info "Installed dockutil"
-fi
-
-dockutil=$(resolve_bin "dockutil")
+# Apps in Dock order. Missing apps are skipped: some casks only install
+# on Apple Silicon or macOS 14+, so the Intel Mac has fewer.
+declare -a DOCK_APPS=(
+    "/Applications/Google Chrome.app"
+    "/Applications/Todoist.app"
+    "/Applications/1Password.app"
+    "/Applications/Fantastical.app"
+    "/System/Applications/Messages.app"
+    "/Applications/Claude.app"
+    "/Applications/ChatGPT.app"
+    "/Applications/Visual Studio Code.app"
+    "/Applications/iTerm.app"
+    "/Applications/Spotify.app"
+)
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-print_info "• Set Dock Apps"
+main() {
 
-execute "$dockutil --no-restart --remove all" \
-    "Remove all apps from Dock"
+    local dockutil=""
+    local app=""
 
-execute "$dockutil --no-restart --add '/Applications/Todoist.app'" \
-    "Todoist"
+    dockutil="$(resolve_bin "dockutil")"
 
-execute "$dockutil --no-restart --add '/Applications/Google Chrome.app'" \
-    "Google Chrome"
+    if ! cmd_exists "$dockutil"; then
+        print_error "dockutil not found (installed by the Brewfile)"
+        return 1
+    fi
 
-execute "$dockutil --no-restart --add '/Applications/Firefox Developer Edition.app'" \
-    "Firefox Developer Edition"
+    print_info "• Set Dock Apps"
 
-execute "$dockutil --no-restart --add '/Applications/1Password.app'" \
-    "1Password"
+    execute "\"$dockutil\" --no-restart --remove all" \
+        "Remove all apps from Dock"
 
-execute "$dockutil --no-restart --add '/Applications/Obsidian.app'" \
-    "Obsidian"
+    for app in "${DOCK_APPS[@]}"; do
+        if [ -d "$app" ]; then
+            execute "\"$dockutil\" --no-restart --add \"$app\"" \
+                "$(basename "$app" .app)"
+        else
+            print_warning "$(basename "$app" .app) not installed => skipping"
+        fi
+    done
 
-execute "$dockutil --no-restart --add '/Applications/Fantastical.app'" \
-    "Fantastical"
+    execute "\"$dockutil\" --no-restart --add \"$HOME/Downloads\" --view fan --display stack --sort dateadded" \
+        "Downloads"
 
-execute "$dockutil --no-restart --add '/Applications/Spotify.app'" \
-    "Spotify"
+    # ui_and_ux.sh points screencapture here and creates the folder.
+    mkdir -p "$HOME/Documents/screenshots"
+    execute "\"$dockutil\" --no-restart --add \"$HOME/Documents/screenshots\" --label Screenshots --view fan --display stack --sort dateadded" \
+        "Screenshots"
 
-execute "$dockutil --no-restart --add '/Applications/Discord.app'" \
-    "Discord"
+    execute "killall Dock" \
+        "Restart Dock"
 
-execute "$dockutil --no-restart --add '/Applications/Messages.app'" \
-    "Messages"
+}
 
-execute "$dockutil --no-restart --add '/Applications/iTerm.app'" \
-    "iTerm"
-
-execute "$dockutil --no-restart --add '/Applications/RapidAPI.app'" \
-    "RapidAPI"
-
-execute "$dockutil --no-restart --add '/Applications/Visual Studio Code.app'" \
-    "Visual Studio Code"
-
-execute "$dockutil --no-restart --add '/Applications/DBeaver.app'" \
-    "DBeaver"
-
-execute "$dockutil --add '~/Downloads' --view fan --display stack --sort dateadded --no-restart" \
-    "Downloads"
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-execute "killall Dock" \
-    "Restart Dock"
+main

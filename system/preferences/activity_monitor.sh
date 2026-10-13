@@ -13,11 +13,7 @@ execute "defaults write com.apple.ActivityMonitor OpenMainWindow -bool true" \
 execute "defaults write com.apple.ActivityMonitor IconType -int 5" \
     "Visualize CPU usage in the Activity Monitor Dock icon"
 
-execute "defaults write com.apple.ActivityMonitor ShowCategory -int 0" \
+execute "defaults write com.apple.ActivityMonitor ShowCategory -int 100" \
     "Show all processes in Activity Monitor"
-
-execute "defaults write com.apple.ActivityMonitor SortColumn -string 'CPUUsage' && \
-         defaults write com.apple.ActivityMonitor SortDirection -int 0" \
-    "Sort Activity Monitor results by CPU usage"
 
 killall "Activity Monitor" &> /dev/null

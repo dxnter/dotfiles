@@ -16,17 +16,8 @@ execute "defaults write com.apple.dock autohide-delay -float 0" \
 execute "defaults write com.apple.dock enable-spring-load-actions-on-all-items -bool true" \
     "Enable spring loading for all Dock items"
 
-execute "defaults write com.apple.dock expose-animation-duration -float 0.1" \
-    "Make all Mission Control related animations faster."
-
 execute "defaults write com.apple.dock showLaunchpadGestureEnabled -int 0" \
     "Disable the Launchpad gesture"
-
-execute "defaults write com.apple.dashboard mcx-disabled -bool true" \
-    "Disable Dashboard"
-
-execute "defaults write com.apple.dock expose-group-by-app -bool false" \
-    "Do not group windows by application in Mission Control"
 
 execute "defaults write com.apple.dock launchanim -bool false" \
     "Disable the opening of an application from the Dock animations."
@@ -40,8 +31,8 @@ execute "defaults write com.apple.dock mineffect -string 'scale'" \
 execute "defaults write com.apple.dock minimize-to-application -bool true" \
     "Reduce clutter by minimizing windows into their application icons"
 
-execute "defaults write com.apple.dock mru-spaces -bool true" \
-    "Automatically rearrange spaces based on most recent use"
+execute "defaults write com.apple.dock mru-spaces -bool false" \
+    "Keep Spaces in a fixed order instead of by most recent use"
 
 execute "defaults write com.apple.dock show-process-indicators -bool true" \
     "Show indicator lights for open applications"

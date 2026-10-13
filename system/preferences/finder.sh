@@ -13,36 +13,34 @@ execute "chflags nohidden ~/Library" \
 execute "sudo chflags nohidden /Volumes" \
     "Show the /Volumes folder"
 
-defaults write com.apple.finder FXInfoPanesExpanded -dict \
-    	General -bool true \
-    	OpenWith -bool true \
-    	Privileges -bool true
+execute "defaults write com.apple.finder FXInfoPanesExpanded -dict General -bool true OpenWith -bool true Privileges -bool true" \
+    "Expand the General, Open with, and Sharing panes in Get Info"
 
 execute "defaults write com.apple.frameworks.diskimages auto-open-ro-root -bool true && \
-         defaults write com.apple.frameworks.diskimages auto-open-rw-root -bool true && \
-         defaults write com.apple.finder OpenWindowForNewRemovableDisk -bool true" \
-    "Automatically open a new Finder window when a volume is mounted"
+         defaults write com.apple.frameworks.diskimages auto-open-rw-root -bool true" \
+    "Automatically open a Finder window when a disk image is mounted"
 
 execute "defaults write com.apple.finder _FXShowPosixPathInTitle -bool true" \
     "Use full POSIX path as window title"
 
-execute "defaults write com.apple.finder QLEnableTextSelection -bool true" \
-    "Allow text selection in Quick Look"
-
-execute "defaults write com.apple.finder _FXSortFoldersFirst -bool true" \
-    "Keep folders on top of the other items"
+execute "defaults write com.apple.finder _FXSortFoldersFirst -bool true && \
+         defaults write com.apple.finder _FXSortFoldersFirstOnDesktop -bool true" \
+    "Keep folders on top of the other items, on the desktop too"
 
 execute "defaults write com.apple.finder DisableAllAnimations -bool true" \
     "Disable all animations"
 
 execute "defaults write NSGlobalDomain com.apple.springing.enabled -bool true" \
-    "Enable spring loading for all Dock items"
+    "Enable spring-loaded folders"
 
 execute "defaults write NSGlobalDomain com.apple.springing.delay -float 0" \
-    "Remove the spring loading delay for all Dock items"
+    "Remove the spring-loaded folder delay"
 
 execute "defaults write com.apple.finder WarnOnEmptyTrash -bool false" \
     "Disable the warning before emptying the Trash"
+
+execute "defaults write com.apple.finder FXRemoveOldTrashItems -bool true" \
+    "Remove items from the Trash after 30 days"
 
 execute "defaults write com.apple.finder FXDefaultSearchScope -string 'SCcf'" \
     "Search the current directory by default"
@@ -78,43 +76,39 @@ execute "defaults write -g AppleShowAllExtensions -bool true" \
 execute "defaults write com.apple.finder AppleShowAllFiles -bool true" \
     "Show hidden files and folders"
 
-execute "defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true" \
-    "Enable AirDrop over Ethernet"
+# Icon view settings live in nested dicts that a fresh account doesn't have yet,
+# so create the parents and Add each key when Set fails.
+set_icon_view() {
+    local plist="$HOME/Library/Preferences/com.apple.finder.plist"
+    local view=""
 
-execute "defaults write com.apple.frameworks.diskimages skip-verify -bool true && \
-         defaults write com.apple.frameworks.diskimages skip-verify-locked -bool true && \
-         defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true" \
-    "Disable disk image verification"
+    for view in DesktopViewSettings StandardViewSettings; do
+        /usr/libexec/PlistBuddy -c "Add :$view dict" "$plist" &> /dev/null
+        /usr/libexec/PlistBuddy -c "Add :$view:IconViewSettings dict" "$plist" &> /dev/null
+        /usr/libexec/PlistBuddy -c "Set :$view:IconViewSettings:$1 $3" "$plist" &> /dev/null \
+            || /usr/libexec/PlistBuddy -c "Add :$view:IconViewSettings:$1 $2 $3" "$plist" \
+            || return 1
+    done
+}
 
-execute "defaults write com.apple.frameworks.diskimages auto-open-ro-root -bool true && \
-         defaults write com.apple.frameworks.diskimages auto-open-rw-root -bool true && \
-         defaults write com.apple.finder OpenWindowForNewRemovableDisk -bool true" \
-    "Automatically open a new Finder window when a volume is mounted"
-
-execute "/usr/libexec/PlistBuddy -c 'Set :DesktopViewSettings:IconViewSettings:iconSize 72' ~/Library/Preferences/com.apple.finder.plist && \
-         /usr/libexec/PlistBuddy -c 'Set :StandardViewSettings:IconViewSettings:iconSize 72' ~/Library/Preferences/com.apple.finder.plist" \
+execute "set_icon_view iconSize integer 72" \
     "Set icon size"
 
-execute "/usr/libexec/PlistBuddy -c 'Set :DesktopViewSettings:IconViewSettings:gridSpacing 10' ~/Library/Preferences/com.apple.finder.plist && \
-         /usr/libexec/PlistBuddy -c 'Set :StandardViewSettings:IconViewSettings:gridSpacing 10' ~/Library/Preferences/com.apple.finder.plist" \
+execute "set_icon_view gridSpacing integer 10" \
     "Set icon grid spacing size"
 
-execute "/usr/libexec/PlistBuddy -c 'Set :DesktopViewSettings:IconViewSettings:textSize 13' ~/Library/Preferences/com.apple.finder.plist && \
-         /usr/libexec/PlistBuddy -c 'Set :StandardViewSettings:IconViewSettings:textSize 13' ~/Library/Preferences/com.apple.finder.plist" \
+execute "set_icon_view textSize integer 13" \
     "Set icon label text size"
 
-execute "/usr/libexec/PlistBuddy -c 'Set :DesktopViewSettings:IconViewSettings:labelOnBottom true' ~/Library/Preferences/com.apple.finder.plist && \
-         /usr/libexec/PlistBuddy -c 'Set :StandardViewSettings:IconViewSettings:labelOnBottom true' ~/Library/Preferences/com.apple.finder.plist" \
+execute "set_icon_view labelOnBottom bool true" \
     "Set icon label position"
 
-execute "/usr/libexec/PlistBuddy -c 'Set :DesktopViewSettings:IconViewSettings:showItemInfo true' ~/Library/Preferences/com.apple.finder.plist && \
-         /usr/libexec/PlistBuddy -c 'Set :StandardViewSettings:IconViewSettings:showItemInfo true' ~/Library/Preferences/com.apple.finder.plist" \
+execute "set_icon_view showItemInfo bool true" \
     "Show item info"
 
-execute "/usr/libexec/PlistBuddy -c 'Set :DesktopViewSettings:IconViewSettings:arrangeBy grid' ~/Library/Preferences/com.apple.finder.plist && \
-         /usr/libexec/PlistBuddy -c 'Set :StandardViewSettings:IconViewSettings:arrangeBy grid' ~/Library/Preferences/com.apple.finder.plist" \
+execute "set_icon_view arrangeBy string grid" \
     "Set sort method"
 
-killall "Finder" &> /dev/null
-
+# Restart cfprefsd before Finder so Finder doesn't write its cached copy over the PlistBuddy edits.
 killall "cfprefsd" &> /dev/null
+killall "Finder" &> /dev/null
