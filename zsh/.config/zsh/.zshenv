@@ -40,5 +40,5 @@ export FZF_CTRL_T_COMMAND="${FZF_DEFAULT_COMMAND}"
 export MINIO_ROOT_USER="minio"
 export MINIO_ROOT_PASSWORD="password"
 
-# Machine-local overrides and secrets (never committed): NVM_DIR, keychain-backed variables, etc.
+# Machine-local overrides and secrets (never committed): keychain-backed variables, etc.
 [[ -f "${HOME}/.zshenv.local" ]] && source "${HOME}/.zshenv.local"
