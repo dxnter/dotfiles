@@ -3,7 +3,7 @@
 cd "$(dirname "${BASH_SOURCE[0]}")" \
     && . "utils.sh"
 
-declare -a gpgIdentifier
+gpgIdentifier=""
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -29,7 +29,8 @@ generate_gpg_key() {
 
     gpg --full-gen-key
 
-    gpgIdentifier=$(gpg --list-signatures --with-colons | grep 'sig' | tail -n 1 | cut -d':' -f5)
+    # The newest secret key is the one just generated.
+    gpgIdentifier=$(gpg --list-secret-keys --with-colons | awk -F: '$1 == "sec" { key = $5 } END { print key }')
 
     print_result $? "Generate GPG key"
 }
@@ -43,7 +44,7 @@ modify_local_git_config() {
 
 copy_public_gpg_key_to_clipboard() {
 
-    gpg --armor --export $gpgIdentifier | pbcopy
+    gpg --armor --export "$gpgIdentifier" | pbcopy
 
     print_result $? "Copy public GPG key to clipboard"
 }

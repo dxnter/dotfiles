@@ -12,17 +12,22 @@ set_hostname() {
     ask "Enter the desired hostname for the computer: "
     hostName="$(get_answer)"
 
-    execute "sudo scutil --set ComputerName $hostName" \
+    if [ -z "$hostName" ]; then
+        print_warning "No hostname entered => skipping"
+        return 0
+    fi
+
+    # LocalHostName and HostName only allow letters, digits and hyphens.
+    localHostName="$(printf "%s" "$hostName" | tr -cs '[:alnum:]-' '-' | sed 's/^-*//; s/-*$//')"
+
+    execute "sudo scutil --set ComputerName \"$hostName\"" \
         "ComputerName"
 
-    execute "sudo scutil --set HostName $hostName" \
+    execute "sudo scutil --set HostName \"$localHostName\"" \
         "HostName"
 
-    execute "sudo scutil --set LocalHostName $hostName" \
+    execute "sudo scutil --set LocalHostName \"$localHostName\"" \
         "LocalHostName"
-
-    execute "sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string $hostName" \
-        "NetBIOSName"
 }
 
 set_hostname

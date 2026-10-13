@@ -10,7 +10,11 @@ add_ssh_configs() {
     printf "%s\n" \
         "Host github.com" \
         "  IdentityFile $1" \
+        "  AddKeysToAgent yes" \
+        "  UseKeychain yes" \
         "  LogLevel ERROR" >> ~/.ssh/config
+
+    chmod 600 ~/.ssh/config
 
     print_result $? "Add SSH configs"
 
@@ -25,7 +29,8 @@ copy_public_ssh_key_to_clipboard () {
 generate_ssh_keys() {
 
     ask "Please provide an email address: " && printf "\n"
-    ssh-keygen -t rsa -b 4096 -C "$(get_answer)" -f "$1"
+    mkdir -p -m 700 "$HOME/.ssh"
+    ssh-keygen -t ed25519 -C "$(get_answer)" -f "$1"
 
     print_result $? "Generate SSH keys"
 
@@ -62,8 +67,7 @@ set_github_ssh_key() {
     add_ssh_configs "$sshKeyFileName"
     copy_public_ssh_key_to_clipboard "${sshKeyFileName}.pub"
     open_github_ssh_page
-    test_ssh_connection \
-        && rm "${sshKeyFileName}.pub"
+    test_ssh_connection
 
 }
 

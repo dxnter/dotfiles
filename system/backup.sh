@@ -10,12 +10,12 @@ copy_dotfile() {
 
     localFile=$1
     sourceDir=$HOME/$localFile
-    targetDir=$HOME/.dotfiles/backup/$localFile
+    targetDir=$DOTFILES_DIR/backup/$localFile
 
-    if [ -e $sourceDir ]; then
-        execute "mkdir -p $(dirname "$targetDir")" \
+    if [ -e "$sourceDir" ]; then
+        execute "mkdir -p \"$(dirname "$targetDir")\"" \
             "Create directory → $targetDir"
-        execute "cp $sourceDir $targetDir" \
+        execute "cp \"$sourceDir\" \"$targetDir\"" \
             "Copy $sourceDir → $targetDir"
     fi
 
@@ -23,15 +23,15 @@ copy_dotfile() {
 
 backup_dotfiles() {
 
-    if [ ! -d $HOME/.dotfiles/backup ]; then
-        execute "mkdir -p $HOME/.dotfiles/backup" \
-            "Create directory → $HOME/.dotfiles/backup"
+    if [ ! -d "$DOTFILES_DIR/backup" ]; then
+        execute "mkdir -p $DOTFILES_DIR/backup" \
+            "Create directory → $DOTFILES_DIR/backup"
     fi
 
-    while read PKG; do
-        find $PKG -type f | cut -d'/' -f2-
-    done < "$HOME/.dotfiles/symlink_dirs" | while read line; do
-        copy_dotfile $line
+    while read -r PKG; do
+        find "$PKG" -type f | cut -d"/" -f2-
+    done < "$DOTFILES_DIR/symlink_dirs" | while read -r line; do
+        copy_dotfile "$line"
     done
 }
 

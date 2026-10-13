@@ -1,24 +1,33 @@
 #!/usr/bin/env bash
 
 cd "$(dirname "${BASH_SOURCE[0]}")" \
-    && . "utils.sh" \
-    && cd ..
+    && . "utils.sh"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 create_symlinks() {
-    while read PKG; do
-        CONFLICTS=$($(resolve_bin "stow") --no --verbose $PKG 2>&1 | awk '/\* existing target is/ {print $NF}')
-        for filename in ${CONFLICTS[@]}; do
-            if [[ -f $HOME/$filename || -L $HOME/$filename ]]; then
-                execute "rm -f $HOME/$filename" \
-                    "Deleted $filename"
-            fi
-        done
 
-        execute "$(resolve_bin "stow") --no-folding --verbose $PKG" \
+    local stow=""
+    local conflict=""
+
+    stow="$(resolve_bin "stow")"
+
+    while read -r PKG; do
+
+        # Move files that would block stow into backup/ rather than deleting them.
+        # Matches stow 2.4's "over existing target <path> since ..." message.
+        "$stow" --dir="$DOTFILES_DIR" --target="$HOME" --no --verbose "$PKG" 2>&1 \
+            | sed -n 's/.* over existing target \(.*\) since .*/\1/p' \
+            | while read -r conflict; do
+                execute \
+                    "mkdir -p \"$DOTFILES_DIR/backup/$(dirname "$conflict")\" && mv \"$HOME/$conflict\" \"$DOTFILES_DIR/backup/$conflict\"" \
+                    "Moved ~/$conflict to backup/"
+            done
+
+        execute "\"$stow\" --dir=\"$DOTFILES_DIR\" --target=\"$HOME\" --no-folding --verbose $PKG" \
             "Linked $PKG"
-    done < "$HOME/.dotfiles/symlink_dirs"
+
+    done < "$DOTFILES_DIR/symlink_dirs"
 
 }
 
