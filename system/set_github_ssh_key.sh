@@ -49,6 +49,35 @@ generate_ssh_keys() {
 
 }
 
+use_gh_for_https_credentials() {
+
+    # SSH covers git@github.com remotes; this lets HTTPS remotes reuse the
+    # `gh auth login` token. Kept in ~/.gitconfig.local because `gh auth setup-git`
+    # would write into ~/.gitconfig, which is this repo's tracked git/.gitconfig.
+    # The mise shim keeps working across `mise upgrade`.
+    local gh="${XDG_DATA_HOME:-$HOME/.local/share}/mise/shims/gh"
+    local host=""
+
+    if [ ! -x "$gh" ]; then
+        print_warning "GitHub CLI not installed; run 'make mise', then 'make ssh' again"
+        return 0
+    fi
+
+    for host in https://github.com https://gist.github.com; do
+        git config --file "$HOME/.gitconfig.local" --unset-all "credential.$host.helper" &> /dev/null
+        git config --file "$HOME/.gitconfig.local" --add "credential.$host.helper" "" \
+            && git config --file "$HOME/.gitconfig.local" --add "credential.$host.helper" "!$gh auth git-credential" \
+            || break
+    done
+
+    print_result $? "Use the GitHub CLI for HTTPS credentials"
+
+    if ! "$gh" auth status &> /dev/null; then
+        print_warning "Run 'gh auth login' so HTTPS remotes can authenticate"
+    fi
+
+}
+
 open_github_ssh_page() {
 
     declare -r GITHUB_SSH_URL="https://github.com/settings/ssh/new"
@@ -121,6 +150,8 @@ main() {
     if [ $? -ne 1 ]; then
         set_github_ssh_key
     fi
+
+    use_gh_for_https_credentials
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

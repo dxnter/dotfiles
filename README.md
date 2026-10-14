@@ -51,7 +51,7 @@ make ssh
 | `make unlink` | Remove those symlinks                                     |
 | `make prefs`  | Apply macOS preferences only                              |
 | `make backup` | Copy current dotfiles into `backup/`                      |
-| `make ssh`    | Generate an ed25519 key for GitHub and commit signing     |
+| `make ssh`    | Generate an ed25519 key for GitHub and commit signing, and use `gh` for HTTPS credentials |
 
 <h2 id="software">💾 Software</h2>
 
