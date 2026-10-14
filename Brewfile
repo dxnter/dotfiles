@@ -80,3 +80,4 @@ cask "vlc"
 
 # Fonts
 cask "font-fira-code"
+cask "font-fira-code-nerd-font" # icons for lsd and Starship in iTerm2
