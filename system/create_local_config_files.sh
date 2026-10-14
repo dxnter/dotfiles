@@ -39,6 +39,25 @@ create_gitconfig_local() {
 
 }
 
+create_gitconfig_personal() {
+
+    declare -r FILE_PATH="$HOME/.gitconfig.personal"
+
+    # Included for repositories under ~/dev/personal/ and ~/dev/oss/.
+
+    if [ ! -e "$FILE_PATH" ]; then
+
+        printf "%s\n" \
+"# Overrides for ~/dev/personal/ and ~/dev/oss/ (see ~/.gitconfig). Never committed.
+[user]
+    # email =" \
+        >> "$FILE_PATH"
+    fi
+
+    print_result $? "$FILE_PATH"
+
+}
+
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 main() {
@@ -47,6 +66,7 @@ main() {
 
     create_zsh_local
     create_gitconfig_local
+    create_gitconfig_personal
 
 }
 

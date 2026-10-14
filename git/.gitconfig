@@ -25,8 +25,22 @@
   untracked = red
 [push]
   default = current
+  autoSetupRemote = true
+[fetch]
+  prune = true
+[rerere]
+  enabled = true
+[merge]
+  conflictstyle = zdiff3
+[diff]
+  algorithm = histogram
+[rebase]
+  autoStash = true
 [commit]
 	gpgsign = true
+[gpg "ssh"]
+  # Written by `make ssh`; lets `git log --show-signature` verify your own commits
+  allowedSignersFile = ~/.config/git/allowed_signers
 [url "git@github.com:"]
     insteadOf = github:
     insteadOf = gh:
