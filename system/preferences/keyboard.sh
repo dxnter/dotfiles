@@ -38,10 +38,7 @@ execute "defaults write -g NSAutomaticSpellingCorrectionEnabled -bool false && \
 execute "defaults write -g NSAutomaticInlinePredictionEnabled -bool false" \
     "Disable inline predictive text"
 
-# Raycast takes Cmd+Space, but its cask is Apple Silicon only; Intel keeps Spotlight.
-if [[ "$(uname -m)" == "arm64" ]]; then
-    execute "defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 64 \
-                '<dict><key>enabled</key><false/><key>value</key><dict><key>parameters</key><array><integer>32</integer><integer>49</integer><integer>1048576</integer></array><key>type</key><string>standard</string></dict></dict>' && \
-             /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u" \
-        "Free Cmd+Space for Raycast by disabling the Spotlight shortcut"
-fi
+execute "defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 64 \
+            '<dict><key>enabled</key><false/><key>value</key><dict><key>parameters</key><array><integer>32</integer><integer>49</integer><integer>1048576</integer></array><key>type</key><string>standard</string></dict></dict>' && \
+         /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u" \
+    "Free Cmd+Space for Raycast by disabling the Spotlight shortcut"

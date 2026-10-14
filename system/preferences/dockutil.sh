@@ -5,8 +5,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-# Apps in Dock order. Missing apps are skipped: some casks only install
-# on Apple Silicon or macOS 14+, so the Intel Mac has fewer.
+# Apps in Dock order. Any app that is not installed is skipped.
 declare -a DOCK_APPS=(
     "/Applications/Google Chrome.app"
     "/Applications/Todoist.app"

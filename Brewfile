@@ -1,10 +1,13 @@
-# Installed by `make brew` (brew bundle). Language runtimes live in mise, not here.
-# Guards keep the same file working on Apple Silicon and on the 2017 Intel Mac (macOS 13 max).
+# Installed by `make brew` (brew bundle). Runtimes and most CLI tools live in mise
+# (mise/.config/mise/config.toml), which installs prebuilt binaries on every Mac.
+# Every Mac gets the same apps: where a current cask needs macOS 14, older Macs get a
+# pinned cask from this repo's Casks/ folder instead (tapped below as dxnter/dotfiles).
+
+legacy_macos = MacOS.version < :sonoma
+tap "dxnter/dotfiles", ENV.fetch("DOTFILES_DIR", File.join(Dir.home, ".dotfiles")) if legacy_macos
 
 # Shell
 brew "zsh"
-brew "starship"
-brew "mise"
 
 # GNU and core utilities
 brew "findutils"
@@ -13,62 +16,39 @@ brew "gnu-tar"
 brew "grep"
 brew "gpatch"
 brew "make"
-brew "cmake"
 brew "moreutils"
 brew "curl"
 brew "wget"
 
 # CLI tools
-brew "bat"
-brew "fd"
-brew "fzf"
-brew "git-delta"
-brew "jq"
-brew "lsd"
-brew "ripgrep"
 brew "the_silver_searcher"
 brew "tree"
 brew "htop"
-brew "ctop"
 brew "fastfetch"
-brew "neofetch"
-brew "neovim"
 brew "tmux"
 brew "reattach-to-user-namespace"
 brew "stow"
-brew "mas"
-brew "pandoc"
 brew "grip"
 brew "dpkg"
 brew "http-server"
-brew "lbzip2"
 brew "lzlib"
 brew "iperf3"
-brew "restic"
-brew "sops"
 brew "syncthing"
-brew "cosign"
-brew "oras"
 
 # Git and signing
 brew "git"
-brew "git-lfs"
-brew "gh"
 brew "gnupg"
 brew "pinentry-mac"
 
 # Media
-brew "ffmpeg"
 brew "gpac"
-brew "imagemagick"
-brew "yt-dlp"
 
 # macOS preferences
 brew "dockutil"
 
 # Development
 cask "herd"
-cask "orbstack" if MacOS.version >= :sonoma
+cask legacy_macos ? "dxnter/dotfiles/orbstack@ventura" : "orbstack"
 cask "visual-studio-code"
 cask "iterm2"
 cask "ngrok"
@@ -81,7 +61,7 @@ cask "firefox@developer-edition"
 # Productivity
 cask "1password"
 cask "keepassxc"
-cask "raycast" if Hardware::CPU.arm?
+cask "raycast"
 cask "fantastical"
 cask "todoist-app"
 cask "hiddenbar"
@@ -91,7 +71,7 @@ cask "cleanshot"
 
 # AI
 cask "claude"
-cask "chatgpt" if Hardware::CPU.arm?
+cask "chatgpt"
 
 # Communication
 cask "discord"
@@ -99,7 +79,7 @@ cask "signal"
 
 # Network and security
 cask "tailscale-app"
-cask "protonvpn" if MacOS.version >= :sonoma
+cask legacy_macos ? "dxnter/dotfiles/protonvpn@ventura" : "protonvpn"
 cask "yubico-authenticator"
 
 # Media
