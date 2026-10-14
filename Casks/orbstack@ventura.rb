@@ -24,9 +24,8 @@ cask "orbstack@ventura" do
   zsh_completion "#{appdir}/OrbStack.app/Contents/Resources/completions/zsh/_orb"
   zsh_completion "#{appdir}/OrbStack.app/Contents/Resources/completions/zsh/_orbctl"
 
-  postflight do
-    system_command "#{appdir}/OrbStack.app/Contents/MacOS/bin/orbctl",
-                   args: ["_internal", "brew-postflight"]
+  postflight_steps do
+    run "OrbStack.app/Contents/MacOS/bin/orbctl", args: ["_internal", "brew-postflight"], base: :appdir
   end
 
   uninstall script: {
