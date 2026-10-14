@@ -31,7 +31,7 @@ $conda\
 $aws\
 $container\
 $jobs\
-$cmd_duration $jobs"""
+$cmd_duration"""
 
 [fill]
 symbol = " "
@@ -44,10 +44,6 @@ style = "bold blue"
 read_only = " "
 truncation_length = 4
 truncate_to_repo = false
-
-[character]
-success_symbol = ""
-error_symbol = ""
 
 [git_branch]
 symbol = " "
@@ -88,9 +84,6 @@ show_milliseconds = false
 format = "[$duration]($style)"
 style = "yellow"
 
-[memory_usage]
-symbol = " "
-
 [nodejs]
 format = "[$symbol($version )]($style) "
 
@@ -114,10 +107,3 @@ format = "[$symbol$version]($style) "
 
 [vagrant]
 format = '[$symbol($version )]($style)'
-
-[battery]
-discharging_symbol = "💀 "
-
-[[battery.display]] # "bold red" style when capacity is between 0% and 10%
-threshold = 10
-style = "bold red"
