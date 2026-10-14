@@ -30,7 +30,7 @@ cd ~/.dotfiles
 make
 ```
 
-`make` sets the hostname, installs Homebrew and everything in the `Brewfile`, sets Homebrew's zsh as the login shell with oh-my-zsh, links the config files, installs the mise runtimes, applies system preferences, and restarts.
+`make` sets the hostname, installs Homebrew and everything in the `Brewfile`, sets Homebrew's zsh as the login shell with oh-my-zsh, links the config files, installs mise and its runtimes and tools, applies system preferences, and restarts.
 
 Existing files that would block a symlink are moved into `~/.dotfiles/backup/` rather than overwritten. To copy the current versions there before running anything, use `make backup`.
 
@@ -57,9 +57,9 @@ make gpg
 
 <h2 id="software">💾 Software</h2>
 
-**Homebrew** installs CLI tools, apps and fonts from the [`Brewfile`](Brewfile). A few entries are guarded so the same file works on both architectures: Raycast and ChatGPT install only on Apple Silicon, and OrbStack and ProtonVPN only on macOS 14 or later. Add a package with `brew "name"` or `cask "name"` and run `make brew`. Search with the [package browser](https://formulae.brew.sh/).
+**Homebrew** installs CLI tools, apps and fonts from the [`Brewfile`](Brewfile). Every Mac gets the same apps. When a current cask needs a newer macOS than the Mac has, the Brewfile installs a pinned cask from [`Casks/`](Casks) instead: OrbStack 1.11.3 and ProtonVPN 5.1.0 on macOS 13. On those Macs the repo is tapped locally as `dxnter/dotfiles`. Add a package with `brew "name"` or `cask "name"` and run `make brew`. Search with the [package browser](https://formulae.brew.sh/).
 
-**mise** installs language runtimes from [`mise/.config/mise/config.toml`](mise/.config/mise/config.toml): Node (LTS), pnpm, Bun, Python, uv, Rust and Go. The global config tracks `lts`/`latest`; projects pin their own versions in `mise.toml` or `.tool-versions`. Update everything with `mise upgrade`.
+**mise** installs language runtimes and most CLI tools from [`mise/.config/mise/config.toml`](mise/.config/mise/config.toml): Node (LTS), pnpm, Bun, Python, uv, Rust, Go, plus tools like `bat`, `fd`, `ripgrep`, `gh`, `neovim`, `pandoc`, `ffmpeg` and `starship`. They're prebuilt binaries, so they install quickly on Intel Macs too, where Homebrew no longer publishes bottles. On macOS 13 and older, `.zshenv` sets `MISE_ENV=legacy`, which layers [`config.legacy.toml`](mise/.config/mise/config.legacy.toml) on top to pin the few tools whose newest builds need a newer macOS. mise itself comes from its official installer. The global config tracks `lts`/`latest`; projects pin their own versions in `mise.toml` or `.tool-versions`. Update everything with `mise upgrade`.
 
 **Herd** provides PHP, Composer and the local Laravel services. mise does not manage PHP.
 

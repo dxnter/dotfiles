@@ -1,7 +1,9 @@
-# Global runtimes. Projects pin their own versions in mise.toml or .tool-versions.
-# Herd provides PHP; everything else language-shaped comes from here.
+# Global runtimes and CLI tools. Projects pin their own versions in mise.toml or .tool-versions.
+# Herd provides PHP. Prebuilt binaries here also install on Intel Macs, where Homebrew has
+# no bottles; config.legacy.toml pins older versions for macOS 13 (MISE_ENV=legacy).
 
 [tools]
+# Runtimes
 node = "lts"
 pnpm = "latest"
 bun = "latest"
@@ -9,3 +11,27 @@ python = "latest"
 uv = "latest"
 rust = "stable"
 go = "latest"
+
+# CLI tools
+bat = "latest"
+cmake = "latest"
+cosign = "latest"
+ctop = "latest"
+delta = "latest"
+fd = "latest"
+ffmpeg = "latest"
+fzf = "latest"
+gh = "latest"
+git-lfs = "latest"
+imagemagick = "latest"
+jq = "latest"
+lsd = "latest"
+mas = "latest"
+neovim = "latest"
+oras = "latest"
+pandoc = "latest"
+restic = "latest"
+ripgrep = "latest"
+sops = "latest"
+starship = "latest"
+yt-dlp = "latest"

@@ -1,0 +1,8 @@
+# Loaded on top of config.toml when MISE_ENV=legacy (macOS 13 and older, set in .zshenv).
+# Newest releases with an x86_64 build whose minimum macOS is 13 or lower.
+
+[tools]
+delta = "0.18.2"
+fd = "10.3.0"
+jq = "1.7.1"
+pandoc = "3.8.1"

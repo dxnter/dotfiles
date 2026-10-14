@@ -29,6 +29,9 @@ export GOPATH="${HOME}/go"
 export BUN_INSTALL="${HOME}/.bun"
 export PNPM_HOME="${XDG_DATA_HOME}/pnpm"
 
+# mise loads config.legacy.toml on macOS 13 and older (Darwin 22 and below)
+(( ${${OSTYPE#darwin}%%.*} < 23 )) && export MISE_ENV="legacy"
+
 # Misc.
 export HOMEBREW_NO_AUTO_UPDATE=1
 export DISABLE_UPDATE_PROMPT=true

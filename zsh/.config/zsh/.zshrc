@@ -22,8 +22,6 @@ export GPG_TTY=$(tty)
 # Aliases, functions, and ~/.zshrc.local
 [[ -f "${ZDOTDIR}/.zsh_profile" ]] && source "${ZDOTDIR}/.zsh_profile"
 
-eval "$(starship init zsh)"
-
 [[ -s "${BUN_INSTALL}/_bun" ]] && source "${BUN_INSTALL}/_bun"
 
 # Installers (Herd, Codex, ...) append to ~/.zshrc, which zsh never reads once ZDOTDIR is set. Honour it anyway.
@@ -31,3 +29,6 @@ eval "$(starship init zsh)"
 
 # mise last: its prompt hook re-asserts mise's runtimes ahead of anything the files above put on PATH (e.g. Herd's nvm)
 (( $+commands[mise] )) && eval "$(mise activate zsh)"
+
+# Starship comes from mise, so initialise it after mise is active
+(( $+commands[starship] )) && eval "$(starship init zsh)"
