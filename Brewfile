@@ -4,18 +4,22 @@
 # Every Mac gets the same apps: where a current cask needs macOS 14, older Macs get a
 # pinned cask from this repo's Casks/ folder instead (tapped below as dxnter/dotfiles).
 
+# Formulae depend on the CPU: Homebrew 7 builds no new Intel bottles on any macOS,
+# including Intel Macs running a newer macOS through OpenCore Legacy Patcher.
+# Casks depend on the macOS version.
+intel = Hardware::CPU.intel?
 legacy_macos = MacOS.version < :sonoma
 tap "dxnter/dotfiles", ENV.fetch("DOTFILES_DIR", File.join(Dir.home, ".dotfiles")) if legacy_macos
 
-# Prebuilt for every Mac, including Intel on macOS 13
+# Prebuilt for every Mac. Intel bottles stop at Sonoma or later, and newer macOS reuses them.
 brew "stow"
 brew "dockutil"
 brew "make"
 brew "gpatch"
 
-# Homebrew has no Intel binaries for these, so older Macs would compile them from
+# Homebrew has no Intel binaries for these, so Intel Macs would compile them from
 # source. Those Macs use macOS's own zsh, git, curl, grep, sed and tar instead.
-unless legacy_macos
+unless intel
   brew "zsh"
   brew "git"
   brew "curl"
