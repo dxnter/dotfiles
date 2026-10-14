@@ -22,8 +22,13 @@ add_ssh_configs() {
 
 use_key_for_commit_signing() {
 
+    local allowedSigners="$HOME/.config/git/allowed_signers"
+
+    # The key's comment is the email passed to ssh-keygen.
     git config --file "$HOME/.gitconfig.local" user.signingkey "$1" \
-        && git config --file "$HOME/.gitconfig.local" gpg.format ssh
+        && git config --file "$HOME/.gitconfig.local" gpg.format ssh \
+        && mkdir -p "$(dirname "$allowedSigners")" \
+        && awk '{ print $3, "namespaces=\"git\"", $1, $2 }' "$1" >> "$allowedSigners"
 
     print_result $? "Sign commits with $1"
 }
