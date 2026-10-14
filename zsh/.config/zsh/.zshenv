@@ -29,8 +29,9 @@ export GOPATH="${HOME}/go"
 export BUN_INSTALL="${HOME}/.bun"
 export PNPM_HOME="${XDG_DATA_HOME}/pnpm"
 
-# mise loads config.legacy.toml on macOS 13 and older (Darwin 22 and below)
-(( ${${OSTYPE#darwin}%%.*} < 23 )) && export MISE_ENV="legacy"
+# mise loads config.legacy.toml on macOS 13 and older (Darwin 22 and below).
+# Read the running kernel: zsh's $OSTYPE is the OS zsh was compiled on.
+[[ "$(uname -r)" == (1[0-9]|2[0-2]).* ]] && export MISE_ENV="legacy"
 
 # Misc.
 export HOMEBREW_NO_AUTO_UPDATE=1

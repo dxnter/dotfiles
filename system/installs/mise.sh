@@ -33,9 +33,21 @@ main() {
         export MISE_ENV="legacy"
     fi
 
+    # Unauthenticated GitHub API calls are limited to 60 an hour, which a full
+    # install can exceed. Reuse the GitHub CLI login when there is one.
+    if [ -z "$GITHUB_TOKEN" ] && cmd_exists "gh" && gh auth token &> /dev/null; then
+        GITHUB_TOKEN="$(gh auth token)"
+        export GITHUB_TOKEN
+    fi
+
     # Reads ~/.config/mise/config.toml, so symlinks must exist first.
-    "$mise" install --yes
-    print_result $? "mise install (runtimes and CLI tools${MISE_ENV:+, legacy pins})"
+    if "$mise" install --yes; then
+        print_success "mise install (runtimes and CLI tools${MISE_ENV:+, legacy pins})"
+    else
+        print_error "mise install"
+        print_warning "If GitHub rate-limited the downloads, run 'gh auth login' and then 'make mise' again"
+        return 1
+    fi
 
 }
 
