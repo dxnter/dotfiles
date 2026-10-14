@@ -1,6 +1,8 @@
 # Interactive shells only.
 
 # oh-my-zsh
+# Skip compaudit's permission scan of every completion directory (~50ms per shell)
+ZSH_DISABLE_COMPFIX=true
 plugins=(
   git
   macos
