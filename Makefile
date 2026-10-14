@@ -17,9 +17,6 @@ backup:
 ssh:
 		./system/set_github_ssh_key.sh
 
-gpg:
-		./system/create_gpg_key.sh
-
 links:
 		./system/create_symlinks.sh
 
@@ -29,4 +26,4 @@ unlink:
 prefs:
 		./system/preferences/main.sh
 
-.PHONY: setup brew mise backup ssh gpg links unlink prefs
+.PHONY: setup brew mise backup ssh links unlink prefs

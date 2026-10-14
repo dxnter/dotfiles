@@ -36,7 +36,7 @@ alias dotfiles="cd ~/.dotfiles"
 alias dev="cd $HOME/dev"
 
 # sed
-alias sed="gsed"
+(( $+commands[gsed] )) && alias sed="gsed"
 
 # lsd
 alias ls="lsd"

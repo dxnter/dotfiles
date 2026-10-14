@@ -17,8 +17,6 @@ HISTSIZE=100000
 SAVEHIST=100000
 setopt SHARE_HISTORY HIST_IGNORE_ALL_DUPS HIST_IGNORE_SPACE HIST_REDUCE_BLANKS
 
-export GPG_TTY=$(tty)
-
 # Aliases, functions, and ~/.zshrc.local
 [[ -f "${ZDOTDIR}/.zsh_profile" ]] && source "${ZDOTDIR}/.zsh_profile"
 

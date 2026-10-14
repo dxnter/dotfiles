@@ -15,9 +15,10 @@ change_default_shell_to_zsh() {
 
     shellPath="$brewPrefix/bin/zsh"
 
+    # Older Macs skip Homebrew's zsh (no Intel binaries); macOS's zsh is already the default.
     if [ ! -x "$shellPath" ]; then
-        print_error "Zsh ($shellPath not found; run the Brewfile first)"
-        return 1
+        print_success "Zsh (using macOS's /bin/zsh)"
+        return 0
     fi
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

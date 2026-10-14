@@ -29,7 +29,9 @@ create_gitconfig_local() {
 "[user]
     name =
     email =
-    signingkey =" \
+    signingkey =
+[gpg]
+    format = ssh" \
         >> "$FILE_PATH"
     fi
 

@@ -34,11 +34,10 @@ make
 
 Existing files that would block a symlink are moved into `~/.dotfiles/backup/` rather than overwritten. To copy the current versions there before running anything, use `make backup`.
 
-After the restart, generate an SSH key and a GPG signing key for GitHub. Each script copies the public key to the clipboard and opens the matching GitHub settings page.
+After the restart, fill in `name` and `email` in `~/.gitconfig.local`, then generate an SSH key for GitHub. The script copies the public key to the clipboard, opens GitHub's new-key page and sets the key as Git's commit signing key. Add it on GitHub twice: once as an Authentication Key and once as a Signing Key.
 
 ```bash
 make ssh
-make gpg
 ```
 
 <h3 id="targets">💡 Make targets</h3>
@@ -52,14 +51,13 @@ make gpg
 | `make unlink` | Remove those symlinks                                     |
 | `make prefs`  | Apply macOS preferences only                              |
 | `make backup` | Copy current dotfiles into `backup/`                      |
-| `make ssh`    | Generate an ed25519 key for GitHub                        |
-| `make gpg`    | Generate a GPG key and set it as the Git signing key      |
+| `make ssh`    | Generate an ed25519 key for GitHub and commit signing     |
 
 <h2 id="software">💾 Software</h2>
 
-**Homebrew** installs CLI tools, apps and fonts from the [`Brewfile`](Brewfile). Every Mac gets the same apps. When a current cask needs a newer macOS than the Mac has, the Brewfile installs a pinned cask from [`Casks/`](Casks) instead: OrbStack 1.11.3 and ProtonVPN 5.1.0 on macOS 13. On those Macs the repo is tapped locally as `dxnter/dotfiles`. Add a package with `brew "name"` or `cask "name"` and run `make brew`. Search with the [package browser](https://formulae.brew.sh/).
+**Homebrew** installs apps, fonts and a few CLI tools from the [`Brewfile`](Brewfile). Homebrew 7 stopped publishing binaries for Intel Macs, so on macOS 13 it would compile every formula from source; there the Brewfile installs only formulae that still have binaries and relies on macOS's own zsh, git, curl, grep, sed and tar. Every Mac gets the same apps. When a current cask needs a newer macOS than the Mac has, the Brewfile installs a pinned cask from [`Casks/`](Casks) instead: OrbStack 1.11.3 and ProtonVPN 5.1.0 on macOS 13. On those Macs the repo is tapped locally as `dxnter/dotfiles`. Add a package with `brew "name"` or `cask "name"` and run `make brew`. Search with the [package browser](https://formulae.brew.sh/).
 
-**mise** installs language runtimes and most CLI tools from [`mise/.config/mise/config.toml`](mise/.config/mise/config.toml): Node (LTS), pnpm, Bun, Python, uv, Rust, Go, plus tools like `bat`, `fd`, `ripgrep`, `gh`, `neovim`, `pandoc`, `ffmpeg` and `starship`. They're prebuilt binaries, so they install quickly on Intel Macs too, where Homebrew no longer publishes bottles. On macOS 13 and older, `.zshenv` sets `MISE_ENV=legacy`, which layers [`config.legacy.toml`](mise/.config/mise/config.legacy.toml) on top to pin the few tools whose newest builds need a newer macOS. mise itself comes from its official installer. The global config tracks `lts`/`latest`; projects pin their own versions in `mise.toml` or `.tool-versions`. Update everything with `mise upgrade`.
+**mise** installs language runtimes and most CLI tools from [`mise/.config/mise/config.toml`](mise/.config/mise/config.toml): Node (LTS), pnpm, Bun, Python, uv, Rust, Go, plus tools like `bat`, `fd`, `ripgrep`, `gh`, `neovim`, `pandoc`, `ffmpeg`, `starship`, `http-server` and `grip`. They're prebuilt binaries, so they install quickly on Intel Macs too, where Homebrew no longer publishes bottles. On macOS 13 and older, `.zshenv` sets `MISE_ENV=legacy`, which layers [`config.legacy.toml`](mise/.config/mise/config.legacy.toml) on top to pin the few tools whose newest builds need a newer macOS. mise itself comes from its official installer. The global config tracks `lts`/`latest`; projects pin their own versions in `mise.toml` or `.tool-versions`. Update everything with `mise upgrade`.
 
 **Herd** provides PHP, Composer and the local Laravel services. mise does not manage PHP.
 
@@ -92,13 +90,15 @@ Store a value with `security add-generic-password -a "$USER" -s <service> -w '<v
 
 <h4 id="gitconfiglocal">`~/.gitconfig.local`</h4>
 
-Included after `~/.gitconfig`. Keep the Git identity and signing key here:
+Included after `~/.gitconfig`. Keep the Git identity and signing key here. Commits are signed with the SSH key from `make ssh`:
 
 ```ini
 [user]
     name = John Doe
     email = jdoe@example.com
-    signingKey = XXXXXXXX
+    signingKey = ~/.ssh/github.pub
+[gpg]
+    format = ssh
 ```
 
 <h2 id="adding-dotfiles">⏫ Adding Dotfiles</h2>

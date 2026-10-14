@@ -20,6 +20,14 @@ add_ssh_configs() {
 
 }
 
+use_key_for_commit_signing() {
+
+    git config --file "$HOME/.gitconfig.local" user.signingkey "$1" \
+        && git config --file "$HOME/.gitconfig.local" gpg.format ssh
+
+    print_result $? "Sign commits with $1"
+}
+
 copy_public_ssh_key_to_clipboard () {
 
     pbcopy < "$1"
@@ -38,7 +46,10 @@ generate_ssh_keys() {
 
 open_github_ssh_page() {
 
-    declare -r GITHUB_SSH_URL="https://github.com/settings/ssh"
+    declare -r GITHUB_SSH_URL="https://github.com/settings/ssh/new"
+
+    # GitHub needs the key twice: once as an Authentication key, once as a Signing key.
+    print_warning "Add the copied key on GitHub twice: Key type 'Authentication Key', then again as 'Signing Key'"
 
     if cmd_exists "open"; then
         open "$GITHUB_SSH_URL"
@@ -65,6 +76,7 @@ set_github_ssh_key() {
 
     generate_ssh_keys "$sshKeyFileName"
     add_ssh_configs "$sshKeyFileName"
+    use_key_for_commit_signing "${sshKeyFileName}.pub"
     copy_public_ssh_key_to_clipboard "${sshKeyFileName}.pub"
     open_github_ssh_page
     test_ssh_connection
