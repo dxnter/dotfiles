@@ -99,3 +99,4 @@ cask "basictex"
 
 # Fonts
 cask "font-fira-code"
+cask "font-jetbrains-mono" # VS Code
