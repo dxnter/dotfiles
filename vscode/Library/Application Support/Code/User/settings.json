@@ -1,0 +1,239 @@
+// VS Code user settings, shared by every profile ("Use Default Profile" for settings).
+// Linked from ~/.dotfiles/vscode by stow; Settings Sync writes through the link, so
+// changes show up as git diffs. Extensions per profile: ~/.dotfiles/vscode/profiles.
+{
+  // ── Editor ────────────────────────────────────────────────────────────
+  "editor.fontFamily": "JetBrains Mono",
+  "editor.fontLigatures": false,
+  "editor.fontSize": 12,
+  "editor.lineHeight": 22,
+  "editor.suggestFontSize": 12,
+  "editor.cursorBlinking": "smooth",
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.cursorWidth": 2,
+  "editor.minimap.enabled": false,
+  "editor.wordWrap": "on",
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": false,
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+  },
+  "editor.linkedEditing": true,
+  "editor.guides.bracketPairs": true,
+  "editor.inlayHints.enabled": "on",
+  "editor.showFoldingControls": "always",
+  "editor.find.seedSearchStringFromSelection": "always",
+  "editor.accessibilitySupport": "off",
+  "editor.quickSuggestions": {
+    "comments": true,
+    "other": true,
+    "strings": true,
+  },
+  "editor.quickSuggestionsDelay": 0,
+  "editor.snippetSuggestions": "bottom",
+  "editor.suggest.localityBonus": true,
+  "editor.suggestSelection": "first",
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": ["entity.name.function", "support.function"],
+        "settings": { "fontStyle": "bold" },
+      },
+    ],
+  },
+  "diffEditor.ignoreTrimWhitespace": false,
+  "debug.allowBreakpointsEverywhere": true,
+
+  // ── Files ─────────────────────────────────────────────────────────────
+  // onFocusChange (unlike afterDelay) still runs format-on-save.
+  "files.autoSave": "onFocusChange",
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "files.associations": {
+    "*.gohtml": "html",
+  },
+
+  // ── Look ──────────────────────────────────────────────────────────────
+  // Catppuccin follows the macOS appearance, like Ghostty.
+  "window.autoDetectColorScheme": true,
+  "workbench.preferredDarkColorTheme": "Catppuccin Mocha",
+  "workbench.preferredLightColorTheme": "Catppuccin Latte",
+  "workbench.colorTheme": "Catppuccin Mocha",
+  "workbench.iconTheme": "vscode-icons",
+  "vsicons.dontShowNewVersionMessage": true,
+
+  // ── Workbench ─────────────────────────────────────────────────────────
+  "window.title": "${dirty} ${activeEditorMedium}${separator}${rootName}",
+  "window.closeWhenEmpty": true,
+  "window.openFilesInNewWindow": "off",
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.editor.empty.hint": "hidden",
+  "workbench.editor.highlightModifiedTabs": true,
+  "workbench.editor.tabSizing": "shrink",
+  "workbench.settings.enableNaturalLanguageSearch": false,
+  "explorer.compactFolders": false,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.openEditors.visible": 0,
+
+  // ── Privacy, security and AI ──────────────────────────────────────────
+  "telemetry.telemetryLevel": "off",
+  "workbench.enableExperiments": false,
+  "redhat.telemetry.enabled": false,
+  "python.experiments.enabled": false,
+  // Hides Copilot Chat, agents and inline AI; Claude Code and Codex run in the terminal.
+  "chat.disableAIFeatures": true,
+  "security.workspace.trust.untrustedFiles": "newWindow",
+  "json.schemaDownload.trustedDomains": {
+    "https://schemastore.azurewebsites.net/": true,
+    "https://raw.githubusercontent.com/microsoft/vscode/": true,
+    "https://raw.githubusercontent.com/devcontainers/spec/": true,
+    "https://www.schemastore.org/": true,
+    "https://json.schemastore.org/": true,
+    "https://json-schema.org/": true,
+    "https://developer.microsoft.com/json-schemas/": true,
+    "https://biomejs.dev": true,
+  },
+
+  // ── Git ───────────────────────────────────────────────────────────────
+  "git.blame.editorDecoration.enabled": true,
+  "git.blame.statusBarItem.enabled": true,
+  "git.confirmSync": false,
+  "git.openRepositoryInParentFolders": "always",
+
+  // ── Terminal ──────────────────────────────────────────────────────────
+  "terminal.integrated.fontSize": 12,
+  "terminal.integrated.localEchoStyle": "dim",
+
+  // ── JavaScript, TypeScript and CSS ────────────────────────────────────
+  // Prettier only formats projects with a Prettier config; Biome projects set
+  // "editor.defaultFormatter": "biomejs.biome" in their .vscode/settings.json.
+  "prettier.requireConfig": true,
+  "js/ts.inlayHints.parameterNames.enabled": "literals",
+  "js/ts.suggest.autoImports": true,
+  "js/ts.updateImportsOnFileMove.enabled": "always",
+  "js/ts.updateImportsOnPaste.enabled": true,
+  "css.lint.unknownAtRules": "ignore",
+  "emmet.excludeLanguages": ["markdown", "php"],
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact",
+  },
+  "emmet.showExpandedAbbreviation": "never",
+  "emmet.triggerExpansionOnTab": true,
+  "[css]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[scss]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[html]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[javascript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[typescript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[typescriptreact]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[json]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[jsonc]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[markdown]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+
+  // ── PHP and Laravel ───────────────────────────────────────────────────
+  // Pint formats PHP with the project's pint.json; VS Code's own format-on-save stays off.
+  "Laravel.pint.runOnSave": true,
+  "[php]": {
+    "editor.formatOnSave": false,
+    "editor.tabSize": 4,
+  },
+  "php.suggest.basic": false,
+  "php.validate.enable": true,
+
+  // ── Python ────────────────────────────────────────────────────────────
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.tabSize": 4,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports.ruff": "explicit",
+    },
+  },
+
+  // ── Rust, Go, C/C++, Terraform and shell ──────────────────────────────
+  "rust-analyzer.check.command": "clippy",
+  "lldb.suppressUpdateNotifications": true,
+  "[rust]": {
+    "editor.defaultFormatter": "rust-lang.rust-analyzer",
+    "editor.tabSize": 4,
+  },
+  "[go]": {
+    "editor.insertSpaces": false,
+    "editor.tabSize": 4,
+  },
+  "[terraform]": { "editor.defaultFormatter": "hashicorp.terraform" },
+  "[shellscript]": { "editor.tabSize": 4 },
+
+  // ── Spelling ──────────────────────────────────────────────────────────
+  "cSpell.userWords": [
+    "amountqs",
+    "APPTS",
+    "autobuild",
+    "bcmath",
+    "bkgnd",
+    "Codecov",
+    "codeql",
+    "conventionalcommits",
+    "datetime",
+    "dircompare",
+    "Docu",
+    "docusign",
+    "dxnter",
+    "ECATS",
+    "elif",
+    "entapp",
+    "eventhub",
+    "findprfindprimes",
+    "findprimes",
+    "Fiordland",
+    "gohtml",
+    "GPAL",
+    "greyscale",
+    "headr",
+    "INTBENE",
+    "isready",
+    "keypair",
+    "Laravel",
+    "LASFTFM",
+    "leetcode",
+    "libc",
+    "lipgloss",
+    "Livewire",
+    "mailhog",
+    "mattpocock",
+    "MBID",
+    "MGMT",
+    "middyfy",
+    "MYHR",
+    "netid",
+    "NONPROD",
+    "nusoa",
+    "omnibox",
+    "paratest",
+    "pgsql",
+    "playcount",
+    "pnpm",
+    "Pocock",
+    "purgecss",
+    "querystrings",
+    "Queueable",
+    "restapi",
+    "SIGTERM",
+    "sigusr",
+    "Skywalker",
+    "slsw",
+    "tauri",
+    "tila",
+    "tinycolor",
+    "tmpl",
+    "Transactionable",
+    "unpurged",
+    "Unsubscriber",
+    "vuepress",
+    "WEBSSO",
+    "xdebug",
+    "zipfile",
+  ],
+}

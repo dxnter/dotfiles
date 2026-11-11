@@ -1,0 +1,11 @@
+# profile: Laravel
+# Laravel with Inertia, React, TypeScript and Tailwind. Pint formats PHP.
+laravel.vscode-laravel
+bmewburn.vscode-intelephense-client
+xdebug.php-debug
+recca0120.vscode-phpunit
+dbaeumer.vscode-eslint
+esbenp.prettier-vscode
+bradlc.vscode-tailwindcss
+yoavbls.pretty-ts-errors
+vitest.explorer

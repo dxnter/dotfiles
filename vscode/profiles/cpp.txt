@@ -1,0 +1,5 @@
+# profile: C++
+ms-vscode.cpptools
+ms-vscode.cpp-devtools
+ms-vscode.cmake-tools
+vadimcn.vscode-lldb

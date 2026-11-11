@@ -52,6 +52,7 @@ make ssh
 | `make prefs`  | Apply macOS preferences only                              |
 | `make backup` | Copy current dotfiles into `backup/`                      |
 | `make ssh`    | Set up a 1Password ed25519 key for GitHub and commit signing, and use `gh` for HTTPS credentials |
+| `make vscode` | Install each VS Code profile's extensions from `vscode/profiles/` and remove the rest |
 
 <h2 id="software">💾 Software</h2>
 
@@ -64,6 +65,8 @@ make ssh
 Node comes from mise even though Herd installs its own nvm: `.zprofile` puts mise's shims on `PATH` for GUI apps and scripts, and `.zshrc` runs `mise activate` last, so mise wins. mise also switches Node from a project's `.nvmrc` or `.node-version`. Loading nvm costs about a second per shell, so `.zshrc` loads it only when `nvm` is called; keep Herd's `source nvm.sh` and `nvm use` lines out of `~/.zshrc`.
 
 **Ghostty** is the terminal. Its config lives in [`ghostty/.config/ghostty/config.ghostty`](ghostty/.config/ghostty/config.ghostty): Fira Code (Ghostty bundles Nerd Font symbols, so Starship and lsd icons need no patched font), Catppuccin themes that follow the macOS appearance, and shell integration that keeps `sudo` and `ssh` working with Ghostty's terminfo. Reload it with <kbd>⌘</kbd><kbd>⇧</kbd><kbd>,</kbd>.
+
+**VS Code** settings and keybindings live in [`vscode/`](vscode) and are linked into `~/Library/Application Support/Code/User/`. Settings Sync stays on and writes through the links, so every change shows up as a git diff. Each stack has its own profile (Laravel, Web, Python, Rust, Go, C++), and every profile uses the Default profile's settings, keybindings, snippets and tasks, so only the extensions differ. [`vscode/profiles/`](vscode/profiles) lists them: `core.txt` goes into every profile, and each other file names its profile in a `# profile:` header. `make vscode` installs the lists and uninstalls anything a profile has that its list doesn't name. VS Code's CLI can't create profiles; on a new Mac, sign in to Settings Sync first and it brings them.
 
 <h2 id="customize">🎨 Customize</h2>
 

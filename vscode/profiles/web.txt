@@ -1,0 +1,8 @@
+# profile: Web
+# TypeScript and React outside Laravel.
+biomejs.biome
+dbaeumer.vscode-eslint
+esbenp.prettier-vscode
+bradlc.vscode-tailwindcss
+yoavbls.pretty-ts-errors
+vitest.explorer

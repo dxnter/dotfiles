@@ -1,0 +1,4 @@
+# profile: Rust
+rust-lang.rust-analyzer
+vadimcn.vscode-lldb
+fill-labs.dependi

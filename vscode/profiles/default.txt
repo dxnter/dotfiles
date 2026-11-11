@@ -1,0 +1,3 @@
+# profile: Default
+# Folders without a stack-specific profile: infrastructure, scripts, notes.
+hashicorp.terraform

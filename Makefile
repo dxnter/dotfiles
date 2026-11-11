@@ -26,4 +26,7 @@ unlink:
 prefs:
 		./system/preferences/main.sh
 
-.PHONY: setup brew mise backup ssh links unlink prefs
+vscode:
+		./system/installs/vscode.sh
+
+.PHONY: setup brew mise backup ssh links unlink prefs vscode

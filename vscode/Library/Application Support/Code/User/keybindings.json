@@ -1,0 +1,25 @@
+// VS Code keybindings, shared by every profile. Linked from ~/.dotfiles/vscode by stow.
+[
+  // Context menu on alt+enter instead of shift+f10
+  {
+    "key": "alt+enter",
+    "command": "editor.action.showContextMenu",
+    "when": "textInputFocus",
+  },
+  {
+    "key": "shift+f10",
+    "command": "-editor.action.showContextMenu",
+    "when": "textInputFocus",
+  },
+  // Rename symbol on cmd+r instead of f2
+  {
+    "key": "cmd+r",
+    "command": "editor.action.rename",
+    "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly",
+  },
+  {
+    "key": "f2",
+    "command": "-editor.action.rename",
+    "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly",
+  },
+]
