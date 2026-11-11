@@ -28,7 +28,7 @@ alias cat="bat"
 alias diff="delta"
 alias weather="curl https://wttr.in/"
 alias ip="curl ifconfig.me ; echo"
-alias copykey="command cat ~/.ssh/github.pub | pbcopy"
+alias copykey='command cat ~/.ssh/"$(scutil --get LocalHostName)".pub | pbcopy'
 alias search="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}' | xargs code"
 
 # Directories
