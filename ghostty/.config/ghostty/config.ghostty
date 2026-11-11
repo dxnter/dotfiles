@@ -1,0 +1,45 @@
+# Ghostty · https://ghostty.org/docs/config/reference
+# Every option with its docs: ghostty +show-config --default --docs
+# Reload after editing: cmd+shift+,
+
+# ── Font ──────────────────────────────────────────────────────────────
+# Ghostty bundles Nerd Font symbols, so plain Fira Code shows Starship and lsd icons.
+font-family = Fira Code
+font-size = 14
+font-thicken = true
+adjust-cell-height = 15%
+
+# ── Theme ─────────────────────────────────────────────────────────────
+# Follows the macOS appearance. Browse others with: ghostty +list-themes
+theme = light:Catppuccin Latte,dark:Catppuccin Mocha
+window-colorspace = display-p3
+
+# ── Window ────────────────────────────────────────────────────────────
+macos-titlebar-style = tabs
+window-width = 120
+window-height = 34
+window-padding-x = 16
+window-padding-y = 12
+window-padding-balance = true
+window-padding-color = extend
+background-opacity = 0.95
+background-blur = 20
+unfocused-split-opacity = 0.85
+window-save-state = always
+
+# ── Cursor and input ──────────────────────────────────────────────────
+cursor-style = bar
+cursor-style-blink = false
+mouse-hide-while-typing = true
+copy-on-select = clipboard
+macos-option-as-alt = left
+
+# ── Shell integration ─────────────────────────────────────────────────
+# no-cursor: keep the bar cursor above instead of switching shapes at the prompt.
+# sudo:      keep Ghostty's terminfo under sudo so root's tools know xterm-ghostty.
+# ssh-env:   fall back to xterm-256color on hosts without Ghostty's terminfo.
+shell-integration-features = no-cursor,sudo,title,ssh-env,path
+
+# ── Behaviour ─────────────────────────────────────────────────────────
+quit-after-last-window-closed = true
+auto-update = download

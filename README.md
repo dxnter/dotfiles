@@ -63,6 +63,8 @@ make ssh
 
 Node comes from mise even though Herd installs its own nvm: `.zprofile` puts mise's shims on `PATH` for GUI apps and scripts, and `.zshrc` runs `mise activate` last, so mise wins. mise also switches Node from a project's `.nvmrc` or `.node-version`. Loading nvm costs about a second per shell, so `.zshrc` loads it only when `nvm` is called; keep Herd's `source nvm.sh` and `nvm use` lines out of `~/.zshrc`.
 
+**Ghostty** is the terminal. Its config lives in [`ghostty/.config/ghostty/config.ghostty`](ghostty/.config/ghostty/config.ghostty): Fira Code (Ghostty bundles Nerd Font symbols, so Starship and lsd icons need no patched font), Catppuccin themes that follow the macOS appearance, and shell integration that keeps `sudo` and `ssh` working with Ghostty's terminfo. Reload it with <kbd>⌘</kbd><kbd>⇧</kbd><kbd>,</kbd>.
+
 <h2 id="customize">🎨 Customize</h2>
 
 The zsh config is split by when zsh reads it:

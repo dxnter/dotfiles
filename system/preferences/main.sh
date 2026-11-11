@@ -34,7 +34,6 @@ ask_for_sudo
 ./keyboard.sh
 ./activity_monitor.sh
 ./textedit.sh
-./iterm.sh
 ./ui_and_ux.sh
 ./firewall.sh
 

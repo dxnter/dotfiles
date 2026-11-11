@@ -15,7 +15,7 @@ declare -a DOCK_APPS=(
     "/Applications/Claude.app"
     "/Applications/ChatGPT.app"
     "/Applications/Visual Studio Code.app"
-    "/Applications/iTerm.app"
+    "/Applications/Ghostty.app"
     "/Applications/Spotify.app"
 )
 

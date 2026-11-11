@@ -46,7 +46,7 @@ end
 cask "herd"
 cask legacy_macos ? "dxnter/dotfiles/orbstack@ventura" : "orbstack"
 cask "visual-studio-code"
-cask "iterm2"
+cask "ghostty"
 cask "ngrok"
 cask "1password-cli"
 
@@ -84,4 +84,3 @@ cask "vlc"
 
 # Fonts
 cask "font-fira-code"
-cask "font-fira-code-nerd-font" # icons for lsd and Starship in iTerm2
