@@ -7,6 +7,10 @@ add_newline = false
 
 command_timeout = 5000
 
+# The 30 ms default is too short for the first listing of a cold directory
+# (~/Downloads after login), which prints a "Scanning current directory timed out" warning.
+scan_timeout = 100
+
 format = """
 $username\
 $hostname\
