@@ -28,18 +28,24 @@ ask_for_sudo
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-./software_update.sh
 ./dock.sh
 ./finder.sh
 ./keyboard.sh
 ./activity_monitor.sh
 ./textedit.sh
 ./ui_and_ux.sh
-./firewall.sh
 
-ask_for_confirmation "Do you want to clear the dock and set it to applications in system/preferences/dockutil.sh?\n"
-if answer_is_yes; then
-    ./dockutil.sh
+# On a work Mac, MDM owns Software Update and the firewall, and the dock list is personal.
+if is_work_mac; then
+    print_warning "Work Mac: skipping Software Update, firewall and dock layout"
+else
+    ./software_update.sh
+    ./firewall.sh
+
+    ask_for_confirmation "Do you want to clear the dock and set it to applications in system/preferences/dockutil.sh?\n"
+    if answer_is_yes; then
+        ./dockutil.sh
+    fi
 fi
 
 print_warning "Keyboard and global settings take effect after logging out and back in"

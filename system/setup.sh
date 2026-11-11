@@ -34,7 +34,8 @@ main() {
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    ./set_hostname.sh
+    # MDM names a work Mac.
+    is_work_mac || ./set_hostname.sh
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

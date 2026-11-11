@@ -69,6 +69,8 @@
   path = ~/.gitconfig.personal
 [includeIf "gitdir:~/dev/oss/"]
   path = ~/.gitconfig.personal
+[includeIf "gitdir:~/.dotfiles/"]
+  path = ~/.gitconfig.personal
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
