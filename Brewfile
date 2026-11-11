@@ -34,12 +34,19 @@ unless intel
   brew "htop"
   brew "tmux"
   brew "reattach-to-user-namespace"
-  brew "fastfetch"
   brew "syncthing"
   brew "dpkg"
   brew "lzlib"
   brew "iperf3"
   brew "gpac"
+
+  # Databases, keys and LaTeX
+  brew "postgresql@17"
+  brew "pgvector"
+  brew "gnupg"
+  brew "pinentry-mac"
+  brew "ykman"
+  brew "latexindent"
 end
 
 # Development
@@ -48,6 +55,8 @@ cask legacy_macos ? "dxnter/dotfiles/orbstack@ventura" : "orbstack"
 cask "visual-studio-code"
 cask "ghostty"
 cask "1password-cli"
+cask "dbeaver-community"
+cask "android-platform-tools"
 
 # Browsers
 cask "google-chrome"
@@ -59,7 +68,9 @@ cask "keepassxc"
 cask "raycast"
 cask "fantastical"
 cask "todoist-app"
-cask "hiddenbar"
+# Thaw (menu bar manager) needs macOS 27; older Macs get Hidden Bar.
+cask MacOS.version >= "27" ? "thaw@beta" : "hiddenbar"
+cask "betterdisplay"
 cask "linearmouse"
 cask "the-unarchiver"
 cask "cleanshot"
@@ -74,12 +85,17 @@ cask "signal"
 
 # Network and security
 cask "tailscale-app"
+# Little Snitch 6 needs macOS 14, and there is no older cask to pin.
+cask "little-snitch" unless legacy_macos
 cask legacy_macos ? "dxnter/dotfiles/protonvpn@ventura" : "protonvpn"
-cask "yubico-authenticator"
 
 # Media
-cask "spotify"
 cask "vlc"
+cask "transmission"
+
+# Design and writing
+cask "freecad"
+cask "basictex"
 
 # Fonts
 cask "font-fira-code"
