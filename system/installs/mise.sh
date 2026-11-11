@@ -42,7 +42,7 @@ main() {
 
     # Reads ~/.config/mise/config.toml, so symlinks must exist first.
     if "$mise" install --yes; then
-        print_success "mise install (runtimes and CLI tools${MISE_ENV:+, legacy pins})"
+        print_success "mise install (runtimes and CLI tools${MISE_ENV:+, MISE_ENV=$MISE_ENV})"
     else
         print_error "mise install"
         print_warning "If GitHub rate-limited the downloads, run 'gh auth login' and then 'make mise' again"

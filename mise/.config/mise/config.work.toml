@@ -1,0 +1,9 @@
+# Loaded on top of config.toml when MISE_ENV includes work (set in ~/.zshenv.local on a work Mac).
+# Tools only the work Mac needs.
+
+[tools]
+aws-cli = "latest"
+opentofu = "latest"
+actionlint = "latest"
+zizmor = "latest"
+"pipx:gitingest" = "latest"

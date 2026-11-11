@@ -56,9 +56,9 @@ make ssh
 
 <h2 id="software">💾 Software</h2>
 
-**Homebrew** installs apps, fonts and a few CLI tools from the [`Brewfile`](Brewfile). Homebrew 7 stopped publishing binaries for Intel Macs, so on any Intel Mac (including one running a newer macOS through OpenCore Legacy Patcher) it would compile most formulae from source; there the Brewfile installs only formulae that still have binaries and relies on macOS's own zsh, git, curl, grep, sed and tar. Every Mac gets the same apps. When a current cask needs a newer macOS than the Mac has, the Brewfile installs a pinned cask from [`Casks/`](Casks) instead: OrbStack 1.11.3 and ProtonVPN 5.1.0 on macOS 13. On those Macs the repo is tapped locally as `dxnter/dotfiles`. Add a package with `brew "name"` or `cask "name"` and run `make brew`. Search with the [package browser](https://formulae.brew.sh/).
+**Homebrew** installs apps, fonts and a few CLI tools from the [`Brewfile`](Brewfile). Homebrew 7 stopped publishing binaries for Intel Macs, so on any Intel Mac (including one running a newer macOS through OpenCore Legacy Patcher) it would compile most formulae from source; there the Brewfile installs only formulae that still have binaries and relies on macOS's own zsh, git, curl, grep, sed and tar. Every Mac gets the same apps. When a current cask needs a newer macOS than the Mac has, the Brewfile installs a pinned cask from [`Casks/`](Casks) instead: OrbStack 1.11.3 and ProtonVPN 5.1.0 on macOS 13. On those Macs the repo is tapped locally as `dxnter/dotfiles`. A work Mac skips the personal apps (VPNs, Little Snitch, Transmission, chat and media apps) and installs the casks in the Brewfile's `if work` block instead; see [work Mac](#work-mac). Add a package with `brew "name"` or `cask "name"` and run `make brew`. Search with the [package browser](https://formulae.brew.sh/).
 
-**mise** installs language runtimes and most CLI tools from [`mise/.config/mise/config.toml`](mise/.config/mise/config.toml): Node 26, pnpm, Bun, Python, uv, Rust, Go, plus tools like `bat`, `fd`, `ripgrep`, `gh`, `neovim`, `pandoc`, `ffmpeg`, `starship`, `http-server` and `grip`. They're prebuilt binaries, so they install quickly on Intel Macs too, where Homebrew no longer publishes bottles. On macOS 13 and older, `.zshenv` sets `MISE_ENV=legacy`, which layers [`config.legacy.toml`](mise/.config/mise/config.legacy.toml) on top to pin the few tools whose newest builds need a newer macOS. mise itself comes from its official installer. The global config tracks `lts`/`latest`; projects pin their own versions in `mise.toml` or `.tool-versions`. Update everything with `mise upgrade`.
+**mise** installs language runtimes and most CLI tools from [`mise/.config/mise/config.toml`](mise/.config/mise/config.toml): Node 26, pnpm, Bun, Python, uv, Rust, Go, plus tools like `bat`, `fd`, `ripgrep`, `gh`, `neovim`, `pandoc`, `ffmpeg`, `starship`, `http-server` and `grip`. They're prebuilt binaries, so they install quickly on Intel Macs too, where Homebrew no longer publishes bottles. On macOS 13 and older, `.zshenv` sets `MISE_ENV=legacy`, which layers [`config.legacy.toml`](mise/.config/mise/config.legacy.toml) on top to pin the few tools whose newest builds need a newer macOS. On a work Mac, `MISE_ENV=work` layers [`config.work.toml`](mise/.config/mise/config.work.toml) on top for work-only tools. mise itself comes from its official installer. The global config tracks `lts`/`latest`; projects pin their own versions in `mise.toml` or `.tool-versions`. Update everything with `mise upgrade`.
 
 **Herd** provides PHP, Composer and the local Laravel services. mise does not manage PHP.
 
@@ -84,6 +84,16 @@ The zsh config is split by when zsh reads it:
 <h4 id="zshrclocal">`~/.zshrc.local`</h4>
 
 Sourced after the aliases and functions, for machine-specific aliases and shell settings that stay out of version control.
+
+<h4 id="work-mac">Work Mac</h4>
+
+Before running `make` on a work Mac, add this line to `~/.zshenv.local`:
+
+```shell
+export MISE_ENV="${MISE_ENV:+$MISE_ENV,}work"
+```
+
+The Brewfile then installs the work cask list, mise adds `config.work.toml`, `make` leaves the hostname alone, and `make prefs` skips Software Update, the firewall and the dock layout, which MDM manages there.
 
 <h4 id="zshenvlocal">`~/.zshenv.local`</h4>
 

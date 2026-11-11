@@ -188,6 +188,11 @@ is_git_repository() {
     git rev-parse &> /dev/null
 }
 
+# A work Mac sets MISE_ENV=work in ~/.zshenv.local (the Brewfile and mise read it too).
+is_work_mac() {
+    [[ ",${MISE_ENV}," == *",work,"* ]]
+}
+
 is_supported_version() {
 
     # shellcheck disable=SC2206
