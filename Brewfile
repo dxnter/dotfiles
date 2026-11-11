@@ -57,6 +57,9 @@ cask "ghostty"
 cask "1password-cli"
 cask "dbeaver-community"
 cask "android-platform-tools"
+# Java 17 for home-media-lab's Android TV build (CI uses Temurin 17). The pkg registers
+# with /usr/libexec/java_home, so `java_home -v 17` and the /usr/bin/java stub find it.
+cask "temurin@17"
 
 # Browsers
 cask "google-chrome"
