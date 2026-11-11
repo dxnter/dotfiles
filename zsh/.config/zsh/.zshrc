@@ -27,6 +27,12 @@ setopt SHARE_HISTORY HIST_IGNORE_ALL_DUPS HIST_IGNORE_SPACE HIST_REDUCE_BLANKS
 # Installers (Herd, Codex, ...) append to ~/.zshrc, which zsh never reads once ZDOTDIR is set. Honour it anyway.
 [[ "${ZDOTDIR}" != "${HOME}" && -f "${HOME}/.zshrc" ]] && source "${HOME}/.zshrc"
 
+# Herd's nvm takes ~1 s to load, and mise already provides Node (switching on .nvmrc too).
+# Load nvm only when it's called. Keep `source nvm.sh` lines out of ~/.zshrc for this to help.
+if [[ -s "${NVM_DIR}/nvm.sh" ]] && (( ! $+functions[nvm] )); then
+  nvm() { unfunction nvm; source "${NVM_DIR}/nvm.sh"; nvm "$@" }
+fi
+
 # mise last: its prompt hook re-asserts mise's runtimes ahead of anything the files above put on PATH (e.g. Herd's nvm)
 (( $+commands[mise] )) && eval "$(mise activate zsh)"
 

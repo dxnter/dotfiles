@@ -2,6 +2,10 @@
 # Herd provides PHP. Prebuilt binaries here also install on Intel Macs, where Homebrew has
 # no bottles; config.legacy.toml pins older versions for macOS 13 (MISE_ENV=legacy).
 
+[settings]
+# Pick up a project's .nvmrc or .node-version, so nvm isn't needed to switch Node.
+idiomatic_version_file_enable_tools = ["node"]
+
 [tools]
 # Runtimes
 node = "26"

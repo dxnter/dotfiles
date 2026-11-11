@@ -57,11 +57,11 @@ make ssh
 
 **Homebrew** installs apps, fonts and a few CLI tools from the [`Brewfile`](Brewfile). Homebrew 7 stopped publishing binaries for Intel Macs, so on any Intel Mac (including one running a newer macOS through OpenCore Legacy Patcher) it would compile most formulae from source; there the Brewfile installs only formulae that still have binaries and relies on macOS's own zsh, git, curl, grep, sed and tar. Every Mac gets the same apps. When a current cask needs a newer macOS than the Mac has, the Brewfile installs a pinned cask from [`Casks/`](Casks) instead: OrbStack 1.11.3 and ProtonVPN 5.1.0 on macOS 13. On those Macs the repo is tapped locally as `dxnter/dotfiles`. Add a package with `brew "name"` or `cask "name"` and run `make brew`. Search with the [package browser](https://formulae.brew.sh/).
 
-**mise** installs language runtimes and most CLI tools from [`mise/.config/mise/config.toml`](mise/.config/mise/config.toml): Node (LTS), pnpm, Bun, Python, uv, Rust, Go, plus tools like `bat`, `fd`, `ripgrep`, `gh`, `neovim`, `pandoc`, `ffmpeg`, `starship`, `http-server` and `grip`. They're prebuilt binaries, so they install quickly on Intel Macs too, where Homebrew no longer publishes bottles. On macOS 13 and older, `.zshenv` sets `MISE_ENV=legacy`, which layers [`config.legacy.toml`](mise/.config/mise/config.legacy.toml) on top to pin the few tools whose newest builds need a newer macOS. mise itself comes from its official installer. The global config tracks `lts`/`latest`; projects pin their own versions in `mise.toml` or `.tool-versions`. Update everything with `mise upgrade`.
+**mise** installs language runtimes and most CLI tools from [`mise/.config/mise/config.toml`](mise/.config/mise/config.toml): Node 26, pnpm, Bun, Python, uv, Rust, Go, plus tools like `bat`, `fd`, `ripgrep`, `gh`, `neovim`, `pandoc`, `ffmpeg`, `starship`, `http-server` and `grip`. They're prebuilt binaries, so they install quickly on Intel Macs too, where Homebrew no longer publishes bottles. On macOS 13 and older, `.zshenv` sets `MISE_ENV=legacy`, which layers [`config.legacy.toml`](mise/.config/mise/config.legacy.toml) on top to pin the few tools whose newest builds need a newer macOS. mise itself comes from its official installer. The global config tracks `lts`/`latest`; projects pin their own versions in `mise.toml` or `.tool-versions`. Update everything with `mise upgrade`.
 
 **Herd** provides PHP, Composer and the local Laravel services. mise does not manage PHP.
 
-Node comes from mise even though Herd installs its own nvm: `.zprofile` puts mise's shims on `PATH` for GUI apps and scripts, and `.zshrc` runs `mise activate` last, so mise wins over the nvm lines Herd adds to `~/.zshrc`.
+Node comes from mise even though Herd installs its own nvm: `.zprofile` puts mise's shims on `PATH` for GUI apps and scripts, and `.zshrc` runs `mise activate` last, so mise wins. mise also switches Node from a project's `.nvmrc` or `.node-version`. Loading nvm costs about a second per shell, so `.zshrc` loads it only when `nvm` is called; keep Herd's `source nvm.sh` and `nvm use` lines out of `~/.zshrc`.
 
 <h2 id="customize">🎨 Customize</h2>
 
@@ -69,7 +69,7 @@ The zsh config is split by when zsh reads it:
 
 - `zsh/.config/zsh/.zshenv` → Environment variables read by every shell (no `PATH`, no commands, no secrets)
 - `zsh/.config/zsh/.zprofile` → `PATH`, built once per login shell; each entry is added only if the directory exists
-- `zsh/.config/zsh/.zshrc` → Interactive setup: oh-my-zsh, history, Starship, mise
+- `zsh/.config/zsh/.zshrc` → Interactive setup: oh-my-zsh, history, Starship, mise, and nvm loaded on first use
 - `zsh/.config/zsh/.aliases` and `.functions` → Aliases and functions
 
 **Note:** `~/.zshrc` and `~/.zprofile` are not read by zsh here because `ZDOTDIR` is `~/.config/zsh`. Installers still append to them, so the `ZDOTDIR` files source both at the end. Keep your own settings in the local files below.
