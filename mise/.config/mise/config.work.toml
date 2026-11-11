@@ -5,5 +5,7 @@
 aws-cli = "latest"
 opentofu = "latest"
 actionlint = "latest"
+# actionlint checks workflow `run:` scripts with shellcheck when it's on PATH
+shellcheck = "latest"
 zizmor = "latest"
 "pipx:gitingest" = "latest"

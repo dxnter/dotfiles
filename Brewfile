@@ -45,7 +45,8 @@ unless intel
   brew "gpac"
 
   # Databases, keys and LaTeX
-  brew "postgresql@17"
+  # Keg-only; link it so psql and pg_dump are on PATH
+  brew "postgresql@17", link: true
   brew "pgvector"
   brew "gnupg"
   brew "pinentry-mac"
