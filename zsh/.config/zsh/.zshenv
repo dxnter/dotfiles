@@ -40,6 +40,11 @@ export XDEBUG_CONFIG="idekey=VSCODE"
 export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix --hidden --follow --exclude .git'
 export FZF_CTRL_T_COMMAND="${FZF_DEFAULT_COMMAND}"
 
+# 1Password CLI: use desktop app integration without reading the app's settings file.
+# macOS blocks apps without Full Disk Access (e.g. T3 Code) from that file, so op
+# would otherwise report "No accounts configured".
+export OP_BIOMETRIC_UNLOCK_ENABLED=true
+
 # Herd MinIO (local dev only)
 export MINIO_ROOT_USER="minio"
 export MINIO_ROOT_PASSWORD="password"
