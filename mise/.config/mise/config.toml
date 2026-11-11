@@ -4,7 +4,7 @@
 
 [tools]
 # Runtimes
-node = "lts"
+node = "26"
 pnpm = "latest"
 bun = "latest"
 python = "latest"
