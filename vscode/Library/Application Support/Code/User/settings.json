@@ -58,11 +58,7 @@
   },
 
   // ── Look ──────────────────────────────────────────────────────────────
-  // Catppuccin follows the macOS appearance, like Ghostty.
-  "window.autoDetectColorScheme": true,
-  "workbench.preferredDarkColorTheme": "Catppuccin Mocha",
-  "workbench.preferredLightColorTheme": "Catppuccin Latte",
-  "workbench.colorTheme": "Catppuccin Mocha",
+  "workbench.colorTheme": "Ayu Dark",
   "workbench.iconTheme": "vscode-icons",
   "vsicons.dontShowNewVersionMessage": true,
 

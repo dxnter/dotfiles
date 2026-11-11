@@ -10,8 +10,8 @@ font-thicken = true
 adjust-cell-height = 15%
 
 # ── Theme ─────────────────────────────────────────────────────────────
-# Follows the macOS appearance. Browse others with: ghostty +list-themes
-theme = light:Catppuccin Latte,dark:Catppuccin Mocha
+# Browse others with: ghostty +list-themes
+theme = Carbonfox
 window-colorspace = display-p3
 
 # ── Window ────────────────────────────────────────────────────────────
