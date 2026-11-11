@@ -34,7 +34,7 @@ make
 
 Existing files that would block a symlink are moved into `~/.dotfiles/backup/` rather than overwritten. To copy the current versions there before running anything, use `make backup`.
 
-After the restart, fill in `name` and `email` in `~/.gitconfig.local`, then generate an SSH key for GitHub. The script copies the public key to the clipboard, opens GitHub's new-key page and sets the key as Git's commit signing key. Add it on GitHub twice: once as an Authentication Key and once as a Signing Key.
+After the restart, fill in `name` and `email` in `~/.gitconfig.local`, turn on 1Password's SSH agent (Settings → Developer → Use the SSH agent), then set up the SSH key for GitHub. The private key lives in 1Password and never touches disk; every use asks for Touch ID. The script uses the SSH Key item titled after the Mac's local hostname, or creates one with the 1Password CLI. It writes the public key to `~/.ssh/<hostname>.pub`, pins `github.com` to that key, signs commits with it through `op-ssh-sign`, and adds it to GitHub as both an Authentication Key and a Signing Key. If `gh` isn't signed in, it copies the key and opens GitHub's new-key page instead.
 
 ```bash
 make ssh
@@ -51,7 +51,7 @@ make ssh
 | `make unlink` | Remove those symlinks                                     |
 | `make prefs`  | Apply macOS preferences only                              |
 | `make backup` | Copy current dotfiles into `backup/`                      |
-| `make ssh`    | Generate an ed25519 key for GitHub and commit signing, and use `gh` for HTTPS credentials |
+| `make ssh`    | Set up a 1Password ed25519 key for GitHub and commit signing, and use `gh` for HTTPS credentials |
 
 <h2 id="software">💾 Software</h2>
 
@@ -90,15 +90,17 @@ Store a value with `security add-generic-password -a "$USER" -s <service> -w '<v
 
 <h4 id="gitconfiglocal">`~/.gitconfig.local`</h4>
 
-Included after `~/.gitconfig`. Keep the Git identity and signing key here. Commits are signed with the SSH key from `make ssh`:
+Included after `~/.gitconfig`. Keep the Git identity and signing key here. `make ssh` fills in the signing settings so commits are signed by the 1Password key:
 
 ```ini
 [user]
     name = John Doe
     email = jdoe@example.com
-    signingKey = ~/.ssh/github.pub
+    signingKey = ssh-ed25519 AAAA...
 [gpg]
     format = ssh
+[gpg "ssh"]
+    program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
 ```
 
 <h2 id="adding-dotfiles">⏫ Adding Dotfiles</h2>
