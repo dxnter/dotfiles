@@ -47,7 +47,6 @@ cask "herd"
 cask legacy_macos ? "dxnter/dotfiles/orbstack@ventura" : "orbstack"
 cask "visual-studio-code"
 cask "ghostty"
-cask "ngrok"
 cask "1password-cli"
 
 # Browsers
