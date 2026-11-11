@@ -1,0 +1,40 @@
+# ANSI palette indexes, so lsd follows the Ghostty theme (Carbonfox):
+# 1 red, 2 green, 3 teal, 4 blue, 5 purple, 6 cyan, 7 white, 8 grey
+user: 6
+group: 8
+permission:
+  read: 2
+  write: 3
+  exec: 1
+  exec-sticky: 5
+  no-access: 8
+  octal: 6
+  acl: 6
+  context: 6
+date:
+  hour-old: 2
+  day-old: 7
+  older: 8
+size:
+  none: 8
+  small: 7
+  medium: 6
+  large: 5
+inode:
+  valid: 5
+  invalid: 8
+links:
+  valid: 5
+  invalid: 8
+tree-edge: 8
+git-status:
+  default: 8
+  unmodified: 8
+  ignored: 8
+  new-in-index: 2
+  new-in-workdir: 2
+  typechange: 3
+  deleted: 1
+  renamed: 2
+  modified: 3
+  conflicted: 1

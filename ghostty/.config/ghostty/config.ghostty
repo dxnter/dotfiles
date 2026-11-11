@@ -12,6 +12,9 @@ adjust-cell-height = 15%
 # ── Theme ─────────────────────────────────────────────────────────────
 # Browse others with: ghostty +list-themes
 theme = Carbonfox
+# Carbonfox's bright black (#484848) is ~2:1 on its background, which makes
+# autosuggestions and dim text hard to read. Use its comment grey instead.
+palette = 8=#6e6f70
 window-colorspace = display-p3
 
 # ── Window ────────────────────────────────────────────────────────────

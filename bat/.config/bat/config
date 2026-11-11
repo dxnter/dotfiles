@@ -1,0 +1,4 @@
+# Carbonfox from github.com/EdenEast/nightfox.nvim, matching Ghostty.
+# After adding or changing a theme in ./themes, run: bat cache --build
+--theme="Carbonfox"
+--italic-text=always

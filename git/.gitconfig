@@ -14,6 +14,21 @@
   ui = true
 [delta]
   side-by-side = true
+  # bat's Carbonfox theme (bat/.config/bat/themes), matching Ghostty
+  syntax-theme = Carbonfox
+  minus-style = syntax "#3b1d2b"
+  minus-emph-style = syntax "#6b2945"
+  plus-style = syntax "#15301f"
+  plus-emph-style = syntax "#1d5534"
+  line-numbers-minus-style = "#ee5396"
+  line-numbers-plus-style = "#25be6a"
+  line-numbers-zero-style = "#6e6f70"
+  line-numbers-left-style = "#484848"
+  line-numbers-right-style = "#484848"
+  file-style = bold "#78a9ff"
+  file-decoration-style = "#484848" ul
+  hunk-header-style = line-number syntax
+  hunk-header-decoration-style = "#484848" box
 [pager]
   diff = delta
 	log = delta

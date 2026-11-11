@@ -39,6 +39,12 @@ export DISABLE_UPDATE_PROMPT=true
 export XDEBUG_CONFIG="idekey=VSCODE"
 export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix --hidden --follow --exclude .git'
 export FZF_CTRL_T_COMMAND="${FZF_DEFAULT_COMMAND}"
+# Carbonfox colors, a 60%-height window with a border instead of full screen
+export FZF_DEFAULT_OPTS="--height=60% --layout=reverse --border=rounded --info=inline-right \
+--prompt='❯ ' --pointer='▌' --marker='+' --gutter=' ' --preview-window=border-left \
+--color=fg:#dfdfe0,bg:-1,hl:#78a9ff,fg+:#f2f4f8,bg+:#2a2a2a,hl+:#78a9ff \
+--color=info:#6e6f70,prompt:#be95ff,pointer:#ee5396,marker:#25be6a,spinner:#33b1ff \
+--color=header:#6e6f70,border:#484848,label:#be95ff,query:#f2f4f8"
 
 # 1Password CLI: use desktop app integration without reading the app's settings file.
 # macOS blocks apps without Full Disk Access (e.g. T3 Code) from that file, so op

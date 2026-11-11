@@ -1,5 +1,9 @@
 # Interactive shells only.
 
+# File-name colors for lsd and completion lists, as ANSI codes so they follow the Ghostty theme:
+# blue folders, green executables, purple symlinks. Set before oh-my-zsh, which only fills in a default.
+export LS_COLORS="di=1;34:ln=35:so=32:pi=33:ex=1;32:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43"
+
 # oh-my-zsh
 # Skip compaudit's permission scan of every completion directory (~50ms per shell)
 ZSH_DISABLE_COMPFIX=true
@@ -12,6 +16,12 @@ plugins=(
   zsh-autosuggestions
 )
 source "${ZSH}/oh-my-zsh.sh"
+
+# fzf-tab: use FZF_DEFAULT_OPTS (.zshenv) and preview folders with lsd, files with bat
+zstyle ':fzf-tab:*' use-fzf-default-opts yes
+zstyle ':fzf-tab:*' fzf-pad 4  # room for the border from FZF_DEFAULT_OPTS
+zstyle ':fzf-tab:complete:(cd|ls|lsd|cat|bat|code|nvim|vim|less):*' fzf-preview \
+  '[[ -d $realpath ]] && lsd -1 --color=always --icon=always $realpath || bat --color=always --style=numbers --line-range=:200 $realpath'
 
 # History (set after oh-my-zsh, which resets HISTFILE)
 export HISTFILE="${ZDOTDIR}/.zsh_history"

@@ -1,0 +1,7 @@
+# lsd: https://github.com/lsd-rs/lsd#config-file-content
+# File-name colors come from LS_COLORS (zsh/.config/zsh/.zshrc); everything else from colors.yaml.
+color:
+  theme: custom
+date: "+%b %e %Y %H:%M"
+sorting:
+  dir-grouping: first

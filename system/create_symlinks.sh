@@ -36,6 +36,11 @@ create_symlinks() {
 main() {
     print_info "• Create symbolic links"
     create_symlinks
+
+    # bat (and delta, which reads bat's cache) only see themes in bat/.config/bat/themes after a rebuild
+    if command -v bat &>/dev/null; then
+        execute "bat cache --build" "Built bat theme cache"
+    fi
 }
 
 main
