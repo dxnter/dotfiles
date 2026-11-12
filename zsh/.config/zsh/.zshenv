@@ -1,5 +1,5 @@
-# Read by every zsh (login, interactive, scripts). Environment only: no PATH edits,
-# no external commands, no secrets. PATH lives in .zprofile; interactive setup in .zshrc.
+# Read by every zsh (login, interactive, scripts). Environment only: no external commands,
+# no secrets. PATH lives in .zprofile, apart from the mise shims below; interactive setup in .zshrc.
 
 export XDG_CONFIG_HOME="${HOME}/.config"
 export XDG_CACHE_HOME="${HOME}/.cache"
@@ -28,6 +28,11 @@ export GIT_EDITOR="code --wait"
 export GOPATH="${HOME}/go"
 export BUN_INSTALL="${HOME}/.bun"
 export PNPM_HOME="${XDG_DATA_HOME}/pnpm"
+
+# mise shims for every zsh, including the non-login `zsh -c` that GUI apps and agents spawn.
+# .zprofile prepends them again after path_helper, so login shells keep mise ahead of /usr/bin.
+typeset -U path PATH
+[[ -d "${XDG_DATA_HOME}/mise/shims" ]] && path=("${XDG_DATA_HOME}/mise/shims" $path)
 
 # mise loads config.legacy.toml on macOS 13 and older (Darwin 22 and below).
 # Read the running kernel: zsh's $OSTYPE is the OS zsh was compiled on.
