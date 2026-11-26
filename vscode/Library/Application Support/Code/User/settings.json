@@ -80,6 +80,8 @@
   "workbench.enableExperiments": false,
   "redhat.telemetry.enabled": false,
   "python.experiments.enabled": false,
+  // Hides Copilot Chat, agents and inline AI; Claude Code and Codex run in the terminal.
+  "chat.disableAIFeatures": true,
   "security.workspace.trust.untrustedFiles": "newWindow",
   "json.schemaDownload.trustedDomains": {
     "https://schemastore.azurewebsites.net/": true,
