@@ -34,7 +34,7 @@ make
 
 Existing files that would block a symlink are moved into `~/.dotfiles/backup/` rather than overwritten. To copy the current versions there before running anything, use `make backup`.
 
-After the restart, fill in `name` and `email` in `~/.gitconfig.local`, turn on 1Password's SSH agent (Settings → Developer → Use the SSH agent), then set up the SSH key for GitHub. The private key lives in 1Password and never touches disk; every use asks for Touch ID. The script uses the SSH Key item titled after the Mac's local hostname, or creates one with the 1Password CLI. It writes the public key to `~/.ssh/<hostname>.pub`, pins `github.com` to that key, signs commits with it through `op-ssh-sign`, and adds it to GitHub as both an Authentication Key and a Signing Key. If `gh` isn't signed in, it copies the key and opens GitHub's new-key page instead.
+After the restart, fill in `name` and `email` in `~/.gitconfig.local`, turn on 1Password's SSH agent (Settings → Developer → Use the SSH agent), then set up the SSH key for GitHub. The private key lives in 1Password and never touches disk; 1Password asks for approval when an app first uses it, and Settings → Developer sets how long that approval lasts. The script uses the SSH Key item titled after the Mac's local hostname, or creates one with the 1Password CLI. It writes the public key to `~/.ssh/<hostname>.pub`, pins `github.com` to that key, signs commits with it through `op-ssh-sign`, and adds it to GitHub as both an Authentication Key and a Signing Key. If `gh` isn't signed in, it copies the key and opens GitHub's new-key page instead.
 
 ```bash
 make ssh
